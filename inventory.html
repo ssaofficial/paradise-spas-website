@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory | Paradise Spas and Outdoor Living — Minot, ND</title>
+  <meta name="description" content="Browse hot tubs, saunas, and massage chairs at Paradise Spas and Outdoor Living in Minot, ND. In-showroom inventory — Artesian Spas, Strong Spas, Pro 6, Osaki, and more.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260629-nav-call">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeoe7g20ml");
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5WGSEGZYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5WGSEGZYP');
+  </script>
+  <!-- Meta Pixel Code -->
+  <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1317738110513512');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <style>
+    body.inventory-page {
+      background: var(--section-alt);
+    }
+
+    body.inventory-page .announcement-bar {
+      padding: 6px 14px;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .inventory-shell {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+    }
+
+    .inventory-sidebar-title {
+      display: none;
+    }
+
+    .inventory-controls {
+      margin-top: 20px;
+    }
+
+    .inventory-filter-card {
+      background: #fff;
+      border: 1px solid rgba(13,76,174,0.08);
+      border-radius: 18px;
+      box-shadow: 0 12px 34px rgba(13,76,174,0.12);
+      padding: 16px;
+    }
+
+    .inventory-filter-row {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto minmax(190px, auto);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .inventory-search {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 0 16px;
+      font: 600 15px 'Inter', sans-serif;
+      color: var(--text-primary);
+      background: #fff;
+    }
+
+    .inventory-search::placeholder {
+      color: var(--text-muted);
+    }
+
+    .inventory-filter-toggle {
+      min-height: 48px;
+      border: none;
+      border-radius: 14px;
+      padding: 0 18px;
+      background: var(--dark-section);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .inventory-filter-toggle:hover {
+      background: var(--darker-navy);
+    }
+
+    .inventory-sort {
+      min-height: 48px;
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 0 14px;
+      background: #fff;
+      color: var(--text-primary);
+      font: 700 14px 'Inter', sans-serif;
+    }
+
+    .inventory-advanced-filters {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .inventory-advanced-filters.open {
+      display: grid;
+    }
+
+    .filter-group h3 {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--dark-section);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 10px;
+    }
+
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .filter-option input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--dark-section);
+    }
+
+    .price-slider-wrap input[type="range"] {
+      width: 100%;
+      accent-color: var(--dark-section);
+    }
+
+    .price-slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    #priceDisplay {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark-section);
+      margin-top: 6px;
+    }
+
+    .btn-reset {
+      width: 100%;
+      min-height: 40px;
+      background: var(--section-alt);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      color: var(--dark-section);
+      cursor: pointer;
+      font: 800 13px 'Montserrat', sans-serif;
+    }
+
+    .inv-results-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .inv-results-count {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .inv-results-prefix-desktop,
+    .inv-results-suffix-desktop,
+    .inventory-sort-desktop {
+      display: none;
+    }
+
+    .inv-results-suffix-mobile {
+      display: inline;
+    }
+
+    .inv-results-count strong {
+      color: var(--dark-section);
+    }
+
+    .inv-results-note {
+      color: var(--dark-section);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .inv-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .inv-card {
+      background: #fff;
+      border: 1px solid rgba(13,76,174,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(13,76,174,0.12);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .inv-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(13,76,174,0.16);
+    }
+
+    .inv-card-img {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      overflow: hidden;
+      background: #eef2f7;
+    }
+
+    .inv-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .inv-card-img .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 1;
+      border-radius: 999px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .inv-card-body {
+      padding: 20px 24px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inv-card-top {
+      flex: 1 1 auto;
+    }
+
+    .inv-card-name {
+      color: var(--dark-section);
+      font-size: 24px;
+      margin: 0 0 14px;
+    }
+
+    .inv-card-divider {
+      border: none;
+      border-top: 1px solid var(--divider);
+      margin: 0 0 14px;
+    }
+
+    .inv-card-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .inv-pill {
+      min-height: 78px;
+      background: #fff;
+      border-radius: 0;
+      border: none;
+      padding: 10px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .inv-pill svg {
+      color: var(--dark-section);
+      flex-shrink: 0;
+    }
+
+    .inv-pill span {
+      color: var(--text-primary);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .inv-price-box {
+      background: #fff;
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 18px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .inv-card-msrp,
+    .inv-card-price {
+      font-size: 14px;
+      margin: 0 0 4px;
+    }
+
+    .inv-card-msrp {
+      grid-column: 1 / -1;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .inv-card-price {
+      color: var(--text-primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .inv-card-monthly {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--amber);
+      margin: 0;
+      text-align: right;
+    }
+
+    .inv-financing-note {
+      grid-column: 2;
+      color: var(--text-muted);
+      font-size: 12px;
+      margin: 0;
+      text-align: right;
+    }
+
+    .inv-card-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 56px;
+      margin-top: 4px;
+      border-radius: 7px;
+      background: var(--amber);
+      color: var(--dark-section);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.2px;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .inv-card-cta:hover {
+      background: #d4920a;
+      transform: translateY(-1px);
+    }
+
+    .inv-card-cta::after {
+      content: "";
+    }
+
+    @media (max-width: 900px) {
+      body.inventory-page {
+        background: #eef1f4;
+        padding-bottom: 96px;
+      }
+
+      .inventory-shell {
+        max-width: 520px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 96px;
+      }
+
+      .inventory-controls {
+        margin-top: 14px;
+      }
+
+      .inventory-filter-card {
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        padding: 0;
+      }
+
+      .inventory-filter-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .inventory-search,
+      .inventory-filter-toggle,
+      .inventory-sort {
+        min-height: 48px;
+        border-radius: 7px;
+      }
+
+      .inventory-sort {
+        grid-column: 1 / -1;
+        width: 220px;
+      }
+
+      .inv-results-bar {
+        margin: 14px 0 10px;
+      }
+
+      .inv-results-note {
+        display: none;
+      }
+
+      .inv-card {
+        border-radius: 14px;
+        box-shadow: 0 12px 30px rgba(13, 76, 174, 0.13);
+      }
+
+      .inv-card-img {
+        aspect-ratio: 4 / 3;
+        height: auto;
+      }
+
+      .inv-card-body {
+        padding: 14px 16px 16px;
+      }
+
+      .inv-card-name {
+        font-size: 18px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      .inv-card-divider {
+        display: none;
+      }
+
+      .inv-card-pills {
+        border-top: 1px solid var(--divider);
+        border-bottom: 1px solid var(--divider);
+        padding: 10px 0;
+        margin-bottom: 10px;
+        gap: 6px;
+      }
+
+      .inv-pill {
+        min-height: 58px;
+        padding: 6px 4px;
+      }
+
+      .inv-pill span {
+        font-size: 10px;
+      }
+
+      .inv-price-box {
+        margin-bottom: 10px;
+        gap: 4px 12px;
+      }
+
+      .inv-card-msrp {
+        font-size: 12px;
+      }
+
+      .inv-card-price {
+        font-size: 20px;
+      }
+
+      .inv-card-monthly {
+        font-size: 26px;
+      }
+
+      .inv-financing-note {
+        font-size: 11px;
+      }
+
+      .inv-card-cta {
+        min-height: 50px;
+        font-size: 14px;
+      }
+    }
+
+    .inv-no-results {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 18px;
+      color: var(--text-muted);
+      font-size: 16px;
+      grid-column: 1 / -1;
+    }
+
+    .inv-no-results.visible {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .inventory-shell {
+        max-width: 520px;
+        padding: 0 14px 44px;
+      }
+
+      .inventory-filter-row {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+      }
+
+      .inventory-advanced-filters.open {
+        display: block;
+      }
+
+      .filter-group {
+        margin-bottom: 16px;
+      }
+
+      .inv-results-bar {
+        margin-bottom: 10px;
+      }
+
+      .inv-results-note {
+        display: none;
+      }
+
+      .inv-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .inv-card {
+        border-radius: 18px;
+      }
+
+      .inv-card-img {
+        aspect-ratio: 4 / 3;
+        height: auto;
+      }
+
+      .inv-card-body {
+        padding: 12px 14px 14px;
+      }
+
+      .inv-card-name {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+
+      .inv-card-pills {
+        padding: 8px 0;
+        margin-bottom: 8px;
+      }
+
+      .inv-pill {
+        min-height: 52px;
+      }
+
+      .inv-price-box {
+        grid-template-columns: 1fr auto;
+        margin-bottom: 8px;
+      }
+
+      .inv-card-price {
+        font-size: 18px;
+      }
+
+      .inv-card-monthly {
+        font-size: 24px;
+      }
+
+      .inv-card-cta {
+        min-height: 48px;
+        font-size: 13px;
+      }
+    }
+
+    @media (min-width: 901px) {
+      body.inventory-page {
+        background: #fff;
+      }
+
+      .inventory-shell {
+        width: min(100%, 1200px);
+        padding: 32px 24px 64px;
+      }
+
+      .inventory-layout {
+        display: flex;
+        gap: 36px;
+        align-items: flex-start;
+      }
+
+      .inventory-sidebar {
+        width: 260px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 88px;
+      }
+
+      .inventory-sidebar-title {
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--dark-section);
+        margin: 0 0 18px;
+      }
+
+      .inventory-controls {
+        margin-top: 0;
+      }
+
+      .inventory-filter-card {
+        border: 1px solid var(--divider);
+        border-radius: 12px;
+        box-shadow: none;
+        padding: 20px;
+      }
+
+      .inventory-filter-row {
+        grid-template-columns: 1fr;
+      }
+
+      .inventory-search {
+        min-height: 44px;
+        border-radius: 8px;
+        padding-left: 14px;
+      }
+
+      .inventory-filter-toggle {
+        display: none;
+      }
+
+      .inventory-advanced-filters {
+        display: block;
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--divider);
+      }
+
+      .filter-group {
+        margin-bottom: 22px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .filter-group:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .btn-reset {
+        margin-top: 16px;
+        background: none;
+        border: none;
+        padding: 0;
+        min-height: auto;
+        text-align: left;
+        text-decoration: underline;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .inventory-main {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .inv-results-bar {
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .inv-results-count {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--dark-section);
+      }
+
+      .inv-results-prefix-desktop,
+      .inv-results-suffix-desktop {
+        display: inline;
+      }
+
+      .inv-results-suffix-mobile,
+      .inv-results-note {
+        display: none;
+      }
+
+      .inventory-sort-desktop {
+        display: block;
+        min-width: 210px;
+        min-height: 42px;
+        border: 1px solid var(--divider);
+        border-radius: 8px;
+        padding: 0 12px;
+        background: #fff;
+        color: var(--text-primary);
+        font: 700 14px 'Inter', sans-serif;
+      }
+
+      .inv-grid {
+        gap: 20px;
+      }
+
+      .inv-card {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .inv-card:hover {
+        transform: none;
+        box-shadow: 0 8px 24px rgba(13, 76, 174, 0.12);
+      }
+
+      .inv-card-img {
+        width: 42%;
+        max-width: 360px;
+        min-width: 260px;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+
+      .inv-card-body {
+        flex: 1;
+        padding: 24px 28px;
+        justify-content: space-between;
+      }
+
+      .inv-card-name {
+        order: 1;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .inv-card-divider {
+        display: none;
+      }
+
+      .inv-card-top {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .inv-price-box {
+        order: 2;
+        margin-bottom: 14px;
+      }
+
+      .inv-card-pills {
+        order: 3;
+        display: flex;
+        justify-content: flex-start;
+        gap: 28px;
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-top: 14px;
+        border-top: 1px solid var(--divider);
+        grid-template-columns: none;
+      }
+
+      .inv-pill {
+        min-height: auto;
+        padding: 0;
+        background: transparent;
+        align-items: center;
+      }
+
+      .inv-card-price {
+        font-size: 24px;
+      }
+
+      .inv-card-monthly {
+        font-size: 32px;
+      }
+
+      .inv-card-cta {
+        margin-top: 16px;
+        border-radius: 6px;
+        min-height: 52px;
+      }
+    }
+  </style>
+</head>
+<body class="inventory-page">
+
+<!-- ============================================================
+     [1] ANNOUNCEMENT BAR
+     ============================================================ -->
+<div class="announcement-bar">
+  Access Online Shoppings Savings
+</div>
+
+<!-- ============================================================
+     [2] NAV BAR
+     ============================================================ -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="paradiselogo.svg" alt="Paradise Spas and Outdoor Living" width="160" height="40" decoding="async">
+  </a>
+  <a href="tel:7018382614" class="nav-call-cta" aria-label="Call Paradise Spas 24/7">
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Call Us 24/7</span>
+  </a>
+  <div class="nav-links">
+    <a href="/hot-tubs">HOT TUBS</a>
+    <a href="/swim-spas">SWIM SPAS</a>
+    <a href="/saunas">SAUNAS</a>
+    <a href="financing.html">FINANCING</a>
+    <a href="/find-my-spa/">FIND MY SPA</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tel:7018382614" class="phone-badge-wrap nav-phone-badge">
+      <span class="phone-badge-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        24/7
+      </span>
+      <span class="phone-badge-number">701-838-2614</span>
+    </a>
+    <a href="https://maps.google.com/?q=1615+South+Broadway+Minot+ND+58701" class="btn-coupon" target="_blank" rel="noopener">Get Directions</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="/hot-tubs">HOT TUBS</a>
+  <a href="/swim-spas">SWIM SPAS</a>
+  <a href="/saunas">SAUNAS</a>
+  <a href="financing.html">FINANCING</a>
+  <a href="/find-my-spa/">FIND MY SPA</a>
+  <a href="tel:7018382614" class="phone-badge-wrap mobile-phone-badge">
+    <span class="phone-badge-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      24/7
+    </span>
+    <span class="phone-badge-number">701-838-2614</span>
+  </a>
+  <a href="https://maps.google.com/?q=1615+South+Broadway+Minot+ND+58701" class="btn-coupon" target="_blank" rel="noopener">Get Directions</a>
+</div>
+
+<!-- ============================================================
+     INVENTORY MARKETPLACE
+     ============================================================ -->
+<main class="inventory-shell">
+  <div class="inventory-layout">
+    <aside class="inventory-sidebar">
+      <h2 class="inventory-sidebar-title">Filter</h2>
+      <section class="inventory-controls" aria-label="Inventory search and filters">
+        <div class="inventory-filter-card">
+          <div class="inventory-filter-row">
+            <input type="search" id="inventorySearch" class="inventory-search" placeholder="Search inventory" aria-label="Search inventory">
+            <button class="inventory-filter-toggle" id="filterToggle" type="button" aria-expanded="false" aria-controls="advancedFilters">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg>
+              Filter
+            </button>
+          </div>
+
+          <div class="inventory-advanced-filters" id="advancedFilters">
+            <div class="filter-group">
+              <h3>Category</h3>
+          <label class="filter-option">
+            <input type="checkbox" name="category" value="Hot Tubs"> Hot Tubs
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="category" value="Swim Spas"> Swim Spas
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" name="category" value="Saunas"> Saunas
+          </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="Massage Chairs"> Massage Chairs
+              </label>
+            </div>
+
+            <div class="filter-group">
+              <h3>Seating Capacity</h3>
+              <label class="filter-option">
+                <input type="checkbox" name="seats" value="2-3"> 2&ndash;3 Person
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="seats" value="4-5"> 4&ndash;5 Person
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="seats" value="6-7"> 6&ndash;7 Person
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="seats" value="8+"> 8+ Person
+              </label>
+            </div>
+
+            <div class="filter-group">
+              <h3>Monthly Payment</h3>
+              <div class="price-slider-wrap">
+                <input type="range" id="priceSlider" min="79" max="500" value="500" step="10">
+                <div class="price-slider-labels">
+                  <span>$79/mo</span>
+                  <span>$500/mo</span>
+                </div>
+                <div id="priceDisplay">Any monthly payment</div>
+              </div>
+              <button class="btn-reset" id="resetFilters" type="button">Reset All Filters</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <div class="inventory-main">
+      <div class="inv-results-bar">
+        <span class="inv-results-count">
+          <span class="inv-results-prefix-desktop">Inventory for sale (</span>
+          <span class="inv-results-suffix-mobile"><strong id="resultCount">5</strong> products shown</span>
+          <span class="inv-results-suffix-desktop"><strong id="resultCountDesktop">5</strong> results)</span>
+        </span>
+        <select id="inventorySort" class="inventory-sort-desktop" aria-label="Sort inventory">
+          <option value="featured">Sort: Featured first</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="newest">Newest first</option>
+        </select>
+        <span class="inv-results-note">Ask about today's local price and delivery dates.</span>
+      </div>
+
+      <div class="inv-grid" id="invGrid">
+
+      <!-- Card 1 — Strong Spas G-2 -->
+      <div class="inv-card"
+           data-category="Hot Tubs"
+           data-seats="4-5"
+           data-monthly="79">
+        <div class="inv-card-img">
+          <span class="product-tag">Budget-Friendly</span>
+          <img src="product-strong-g2.png" alt="Strong Spas G-2 36-Jet Lounger">
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-top">
+            <h2 class="inv-card-name">Strong Spas G-2 36-Jet Lounger</h2>
+            <hr class="inv-card-divider">
+            <div class="inv-card-pills">
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>4&ndash;5 Person</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>36 Jets</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                <span>Strong Spas</span>
+              </div>
+            </div>
+            <div class="inv-price-box">
+              <p class="inv-card-msrp">Retail Price: $8,995</p>
+              <p class="inv-card-price">Our Price: $8,995</p>
+              <p class="inv-card-monthly">$79/mo</p>
+              <p class="inv-financing-note">with approved credit</p>
+            </div>
+          </div>
+          <a href="product.html?open=price" class="inv-card-cta">Get Pricing &amp; Availability</a>
+        </div>
+      </div>
+
+      <!-- Card 2 — Artesian South Seas 748B -->
+      <div class="inv-card"
+           data-category="Hot Tubs"
+           data-seats="6-7"
+           data-monthly="120">
+        <div class="inv-card-img">
+          <span class="product-tag product-tag-blue">Best Seller</span>
+          <img src="product-artesian-748b.png" alt="Artesian South Seas 748B Deluxe">
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-top">
+            <h2 class="inv-card-name">Artesian South Seas 748B Deluxe</h2>
+            <hr class="inv-card-divider">
+            <div class="inv-card-pills">
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>7-Person</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>48 Jets</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                <span>Artesian Spas</span>
+              </div>
+            </div>
+            <div class="inv-price-box">
+              <p class="inv-card-msrp">Retail Price: $11,995</p>
+              <p class="inv-card-price">Our Price: Call for pricing</p>
+              <p class="inv-card-monthly">$120/mo</p>
+              <p class="inv-financing-note">with approved credit</p>
+            </div>
+          </div>
+          <a href="product-artesian-748b.html?open=price" class="inv-card-cta">Get Pricing &amp; Availability</a>
+        </div>
+      </div>
+
+      <!-- Card 3 — Pro 6 Melanie Sauna -->
+      <div class="inv-card"
+           data-category="Saunas"
+           data-seats="2-3"
+           data-monthly="99">
+        <div class="inv-card-img">
+          <span class="product-tag product-tag-dark">Roomier Sauna Upgrade</span>
+          <img src="product-pro6-sauna.png" alt="Pro 6 Melanie 3-Person Infrared Sauna">
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-top">
+            <h2 class="inv-card-name">Pro 6 Melanie 3-Person Infrared Sauna</h2>
+            <hr class="inv-card-divider">
+            <div class="inv-card-pills">
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                <span>3-Person</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <span>Full-Spectrum IR</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                <span>Pro 6</span>
+              </div>
+            </div>
+            <div class="inv-price-box">
+              <p class="inv-card-msrp">Retail Price: $6,995</p>
+              <p class="inv-card-price">Our Price: Call for pricing</p>
+              <p class="inv-card-monthly">$99/mo</p>
+              <p class="inv-financing-note">with approved credit</p>
+            </div>
+          </div>
+          <a href="product-pro6-sauna.html?open=price" class="inv-card-cta">Get Pricing &amp; Availability</a>
+        </div>
+      </div>
+
+      <!-- Card 4 — Osaki OS-Highpointe 4D -->
+      <div class="inv-card"
+           data-category="Massage Chairs"
+           data-seats="1"
+           data-monthly="99">
+        <div class="inv-card-img">
+          <span class="product-tag">Luxury Massage Chair</span>
+          <img src="product-osaki-chair.png" alt="Osaki OS-Highpointe 4D Massage Chair">
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-top">
+            <h2 class="inv-card-name">Osaki OS-Highpointe 4D</h2>
+            <hr class="inv-card-divider">
+            <div class="inv-card-pills">
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>4D Massage</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+                <span>Zero Gravity</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                <span>Osaki</span>
+              </div>
+            </div>
+            <div class="inv-price-box">
+              <p class="inv-card-msrp">Retail Price: $6,995</p>
+              <p class="inv-card-price">Our Price: Call for pricing</p>
+              <p class="inv-card-monthly">$99/mo</p>
+              <p class="inv-financing-note">with approved credit</p>
+            </div>
+          </div>
+          <a href="product-osaki-chair.html?open=price" class="inv-card-cta">Get Pricing &amp; Availability</a>
+        </div>
+      </div>
+
+      <!-- Card 5 — TidalFit Swim Spa Placeholder -->
+      <div class="inv-card"
+           data-category="Swim Spas"
+           data-seats="4-5"
+           data-monthly="149">
+        <div class="inv-card-img">
+          <span class="product-tag product-tag-blue">Swim Spa</span>
+          <img src="lifestyle-swim-spa.png" alt="TidalFit R200 Dual Zone Swim Spa">
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-top">
+            <h2 class="inv-card-name">TidalFit R200 Dual Zone Swim Spa</h2>
+            <hr class="inv-card-divider">
+            <div class="inv-card-pills">
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Dual Zone</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span>Swim + Spa</span>
+              </div>
+              <div class="inv-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                <span>TidalFit</span>
+              </div>
+            </div>
+            <div class="inv-price-box">
+              <p class="inv-card-msrp">Retail Price: Call for pricing</p>
+              <p class="inv-card-price">Our Price: Call for pricing</p>
+              <p class="inv-card-monthly">$149/mo</p>
+              <p class="inv-financing-note">with approved credit</p>
+            </div>
+          </div>
+          <a href="product-swim-spa.html?open=price" class="inv-card-cta">Get Pricing &amp; Availability</a>
+        </div>
+      </div>
+
+    <p class="inv-no-results" id="noResults">No products match your current filters. <button class="btn-reset" id="resetFilters2" style="display:inline;width:auto;padding:8px 14px;margin-top:8px;">Reset Filters</button></p>
+  </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <img src="paradiselogofooter.svg" alt="Paradise Spas and Outdoor Living" width="160" height="40" class="footer-logo" decoding="async">
+      <p class="footer-blurb">Paradise Spas and Outdoor Living has been North Dakota's #1 backyard fun destination since 1994. Come visit our showroom on South Broadway &mdash; we'd love to help you find the perfect fit.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/paradisespas/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps?q=1615%20South%20Broadway%20Minot%20ND%2058701&output=embed"
+          title="Map to Paradise Spas and Outdoor Living in Minot, ND"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="financing.html">Financing</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-showroom">
+      <h4>Visit Our Showroom</h4>
+      <p>1615 South Broadway<br>Minot, ND 58701</p>
+      <a href="tel:7018382614" class="phone-badge-wrap footer-phone-badge">
+        <span class="phone-badge-pill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          24/7
+        </span>
+        <span class="phone-badge-number">701-838-2614</span>
+      </a>
+      <p class="footer-hours">
+        Mon&ndash;Fri: 9am&ndash;6pm<br>
+        Sat: 10am&ndash;4pm<br>
+        Sun: Closed
+      </p>
+      <a href="mailto:paradisesm@outlook.com" class="footer-email">paradisesm@outlook.com</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; 2026 Paradise Spas and Outdoor Living. All rights reserved.</span>
+    <span>Website by Hot Tub Launch LLC</span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     GHL POPUP MODAL
+     ============================================================ -->
+<div id="ghl-overlay" class="ghl-overlay" aria-hidden="true">
+  <div class="ghl-modal-panel">
+    <button id="ghl-close" class="ghl-modal-close" type="button" aria-label="Close form">&#10005;</button>
+    <h2 class="ghl-modal-title">Get Today's Local Price</h2>
+    <p class="ghl-modal-sub">Fill out the form and we'll get back to you within 2 hours.</p>
+    <div class="ghl-modal-trust">
+      <span class="ghl-trust-badge"><span class="ghl-trust-icon" aria-hidden="true">&#128274;</span> No spam — we respect your privacy</span>
+    </div>
+    <div class="ghl-form-shell" id="ghl-form-shell">
+      <div class="ghl-form-loader" id="ghl-form-loader" aria-live="polite">
+        <span class="ghl-form-loader-spinner" aria-hidden="true"></span>
+        <span>Loading form…</span>
+      </div>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/iz3wpzwCI9GQhR3wlwbV"
+        class="ghl-form-iframe"
+        id="inline-ghl-modal-form"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="WEBSITE FORM"
+        data-height="595"
+        data-layout-iframe-id="inline-ghl-modal-form"
+        data-form-id="iz3wpzwCI9GQhR3wlwbV"
+        title="WEBSITE FORM"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+// Nav hamburger
+document.getElementById('navHamburger').addEventListener('click', function() {
+  document.getElementById('navMobileMenu').classList.toggle('open');
+});
+
+// Inventory filter toggle
+var filterToggle = document.getElementById('filterToggle');
+var advancedFilters = document.getElementById('advancedFilters');
+filterToggle.addEventListener('click', function() {
+  advancedFilters.classList.toggle('open');
+  var isOpen = advancedFilters.classList.contains('open');
+  filterToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+
+// ── Inventory search, filter, and sort logic ──
+var grid = document.getElementById('invGrid');
+var cards = Array.from(document.querySelectorAll('#invGrid .inv-card'));
+var categoryChecks = document.querySelectorAll('input[name="category"]');
+var seatChecks = document.querySelectorAll('input[name="seats"]');
+var priceSlider = document.getElementById('priceSlider');
+var priceDisplay = document.getElementById('priceDisplay');
+var resultCount = document.getElementById('resultCount');
+var resultCountDesktop = document.getElementById('resultCountDesktop');
+var noResults = document.getElementById('noResults');
+var inventorySearch = document.getElementById('inventorySearch');
+var inventorySort = document.getElementById('inventorySort');
+
+var categorySlugs = {
+  'hot-tubs': 'Hot Tubs',
+  'swim-spas': 'Swim Spas',
+  'saunas': 'Saunas',
+  'massage-chairs': 'Massage Chairs'
+};
+
+var navCategorySlugs = {
+  'HOT TUBS': 'hot-tubs',
+  'SWIM SPAS': 'swim-spas',
+  'SAUNAS': 'saunas'
+};
+
+var urlCategoryFilter = null;
+
+cards.forEach(function(card, index) {
+  card.dataset.originalOrder = index;
+});
+
+function getChecked(inputs) {
+  return Array.from(inputs).filter(function(i) { return i.checked; }).map(function(i) { return i.value; });
+}
+
+function setNavActiveFromCategory(slug) {
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.classList.remove('nav-active');
+    if (slug && navCategorySlugs[link.textContent.trim()] === slug) {
+      link.classList.add('nav-active');
+    }
+  });
+}
+
+function clearCategoryUrl() {
+  urlCategoryFilter = null;
+  if (window.history.replaceState) {
+    window.history.replaceState({}, '', 'inventory.html');
+  }
+  setNavActiveFromCategory(null);
+}
+
+function applyCategoryFromUrl() {
+  var params = new URLSearchParams(window.location.search);
+  var slug = (params.get('category') || '').toLowerCase();
+  urlCategoryFilter = categorySlugs[slug] || null;
+
+  categoryChecks.forEach(function(c) {
+    c.checked = urlCategoryFilter ? c.value === urlCategoryFilter : false;
+  });
+
+  setNavActiveFromCategory(urlCategoryFilter ? slug : null);
+}
+
+function applyFilters() {
+  var cats = urlCategoryFilter ? [urlCategoryFilter] : getChecked(categoryChecks);
+  var seats = getChecked(seatChecks);
+  var maxMonthly = parseInt(priceSlider.value);
+  var query = inventorySearch.value.trim().toLowerCase();
+
+  priceDisplay.textContent = maxMonthly >= 500 ? 'Any monthly payment' : 'Up to $' + maxMonthly + '/mo';
+
+  var visible = 0;
+  cards.forEach(function(card) {
+    var catMatch = cats.length === 0 || cats.indexOf(card.dataset.category) !== -1;
+    var searchText = card.textContent.toLowerCase();
+    var searchMatch = query === '' || searchText.indexOf(query) !== -1;
+
+    // Seat matching — card data-seats is a range like "4-5" or "6-7" or "1"
+    var seatMatch = seats.length === 0;
+    if (!seatMatch) {
+      seats.forEach(function(s) {
+        if (s === card.dataset.seats) seatMatch = true;
+        // Massage chairs have data-seats="1" — no seat filter applies to them
+        if (card.dataset.category === 'Massage Chairs') seatMatch = true;
+      });
+    }
+
+    var priceMatch = parseInt(card.dataset.monthly) <= maxMonthly;
+
+    if (catMatch && seatMatch && priceMatch && searchMatch) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  resultCount.textContent = visible;
+  if (resultCountDesktop) resultCountDesktop.textContent = visible;
+  noResults.classList.toggle('visible', visible === 0);
+}
+
+function applySort() {
+  if (!inventorySort) return;
+
+  var sorted = cards.slice();
+  var sortValue = inventorySort.value;
+
+  if (sortValue === 'price-low') {
+    sorted.sort(function(a, b) { return parseInt(a.dataset.monthly) - parseInt(b.dataset.monthly); });
+  } else if (sortValue === 'price-high') {
+    sorted.sort(function(a, b) { return parseInt(b.dataset.monthly) - parseInt(a.dataset.monthly); });
+  } else if (sortValue === 'newest') {
+    sorted.sort(function(a, b) { return parseInt(b.dataset.originalOrder) - parseInt(a.dataset.originalOrder); });
+  } else {
+    sorted.sort(function(a, b) { return parseInt(a.dataset.originalOrder) - parseInt(b.dataset.originalOrder); });
+  }
+
+  sorted.forEach(function(card) {
+    grid.insertBefore(card, noResults);
+  });
+}
+
+function refreshInventory() {
+  applySort();
+  applyFilters();
+}
+
+categoryChecks.forEach(function(c) {
+  c.addEventListener('change', function() {
+    clearCategoryUrl();
+    refreshInventory();
+  });
+});
+seatChecks.forEach(function(c) { c.addEventListener('change', refreshInventory); });
+priceSlider.addEventListener('input', refreshInventory);
+inventorySearch.addEventListener('input', refreshInventory);
+if (inventorySort) inventorySort.addEventListener('change', refreshInventory);
+
+// Reset
+function resetAll() {
+  categoryChecks.forEach(function(c) { c.checked = false; });
+  seatChecks.forEach(function(c) { c.checked = false; });
+  priceSlider.value = 500;
+  inventorySearch.value = '';
+  if (inventorySort) inventorySort.value = 'featured';
+  clearCategoryUrl();
+  refreshInventory();
+}
+document.getElementById('resetFilters').addEventListener('click', resetAll);
+document.getElementById('resetFilters2').addEventListener('click', resetAll);
+applyCategoryFromUrl();
+refreshInventory();
+</script>
+
+<script src="ghl-modal.js"></script>
+<script>
+  setTimeout(function() {
+    var chatScript = document.createElement('script');
+    chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    chatScript.setAttribute('data-widget-id', '6a428113cf2c64bbfadc2891');
+    document.body.appendChild(chatScript);
+  }, 15000);
+</script>
+
+  <script src="call-tracking.js"></script>
+</body>
+</html>

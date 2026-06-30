@@ -1,0 +1,11 @@
+{
+  "name": "hot-tub-dealer-website-template",
+  "private": true,
+  "scripts": {
+    "deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch main",
+    "preview:deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch preview"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}

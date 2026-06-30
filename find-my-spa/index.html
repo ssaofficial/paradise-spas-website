@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find My Spa | Paradise Spas — Minot, ND</title>
+  <meta name="description" content="Answer two quick questions and we'll point you to the right hot tub, swim spa, sauna, or massage chair for your Minot backyard.">
+  <link rel="canonical" href="https://www.paradisespas.com/find-my-spa">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeoe7g20ml");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5WGSEGZYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5WGSEGZYP');
+  </script>
+  <!-- Meta Pixel Code -->
+  <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1317738110513512');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(160deg, #0d4cae 0%, #083a88 100%);
+      color: #1a202c;
+    }
+    .quiz-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .quiz-card {
+      width: min(560px, 100%);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      padding: 32px 28px 28px;
+    }
+    .quiz-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #d4920a;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+    .quiz-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(24px, 5vw, 30px);
+      font-weight: 800;
+      text-align: center;
+      margin: 0 0 8px;
+      color: #0d4cae;
+      line-height: 1.2;
+    }
+    .quiz-sub {
+      text-align: center;
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 24px;
+    }
+    .quiz-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .quiz-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dbe4f3;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .quiz-dot.is-active {
+      background: #d4920a;
+      transform: scale(1.15);
+    }
+    .quiz-dot.is-done {
+      background: #0d4cae;
+    }
+    .quiz-step { display: none; }
+    .quiz-step.is-active { display: block; }
+    .quiz-question {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: #0d4cae;
+      text-align: center;
+    }
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+    }
+    .quiz-option {
+      width: 100%;
+      text-align: left;
+      border: 2px solid #e8eef7;
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+      font: inherit;
+    }
+    .quiz-option:hover {
+      border-color: #0d4cae;
+      background: #f8fbff;
+      transform: translateY(-1px);
+    }
+    .quiz-option.is-selected {
+      border-color: #0d4cae;
+      background: #eef4ff;
+    }
+    .quiz-option strong {
+      display: block;
+      font-size: 15px;
+      color: #0d4cae;
+      margin-bottom: 4px;
+    }
+    .quiz-option span {
+      display: block;
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.45;
+    }
+    .quiz-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .quiz-btn {
+      flex: 1;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .quiz-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .quiz-btn-primary {
+      background: #d4920a;
+      color: #0d4cae;
+    }
+    .quiz-btn-primary:hover:not(:disabled) {
+      background: #e0a020;
+      transform: translateY(-1px);
+    }
+    .quiz-btn-secondary {
+      background: #eef2f7;
+      color: #0d4cae;
+    }
+    .quiz-btn-secondary:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+    .quiz-result-badge {
+      display: inline-block;
+      background: #d4920a;
+      color: #0d4cae;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin: 0 auto 12px;
+    }
+    .quiz-result-wrap { text-align: center; }
+    .quiz-result-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #0d4cae;
+      margin: 0 0 10px;
+    }
+    .quiz-result-copy {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0 0 24px;
+    }
+    .quiz-result-actions {
+      display: grid;
+      gap: 10px;
+    }
+    .quiz-link-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .quiz-link-primary {
+      background: #d4920a;
+      color: #0d4cae;
+    }
+    .quiz-link-secondary {
+      background: #0d4cae;
+      color: #fff;
+    }
+    .quiz-restart {
+      margin-top: 16px;
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: underline;
+      width: 100%;
+    }
+    @media (max-width: 480px) {
+      .quiz-card { padding: 24px 18px 20px; }
+      .quiz-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="quiz-shell">
+    <div class="quiz-card" id="quizApp" aria-live="polite">
+      <p class="quiz-eyebrow">Find My Spa</p>
+      <h1 class="quiz-title">Let's Find Your Perfect Fit</h1>
+      <p class="quiz-sub">Two quick questions. We'll recommend the best category for you.</p>
+
+      <div class="quiz-progress" aria-hidden="true">
+        <span class="quiz-dot is-active" data-dot="1"></span>
+        <span class="quiz-dot" data-dot="2"></span>
+        <span class="quiz-dot" data-dot="3"></span>
+      </div>
+
+      <!-- Step 1 -->
+      <section class="quiz-step is-active" data-step="1">
+        <h2 class="quiz-question">What matters most to you right now?</h2>
+        <div class="quiz-options" role="group" aria-label="Primary goal">
+          <button type="button" class="quiz-option" data-goal="stress">
+            <strong>Better sleep &amp; stress relief</strong>
+            <span>Unwind after long days and sleep deeper at night.</span>
+          </button>
+          <button type="button" class="quiz-option" data-goal="pain">
+            <strong>Pain relief &amp; recovery</strong>
+            <span>Sore joints, muscles, and everyday aches.</span>
+          </button>
+          <button type="button" class="quiz-option" data-goal="family">
+            <strong>Family fun &amp; together time</strong>
+            <span>A backyard upgrade everyone will actually use.</span>
+          </button>
+          <button type="button" class="quiz-option" data-goal="fitness">
+            <strong>Swimming, fitness &amp; year-round use</strong>
+            <span>Exercise, play, and relax in every season.</span>
+          </button>
+          <button type="button" class="quiz-option" data-goal="wellness">
+            <strong>Sauna wellness &amp; detox</strong>
+            <span>Infrared heat for recovery and circulation.</span>
+          </button>
+          <button type="button" class="quiz-option" data-goal="massage">
+            <strong>Daily massage at home</strong>
+            <span>Back tension and stress relief on demand.</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <button type="button" class="quiz-btn quiz-btn-primary" id="step1Next" disabled>Next</button>
+        </div>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="quiz-step" data-step="2">
+        <h2 class="quiz-question">Who will use it most often?</h2>
+        <div class="quiz-options" role="group" aria-label="Household size">
+          <button type="button" class="quiz-option" data-size="couple">
+            <strong>Just me or a couple</strong>
+            <span>Intimate soaking or personal wellness.</span>
+          </button>
+          <button type="button" class="quiz-option" data-size="family">
+            <strong>Family of 3–5</strong>
+            <span>Room for kids, parents, and guests.</span>
+          </button>
+          <button type="button" class="quiz-option" data-size="group">
+            <strong>6 or more people</strong>
+            <span>Entertaining and larger gatherings.</span>
+          </button>
+        </div>
+        <div class="quiz-actions">
+          <button type="button" class="quiz-btn quiz-btn-secondary" id="step2Back">Back</button>
+          <button type="button" class="quiz-btn quiz-btn-primary" id="step2Next" disabled>See My Match</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Result -->
+      <section class="quiz-step" data-step="3">
+        <div class="quiz-result-wrap">
+          <div class="quiz-result-badge">Your Best Match</div>
+          <h2 class="quiz-result-name" id="resultName"></h2>
+          <p class="quiz-result-copy" id="resultCopy"></p>
+          <div class="quiz-result-actions">
+            <a class="quiz-link-btn quiz-link-primary" id="resultInventory" href="../inventory.html">Shop Matched Inventory</a>
+            <a class="quiz-link-btn quiz-link-secondary" id="resultCategory" href="../index.html">Learn More</a>
+          </div>
+          <button type="button" class="quiz-restart" id="quizRestart">Start over</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      var state = { goal: null, size: null };
+      var steps = Array.from(document.querySelectorAll('.quiz-step'));
+      var dots = Array.from(document.querySelectorAll('.quiz-dot'));
+
+      function showStep(n) {
+        steps.forEach(function(step) {
+          step.classList.toggle('is-active', Number(step.dataset.step) === n);
+        });
+        dots.forEach(function(dot) {
+          var i = Number(dot.dataset.dot);
+          dot.classList.toggle('is-active', i === n);
+          dot.classList.toggle('is-done', i < n);
+        });
+      }
+
+      function bindOptionGroup(selector, key, nextBtn) {
+        document.querySelectorAll(selector).forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll(selector).forEach(function(b) { b.classList.remove('is-selected'); });
+            btn.classList.add('is-selected');
+            state[key] = btn.dataset[key];
+            if (nextBtn) nextBtn.disabled = false;
+          });
+        });
+      }
+
+      bindOptionGroup('[data-goal]', 'goal', document.getElementById('step1Next'));
+      bindOptionGroup('[data-size]', 'size', document.getElementById('step2Next'));
+
+      document.getElementById('step1Next').addEventListener('click', function() {
+        if (!state.goal) return;
+        if (state.goal === 'wellness' || state.goal === 'massage') {
+          renderResult(getResult());
+          showStep(3);
+          return;
+        }
+        showStep(2);
+      });
+
+      document.getElementById('step2Back').addEventListener('click', function() {
+        showStep(1);
+      });
+
+      document.getElementById('step2Next').addEventListener('click', function() {
+        if (!state.size) return;
+        renderResult(getResult());
+        showStep(3);
+      });
+
+      document.getElementById('quizRestart').addEventListener('click', function() {
+        state = { goal: null, size: null };
+        document.querySelectorAll('.quiz-option').forEach(function(b) { b.classList.remove('is-selected'); });
+        document.getElementById('step1Next').disabled = true;
+        document.getElementById('step2Next').disabled = true;
+        showStep(1);
+      });
+
+      function getResult() {
+        if (state.goal === 'wellness') {
+          return {
+            name: 'Infrared Sauna',
+            copy: 'Full-spectrum infrared heat supports recovery, circulation, and deep relaxation — without taking over your whole backyard.',
+            inventory: '../inventory.html?category=saunas',
+            category: '../saunas/'
+          };
+        }
+        if (state.goal === 'massage') {
+          return {
+            name: 'Massage Chair',
+            copy: 'Daily tension relief at home — perfect when you want wellness benefits without a full spa install.',
+            inventory: '../inventory.html?category=massage-chairs',
+            category: '../inventory.html?category=massage-chairs'
+          };
+        }
+        if (state.goal === 'fitness' || (state.goal === 'family' && state.size === 'group')) {
+          return {
+            name: 'Swim Spa',
+            copy: 'Swim, exercise, and soak year-round — the best fit for fitness-minded families and larger groups in Minot.',
+            inventory: '../inventory.html?category=swim-spas',
+            category: '../swim-spas/'
+          };
+        }
+        if (state.goal === 'family') {
+          return {
+            name: 'Hot Tub or Swim Spa',
+            copy: 'For families of 3–5, a roomy hot tub is a great starting point — or step up to a swim spa if you want space to move and play.',
+            inventory: '../inventory.html?category=hot-tubs',
+            category: '../hot-tubs/'
+          };
+        }
+        return {
+          name: 'Hot Tub',
+          copy: 'Hydrotherapy for better sleep, less stress, and real pain relief — built for North Dakota winters and backed by our local Minot team.',
+          inventory: '../inventory.html?category=hot-tubs',
+          category: '../hot-tubs/'
+        };
+      }
+
+      function renderResult(result) {
+        document.getElementById('resultName').textContent = result.name;
+        document.getElementById('resultCopy').textContent = result.copy;
+        document.getElementById('resultInventory').href = result.inventory;
+        document.getElementById('resultCategory').href = result.category;
+        document.getElementById('resultCategory').textContent =
+          result.name.indexOf('Sauna') !== -1 ? 'Explore Saunas' :
+          result.name.indexOf('Massage') !== -1 ? 'View Massage Chairs' :
+          result.name.indexOf('Swim') !== -1 ? 'Explore Swim Spas' :
+          'Explore Hot Tubs';
+      }
+    })();
+  </script>
+  <script src="call-tracking.js"></script>
+</body>
+</html>
