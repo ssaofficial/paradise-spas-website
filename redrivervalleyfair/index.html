@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Paradise Spas — Red River Valley Fair</title>
+<meta name="description" content="Reserve a free, no-pressure hot tub viewing with Paradise Spas at the Red River Valley Fair, July 3–12. Minot's trusted family-owned spa dealer for 30+ years.">
+<link rel="canonical" href="https://www.paradisespas.com/redrivervalleyfair">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#B11E26;--red-bright:#E23B3F;--red-deep:#8A141B;
+    --blue:#1F3FC4;--blue-deep:#16308F;
+    --paper:#FBF7F2;--ink:#23252b;--muted:#5a6275;--line:#e6dfd6;
+    --green:#1f7a45;--xgray:#9aa3b2;--star:#F0A500;--maxw:680px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:84px;width:100%;overflow-x:hidden;}
+  .wrap{max-width:var(--maxw);width:100%;margin-left:auto;margin-right:auto;padding:0 22px;}
+  h1,h2,h3,.display{font-family:'Montserrat',sans-serif;}
+
+  .hero{display:block;width:100%;background:var(--red);color:#fff;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .hero .star{position:absolute;color:rgba(255,255,255,.06);font-size:230px;line-height:1;top:-30px;right:-40px;pointer-events:none;}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#ffd2cb;text-align:center;margin-bottom:18px;position:relative;line-height:1.5;}
+  .hero h1{font-weight:800;font-size:29px;line-height:1.2;text-align:center;letter-spacing:-.01em;position:relative;color:#fff;}
+  .hero h1 .hl{color:var(--star);}
+  .hero-sub{text-align:center;color:#ffe1db;font-size:15px;margin-top:18px;max-width:580px;margin-left:auto;margin-right:auto;position:relative;}
+  .hero-sub b{color:#fff;font-style:normal;}
+  .trust-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;margin-top:22px;position:relative;}
+  .trust-strip span{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--red-deep);border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:7px 13px;}
+  .booth-credit{text-align:center;margin-top:26px;font-size:13px;color:#f3c9c4;line-height:1.5;position:relative;}
+  .booth-credit b{color:#fff;font-weight:700;}
+
+  .imgph{background:repeating-linear-gradient(45deg,#dfe3ea,#dfe3ea 12px,#e8ebf1 12px,#e8ebf1 24px);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#8a93a6;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:18px;}
+  .hero-photo{width:100%;display:block;margin-top:26px;border-radius:10px;border:1px solid #7a1118;object-fit:cover;aspect-ratio:3/2;max-height:420px;}
+
+  .review{border:1px solid var(--line);border-radius:10px;padding:15px 16px;margin:22px 0;background:#fff;box-shadow:0 1px 3px rgba(36,58,142,.06);}
+  .review .g{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+  .review .stars{color:var(--star);font-size:13px;letter-spacing:1px;}
+  .review p{font-size:13.5px;color:var(--muted);font-style:italic;}
+  .review .tag{display:inline-block;margin-top:9px;font-size:10.5px;color:#9aa3b2;border:1px solid var(--line);border-radius:4px;padding:2px 7px;font-style:normal;}
+  .review-photo{width:100%;display:block;border-radius:8px;margin-bottom:12px;object-fit:cover;aspect-ratio:4/3;max-height:280px;}
+  .profile-wrap{margin:0 0 16px;text-align:center;}
+  .profile-photo{width:100%;max-width:260px;display:block;margin:0 auto;border-radius:12px;object-fit:cover;object-position:center 18%;aspect-ratio:4/5;max-height:300px;box-shadow:0 2px 12px rgba(36,58,142,.1);}
+  .ph-note{color:var(--red);font-style:normal;font-weight:600;}
+
+  .lede{padding:40px 0 8px;}
+  .lede p{font-size:18px;line-height:1.5;margin:0 0 16px;color:#2a2d35;}
+  .lede p.tight{margin-bottom:8px;}
+  .lede p.dim{color:#9aa1ad;}
+  .lede strong{color:var(--blue);font-weight:700;}
+  .section-label{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:8px 0 10px;}
+  h2.blockhead{font-weight:800;font-size:25px;line-height:1.2;color:var(--blue);margin:6px 0 16px;letter-spacing:-.01em;}
+
+  .bridge{text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;line-height:1.4;color:var(--blue);max-width:520px;margin:26px auto 4px;}
+  .bridge .chev{display:block;color:var(--red);font-size:20px;margin-top:8px;line-height:1;}
+
+  .pull{border-left:4px solid var(--red);background:var(--paper);padding:18px 20px;margin:22px 0;border-radius:0 10px 10px 0;}
+  .pull p{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;line-height:1.4;color:var(--blue);font-style:normal;}
+  .pull .who{display:block;margin-top:10px;font-family:'Inter';font-weight:600;font-size:13px;color:var(--muted);}
+
+  .steps{display:grid;gap:12px;margin:6px 0;}
+  .step{border:1px solid var(--line);border-top:3px solid var(--red);border-radius:10px;padding:16px 18px;background:#fff;}
+  .step .num{font-family:'Montserrat';font-weight:900;font-size:26px;color:var(--red);line-height:1;}
+  .step h3{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin:8px 0 6px;}
+  .step p{font-size:13.5px;color:var(--muted);}
+
+  .faq details{border:1px solid var(--line);border-radius:9px;margin-bottom:9px;background:#fff;overflow:hidden;}
+  .faq summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;font-size:14.5px;color:var(--blue);display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:'+';color:var(--red);font-size:20px;font-weight:700;line-height:1;}
+  .faq details[open] summary::after{content:'\2013';}
+  .faq .ans{padding:0 16px 15px;font-size:13.5px;color:var(--muted);line-height:1.55;}
+
+  .offer{background:var(--red);color:#fff;border-radius:14px;padding:26px 22px;margin:10px 0;text-align:center;}
+  .offer .kick{font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-bottom:8px;color:#ffe1db;}
+  .offer h2{font-family:'Montserrat';font-weight:900;font-size:24px;line-height:1.15;margin-bottom:14px;color:#fff;}
+  .offer ul{list-style:none;text-align:left;max-width:450px;margin:0 auto 6px;}
+  .offer li{font-size:14.5px;font-weight:600;padding:7px 0 7px 26px;position:relative;border-bottom:1px solid rgba(255,255,255,.22);}
+  .offer li:last-child{border-bottom:none;}
+  .offer li::before{content:'\2713';position:absolute;left:0;top:7px;font-weight:800;color:#fff;}
+  .offer .confirm{font-style:italic;font-weight:500;font-size:11px;color:#ffd9d2;}
+
+  .close{padding:34px 0 6px;}
+  .close p{font-size:17px;margin-bottom:16px;color:#2a2d35;}
+  .close p strong{color:var(--blue);font-weight:800;}
+
+  .rule{height:1px;background:var(--line);margin:34px 0;border:none;}
+  .sec{padding:30px 0;}
+  .sec-cream{background:var(--paper);}
+
+  /* enemy / dark truth section */
+  .sec-dark{background:#1b1d24;color:#e9eaef;}
+  .sec-dark .section-label{color:#ff7d7d;}
+  .sec-dark h2.blockhead{color:#fff;}
+  .sec-dark .lede p{color:#d7d9e2;}
+  .sec-dark .lede strong{color:#ffce4a;}
+  .bigline{font-family:'Montserrat';font-weight:900;font-size:27px;line-height:1.15;text-align:center;margin:22px auto;max-width:520px;}
+  .sec-dark .bigline{color:#fff;}
+
+  /* medical disclaimer */
+  .disclaim{font-size:12.5px;font-style:italic;line-height:1.55;border-left:3px solid var(--line);padding:9px 13px;margin:16px 0 2px;color:var(--muted);background:rgba(0,0,0,.02);}
+  .sec-dark .disclaim{color:#aeb3c0;border-left-color:#3a3d48;background:rgba(255,255,255,.04);}
+
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--blue-deep);border-top:3px solid var(--red);padding:11px 16px calc(11px + env(safe-area-inset-bottom, 0px));display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .sticky .txt{color:#fff;}
+  .sticky .txt b{font-family:'Montserrat';font-weight:800;font-size:13.5px;display:block;line-height:1.2;}
+  .sticky .txt small{color:#aeb8d8;font-size:11px;}
+  .sticky a{background:var(--red);color:#fff;font-family:'Montserrat';font-weight:800;font-size:13.5px;text-decoration:none;padding:12px 16px;border-radius:9px;white-space:nowrap;flex-shrink:0;}
+
+  .hero-cta{text-align:center;margin-top:26px;position:relative;}
+  .hero-cta a{display:inline-block;background:#fff;color:var(--red);font-family:'Montserrat';font-weight:900;font-size:18px;text-decoration:none;padding:17px 32px;border-radius:11px;box-shadow:0 4px 0 #6f0f15;}
+  .hero-cta a:active{transform:translateY(2px);box-shadow:0 2px 0 #6f0f15;}
+  .hero-cta .sub{display:block;margin-top:11px;font-size:12px;font-weight:600;letter-spacing:.03em;color:#ffd9d2;}
+
+  .cta{text-align:center;margin:30px 0 6px;}
+  .cta a{display:inline-block;background:var(--red);color:#fff;font-family:'Montserrat';font-weight:900;font-size:17px;text-decoration:none;padding:16px 30px;border-radius:10px;box-shadow:0 4px 0 var(--red-deep);}
+  .cta a:active{transform:translateY(2px);box-shadow:0 2px 0 var(--red-deep);}
+  .cta .micro{display:block;margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--red);}
+  .cta .free{display:block;margin-top:5px;font-size:12px;color:var(--muted);}
+  .fairbar{font-size:12px;color:var(--muted);margin-top:5px;}
+  .fairbar b{color:var(--red);font-weight:800;}
+
+  .ps{padding:32px 0 10px;}
+  .ps .sig{font-family:'Montserrat';font-weight:800;color:var(--blue);font-size:15px;}
+  .ps .sigsub{font-size:12.5px;color:var(--muted);margin-bottom:20px;}
+  .ps h3{font-family:'Montserrat';font-weight:900;color:var(--red);font-size:18px;margin:20px 0 8px;}
+  .ps p{font-size:14.5px;color:#2a2d35;margin-bottom:10px;line-height:1.55;}
+  .ps p strong{color:var(--blue);}
+  .resform .ghl-inline{width:100%;min-height:595px;border:none;border-radius:8px;display:block;}
+
+  .volflaunt{text-align:center;margin:4px 0 16px;}
+  .volflaunt .big{font-family:'Montserrat';font-weight:900;font-size:40px;color:var(--blue);line-height:1;}
+  .volflaunt .stars{color:var(--star);font-size:18px;letter-spacing:2px;display:block;margin:6px 0 4px;}
+  .volflaunt .subt{font-size:13px;color:var(--muted);}
+  .proofwall{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0;}
+  .pw{border:1px solid var(--line);border-radius:9px;padding:12px 13px;background:#fff;}
+  .pw .stars{color:var(--star);font-size:12px;letter-spacing:1px;}
+  .pw p{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:5px;line-height:1.45;}
+  .pw .who{display:block;margin-top:7px;font-size:11px;font-weight:700;color:var(--ink);font-style:normal;}
+
+  .bullets{list-style:none;margin:8px 0;}
+  .bullets li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5;color:#2a2d35;}
+  .bullets li:last-child{border-bottom:none;}
+  .bullets li::before{content:'\2192';position:absolute;left:0;top:12px;color:var(--red);font-weight:800;}
+  .bullets li b{color:var(--blue);font-weight:700;}
+
+  /* reservation form */
+  .resform{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 20px;margin:14px 0 6px;box-shadow:0 3px 14px rgba(36,58,142,.08);}
+  .resform h3{font-family:'Montserrat';font-weight:900;font-size:21px;color:var(--blue);text-align:center;line-height:1.2;margin-bottom:6px;}
+  .resform .rsub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+  .resform .field{display:block;width:100%;border:1px solid var(--line);border-radius:9px;padding:14px;font-size:15px;font-family:'Inter';color:var(--ink);margin-bottom:10px;background:#fbfafa;}
+  .resform .field::placeholder{color:#9aa3b2;}
+  .resform .rbtn{display:block;width:100%;background:var(--red);color:#fff;font-family:'Montserrat';font-weight:900;font-size:18px;text-align:center;border:none;padding:17px;border-radius:10px;box-shadow:0 4px 0 var(--red-deep);cursor:pointer;}
+  .resform .rbtn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--red-deep);}
+  .resform .rnote{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;line-height:1.55;}
+  .resform .rnote b{color:var(--green);font-weight:700;}
+
+  @media (max-width:560px){
+    .wrap{padding:0 18px;}
+    .hero{padding:38px 0 34px;}
+    .hero h1{font-size:23px;}
+    .hero-sub{font-size:14.5px;}
+    .hero-cta a{font-size:16px;padding:15px 24px;}
+    .cta a{font-size:15.5px;padding:15px 22px;}
+    .lede{padding:32px 0 6px;}
+    .lede p{font-size:16.5px;}
+    h2.blockhead{font-size:21px;}
+    .bigline{font-size:22px;}
+    .bridge{font-size:15.5px;}
+    .sec{padding:26px 0;}
+    .pull p{font-size:16.5px;}
+    .volflaunt .big{font-size:34px;}
+    .proofwall{grid-template-columns:1fr;}
+    .faq summary{padding:15px 14px;font-size:14px;}
+    .sticky{padding:9px 12px;}
+    .sticky a{padding:13px 15px;}
+    .sticky .txt small{display:none;}
+    .offer{padding:24px 18px;}
+    .resform{padding:20px 16px;}
+    .profile-wrap{margin:0 -4px 14px;}
+    .profile-photo{max-width:none;width:100%;aspect-ratio:3/2;max-height:240px;border-radius:10px;object-position:center 22%;}
+  }
+  @media (max-width:380px){
+    .hero h1{font-size:21px;}
+    .trust-strip span{font-size:10.5px;padding:6px 10px;}
+  }
+
+  @media (min-width:768px){
+    :root{--maxw:760px;}
+    .wrap{padding:0 32px;}
+    .hero{padding:56px 0 48px;}
+    .hero h1{font-size:34px;line-height:1.18;}
+    .hero-sub{font-size:16px;max-width:640px;}
+    .eyebrow{font-size:12px;max-width:720px;margin-left:auto;margin-right:auto;}
+    .hero-photo{max-height:480px;}
+    .hero-cta a{font-size:19px;padding:18px 36px;}
+  }
+
+  @media (min-width:1024px){
+    :root{--maxw:820px;}
+    .hero{padding:64px 0 52px;}
+    .hero h1{font-size:38px;}
+    .hero-sub{font-size:17px;max-width:680px;}
+    h2.blockhead{font-size:28px;}
+    .lede p{font-size:19px;}
+  }
+</style>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xeoe7g20ml");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5WGSEGZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E5WGSEGZYP');
+</script>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1317738110513512');
+fbq('track', 'PageView');
+</script>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="star">★</span>
+  <div class="wrap">
+    <div class="eyebrow">Attention: Anyone Walking The Red River Valley Fair This Week With A Back, Neck, Or Set Of Hips That Don't Move Like They Used To —</div>
+    <h1>A Minot Family Just Dumped <span class="hl">A Quarter-Million Dollars Of Hot Tubs</span> In The Middle Of The Red River Valley Fairgrounds For One Reason Only: To Finally Prove The Thing About Killing Years Of Back, Neck, And Hip Pain That Every Other Dealer In America Is Too Gutless — Or Too Greedy — To Say To Your Face.</h1>
+    <p class="hero-sub">It has nothing to do with the jets, the horsepower, or the badge on the side. It's the same reason the pills, the copays, and the endless appointments never touched the ache — they were never <b>built</b> to. One Minot man figured that out 30 years ago. He's spent every day since proving it to over 10,000 North Dakota families. Give him two minutes and he'll prove it to you.</p>
+    <div class="trust-strip">
+      <span>30+ Years in ND</span>
+      <span>10,000+ Families Helped</span>
+      <span>Family-Owned in Minot</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#reserve">Reserve My Private Viewing →</a>
+      <span class="sub">Free · no obligation · totally up to you · Red River Valley Fair, July 3–12</span>
+    </div>
+    <img class="hero-photo" src="fair-hero.jpg" alt="Paradise Spas team showing a hot tub to fairgoers at the Red River Valley Fair" width="1024" height="682" loading="eager">
+    <p class="booth-credit">From the booth of <b>James Baker</b><br>Paradise Spas &amp; Outdoor Living — Minot, North Dakota</p>
+  </div>
+</header>
+
+<!-- early review (pre-handles "expensive toy") -->
+<div class="wrap">
+  <div class="review">
+    <img class="review-photo" src="review-1.jpg" alt="Paradise Spas customer at the Red River Valley Fair hot tub booth" width="1024" height="764" loading="lazy">
+    <div class="g"><span class="stars">★★★★★</span></div>
+    <p>"For nine years I woke up stiff and called it getting old. I couldn't tell you what this did or how it works — only that I haven't said 'getting old' since. Wish someone had told me a decade ago."</p>
+    <span class="tag">Google review</span>
+  </div>
+</div>
+
+<!-- CTA 1 -->
+<div class="wrap"><div class="cta">
+  <a href="#reserve">Reserve My Private Viewing →</a>
+  <span class="micro">It's free. It's your call. Come feel it for yourself.</span>
+  <p class="fairbar">Red River Valley Fair · <b>July 3–12</b></p>
+</div></div>
+
+<!-- PATTERN INTERRUPT -->
+<section class="lede">
+  <div class="wrap">
+    <p class="tight">Before you read one more word — do something for me.</p>
+    <p class="tight">Notice your shoulders. Right now.</p>
+    <p class="tight">Drop them.</p>
+    <p class="tight">Feel how far they actually had to fall?</p>
+    <p>Yeah. That's how long they've been up.</p>
+    <p class="tight">Now your lower back. Your knees. The way you slept last night — or didn't.</p>
+    <p class="dim">…You won't check, though.</p>
+    <p>Because some part of you already knows exactly what you'd find. And you've gotten really, really good at not looking.</p>
+    <p>That tightness you just felt? It's not nothing. It's your body trying to tell you something it's been trying to tell you for years.</p>
+    <p class="tight"><strong>And there's a reason it never goes away. A reason almost nobody has the guts to say out loud.</strong></p>
+    <p>One Minot man has built his entire life around saying it. So let me introduce you.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- JAMES — intro / origin / mission (EARLY) -->
+<!-- ⚠️ EXAMPLE STORY. Replace bracketed specifics with James's REAL story. Do not publish a fabricated backstory. -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="section-label">The man behind the booth</div>
+    <h2 class="blockhead">He didn't get into this to sell hot tubs.</h2>
+    <figure class="profile-wrap">
+      <picture>
+        <source media="(max-width:560px)" srcset="james-baker-mobile.jpg">
+        <img class="profile-photo" src="james-baker.jpg" alt="James Baker, Paradise Spas and Outdoor Living" width="1024" height="1024" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <div class="lede" style="padding:0;">
+      <p>His name is James Baker. And he'll be the first to tell you he didn't get into this to move product.</p>
+      <p>He got into it because <span class="ph-note">[EXAMPLE — replace with James's true story:</span> he watched his own father — a man who'd worked with his hands his whole life — get old years before his time. Stiff. Hurting. Sidelined from everything he loved. Handed a cabinet full of pills that took the edge off and the money out of his pocket, and fixed exactly nothing.<span class="ph-note">]</span></p>
+      <p><span class="ph-note">[EXAMPLE:</span> Then one brutal winter, James watched what twenty minutes a day in hot water did for him. The way he stood up straighter. Slept through the night. Got down on the floor with his grandkids without that long, careful pause first.<span class="ph-note">]</span></p>
+      <p>And something in James snapped into place.</p>
+      <p>This wasn't a luxury. It wasn't a backyard toy for rich folks throwing parties. It was the simplest relief on earth — and an entire industry had quietly priced regular families out of it, and talked them out of it, because there's no monthly check in you fixing yourself.</p>
+      <p>So James made a decision that's run his whole life ever since: <strong>he'd put this within reach of working North Dakota families.</strong> Not the wealthy. The people the system had written off.</p>
+      <p>That was 30 years ago.</p>
+      <p>Since then, James and his team have personally helped <strong>over 10,000 families</strong> across this state do the one thing they were sure they'd never do again. Move. Sleep. Live.</p>
+      <p>He doesn't call them customers. He calls them by name.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA 2 -->
+<div class="wrap"><div class="cta">
+  <a href="#reserve">Reserve My Private Viewing →</a>
+  <span class="micro">Meet James &amp; his team at the fair — free, no pressure</span>
+</div></div>
+
+<!-- THE ENEMY (dark truth) -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="section-label">Here's the part they'll never put on a billboard</div>
+    <h2 class="blockhead">There is no money in a healthy you.</h2>
+    <div class="lede" style="padding:0;">
+      <p>Let me say the quiet part out loud.</p>
+      <p>Sit with that line for a second. Really sit with it.</p>
+      <p>The ache in your back is worth <strong>more</strong> to a billion-dollar corporation while it's still there than the day it's gone. A bottle of pills you finish… and reorder. A copay you pay… and pay again next month. An appointment that treats the symptom, sends you home, and books you for another.</p>
+      <p class="tight"><strong>You were never a problem they were racing to solve. You were a subscription.</strong></p>
+      <p>And the entire time, the one thing your body was actually begging for — deep, sustained heat, the oldest relief there is — got buried. Because you can't patent it. You can't bill a monthly premium for it. Nobody on a quarterly earnings call gets rich when you fix it yourself, in your own backyard, for the price of a cup of coffee a day.</p>
+      <p>So they let you believe stiff-and-sore is just "getting older." Just your lot now. Just life.</p>
+    </div>
+    <p class="bigline">It is not.<br>And one man in Minot has spent 30 years proving it — one family at a time.</p>
+    <p class="disclaim">To be clear: this is not a knock on your doctor, and it is not a substitute for medical care. It's the twenty minutes a day the system never bothered to mention. Keep seeing your doctor — and ask them about hydrotherapy. <span class="ph-note">[confirm disclaimer language with compliance]</span></p>
+  </div>
+</section>
+
+<!-- MECHANISM -->
+<section class="sec">
+  <div class="wrap">
+    <div class="section-label">What the heating pad will never tell you</div>
+    <h2 class="blockhead">It's the hot water. That's it. We call it the 104° Reset.</h2>
+    <div class="lede" style="padding:0;">
+      <p>Your body doesn't need another four minutes of warm. It needs the exact opposite of everything you've been giving it.</p>
+      <p>It needs deep, sustained heat. Hot enough. Held long enough — long enough to open your blood vessels and push fresh blood into every spot that's been screaming at you for years.</p>
+      <p class="tight">Not warm. <strong>Hot.</strong> 102. 104 degrees. And held there.</p>
+      <p>That's the moment it happens. Circulation jumps. Muscles clenched tight for a decade finally let go. Inflammation eases. And your nervous system — for the first time since you opened your eyes this morning — downshifts toward real, actual sleep.</p>
+      <p>Twenty minutes a day in 104° water. We named it the <strong>104° Reset</strong>, because that's exactly what it does. And here's what nobody selling you horsepower wants you to know:</p>
+      <p class="tight"><strong>The jets are the 20%. The water is the 80%.</strong></p>
+      <p>Don't take it from me. Take it from the guy who's been doing this for 20 years:</p>
+    </div>
+    <div class="pull">
+      <p>"It's not always about the jets. It's the hot water alone. I can sell you the cheapest spa I have and still get you 80% of what you want out of a hot tub. All we really need to talk about is the other 20%."
+      <span class="who">— James Baker, Paradise Spas</span></p>
+    </div>
+    <div class="lede" style="padding:0;">
+      <p class="tight">Read that again. Slowly.</p>
+      <p>The cheapest spa on his lot gets you 80% of the way there — because the 80% was never the jets. It was the water. It was always the water.</p>
+      <p>No prescription. No copay. No waiting room. The relief the system skipped right over — because it pays them nothing and gives <strong>you</strong> everything.</p>
+    </div>
+    <div class="pull">
+      <p>"Once you start using it, you don't even realize how much pain you were standing in until it's gone. Twenty minutes a day — you're going to feel ten years younger."
+      <span class="who">— James Baker</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA 3 -->
+<div class="wrap"><div class="cta">
+  <a href="#reserve">Reserve My Private Viewing →</a>
+  <span class="micro">See the difference for yourself — free, your call</span>
+</div></div>
+
+<!-- WHAT'S AT STAKE — movement = living -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="section-label">What this is really about</div>
+    <h2 class="blockhead">This was never about pain. It was about everything the pain quietly steals.</h2>
+    <div class="lede" style="padding:0;">
+      <p>Let's be honest about what stiff-and-sore actually takes from you. Because it was never the ache. The ache is just the bill.</p>
+      <p>It's the grandkid who asks you to get down on the floor and play — and the half-second of math you do before you hear yourself say, "maybe later, buddy."</p>
+      <p>It's the trip you don't book. The dance you sit out. The morning walk you used to love that turned into something you "should probably" do and never do.</p>
+      <p>It's standing at your own kitchen sink, doing the dishes, and realizing you're <em>bracing.</em> Bracing. To do dishes.</p>
+      <p>Your body was built to move. To lift. To carry. To wrap your arms around the people you love and not pay for it the next morning. That isn't a luxury you earn at the end of your life. <strong>That is the whole point of being alive.</strong></p>
+      <p>Movement is the difference between <em>watching</em> your life and <em>living</em> it.</p>
+      <p>And you've been handing yours away quietly — twenty minutes at a time, one "maybe later" at a time — for years. Not because you're weak. Because nobody ever told you there was another way, and the people who should have profit when you don't find it.</p>
+      <p>James has watched more than 10,000 people take it back. Not in a clinic. In their own backyard. Twenty minutes a day.</p>
+      <p>Picture tomorrow morning. You wake up loose instead of stiff. You slept straight through. You get down on that floor with no math, no bracing, no "maybe later." You say <em>yes.</em></p>
+      <p class="tight"><strong>That's what's actually on the table here.</strong></p>
+      <p>Not a hot tub. Your life — the moving, sleeping, arms-around-the-people-you-love version of it. The one you were built for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — engineered to pre-handle objections -->
+<section class="sec">
+  <div class="wrap">
+    <div class="section-label">Don't take James's word for it</div>
+    <h2 class="blockhead">Take theirs.</h2>
+    <div class="volflaunt">
+      <span class="big">[4.9]★</span>
+      <span class="stars">★★★★★</span>
+      <span class="subt">across <b>[N]</b> Google reviews from western North Dakota · <b>10,000+</b> families helped in 30 years
+        <br><span class="ph-note">[Use your real aggregate rating and review count — do not inflate.]</span></span>
+    </div>
+    <div class="proofwall">
+      <!-- handles: "it's too expensive" -->
+      <div class="pw"><span class="stars">★★★★★</span><p>"I told myself I couldn't justify it. Then I added up the pills, the chiropractor, and a gym I never went to — and realized this was cheaper. And unlike all of that, it actually worked."</p><span class="who ph-note">[REAL review — affordability]</span></div>
+      <!-- handles: "I'm skeptical it'll help my pain" -->
+      <div class="pw"><span class="stars">★★★★★</span><p>"30 years on a job site, tried everything. I walked up to that booth ready to roll my eyes. I've been eating those eye-rolls every morning since — first thing I do, before coffee."</p><span class="who ph-note">[REAL review — skeptic]</span></div>
+      <!-- handles: "it's just a toy / I'm not a hot tub person" -->
+      <div class="pw"><span class="stars">★★★★★</span><p>"I thought hot tubs were for rich people throwing parties. Mine isn't a party. It's the twenty minutes that gives me the rest of my day back. Every single night."</p><span class="who ph-note">[REAL review — "not a hot tub person"]</span></div>
+      <!-- handles: "ND winter / upkeep hassle" -->
+      <div class="pw"><span class="stars">★★★★★</span><p>"I was sure it'd be a frozen headache all winter. Opposite — 104° water while it's 20 below is the best part of my day, and the one time something came up, James's team had it handled before I finished my coffee."</p><span class="who ph-note">[REAL review — winter / service]</span></div>
+    </div>
+    <!-- handles: "should I just stick with what my doctor said / I waited too long" -->
+    <div class="review">
+      <div class="g"><span class="stars">★★★★★</span></div>
+      <p>"I did everything my doctor told me — and added this on top. The difference in how I move through a normal day has been the biggest piece by far. My only regret is the ten years I waited to try it."</p>
+      <span class="tag ph-note">[REVIEW — complementary to medical care / "wish I'd done it sooner"]</span>
+    </div>
+    <p style="text-align:center;font-size:12.5px;color:#9aa3b2;margin-top:2px;">Real reviews from your neighbors across western North Dakota. <span class="ph-note">[Replace all with real reviews — do not inflate.]</span></p>
+  </div>
+</section>
+
+<!-- CTA 4 -->
+<div class="wrap"><div class="cta">
+  <a href="#reserve">Reserve My Private Viewing →</a>
+  <span class="micro">Free · no obligation · totally up to you</span>
+</div></div>
+
+<!-- WHAT YOU'LL FIND AT YOUR VIEWING -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="section-label">What happens when you come by</div>
+    <h2 class="blockhead">No pitch. No pressure. Just honest answers.</h2>
+    <p style="font-size:15px;color:#2a2d35;margin-bottom:4px;">You don't need to know a thing about hot tubs. You don't need to be "ready to buy." You just show up, and James's team helps you understand your own body and your options. While you're there, you'll find out:</p>
+    <ul class="bullets">
+      <li><b>Which spa actually fits your body</b> — your aches, your space, your budget. Entry-level to fully loaded; saunas, swim spas, and Osaki massage chairs too.</li>
+      <li><b>The real monthly number</b> — and why it's almost always less than people are already spending on things that never gave them a morning back. <span class="ph-note">[confirm financing]</span></li>
+      <li><b>What a real North Dakota winter does</b> to a tub built for somewhere mild — and why the good ones laugh at 20 below.</li>
+      <li><b>How simple it actually is to own</b> — what upkeep really looks like, in plain English, with no pressure to decide anything on the spot.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- OFFER + PRICE REVEAL + soft, honest scarcity -->
+<section class="sec">
+  <div class="wrap">
+    <div class="offer">
+      <div class="kick">Red River Valley Fair · July 3–12</div>
+      <h2>Reserve a free, no-pressure viewing this week</h2>
+      <ul>
+        <li>See and feel the difference in person — zero obligation</li>
+        <li>Honest answers from a family that's done this 30 years</li>
+        <li>No salesman chasing you, no hard sell, walk away anytime</li>
+        <li>If — and only if — it's right for you, ownership starts as low as $79/month <span class="confirm">[confirm financing]</span></li>
+      </ul>
+    </div>
+
+    <!-- price as relief, revealed once -->
+    <div class="close">
+      <p>Now — you're probably bracing for the number. Most people assume something that does <strong>this</strong> has to cost as much as a used car, all at once.</p>
+      <p>Here's what surprises everyone: ownership starts as low as <strong>$79 a month.</strong> Less than a lot of folks are <em>already</em> bleeding every month on pills, copays, and memberships that never gave them a single morning back. <span class="ph-note">[confirm financing terms]</span></p>
+      <p>The system charged you that much to keep you in pain. James will put the fix in your backyard for less.</p>
+    </div>
+
+    <!-- honest, low-pressure scarcity -->
+    <div class="close">
+      <p>And I'll be straight with you, because that's the whole point of this page: <strong>there's no countdown trick here.</strong></p>
+      <p>James's team is one family, not a corporation — so during the fair they can only sit down with so many people a day. And when the gates close on July 12, the booth comes down and the trailer drives back to Minot. That's not pressure. It's just the calendar. Reserve a time if you want one; if not, no hard feelings.</p>
+    </div>
+
+    <!-- RESERVATION FORM -->
+    <div class="resform" id="reserve">
+      <h3>Hold my private viewing time</h3>
+      <p class="rsub">Drop your name, email, and phone. We'll hold you a time at the fair and text you the details. That's it.</p>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/iz3wpzwCI9GQhR3wlwbV"
+        class="ghl-inline"
+        id="inline-fair-reserve-form"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="WEBSITE FORM"
+        data-height="595"
+        data-layout-iframe-id="inline-fair-reserve-form"
+        data-form-id="iz3wpzwCI9GQhR3wlwbV"
+        title="Reserve My Private Viewing"
+      ></iframe>
+      <p class="rnote"><b>100% free. No obligation. Totally up to you.</b><br>No pressure, no hard sell, no salesman chasing you. Come feel it for yourself and decide on your own time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHORT FAQ -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="section-label">A few honest questions</div>
+    <h2 class="blockhead">Go ahead — pick yours.</h2>
+    <div class="faq">
+      <details><summary>"Is the free viewing some kind of trap?"</summary><div class="ans">No. It's genuinely free, with no obligation and no hard sell. You can ask every question, feel the difference, and walk away — and that's a completely fine visit. James would rather you make the right call for your family than the fast one. <span class="ph-note">[confirm]</span></div></details>
+      <details><summary>"Can I actually afford one?"</summary><div class="ans">Ownership starts as low as $79/month, and most people are surprised it's less than things they already pay for and barely use. You'll get the real number at your viewing — no pressure to decide anything on the spot. <span class="ph-note">[confirm financing]</span></div></details>
+      <details><summary>"What about North Dakota winters?"</summary><div class="ans">That's exactly when people fall in love with them. 104° water when it's 20 below, steam rolling off the surface in your own backyard, all winter long. The good ones are built for precisely this — and everything Paradise sells is American-made and serviced right here in Minot.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE + PS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="close">
+      <p>The first morning you wake up loose instead of stiff. The first night you sleep straight through. The first time you get down on that floor and just <em>play,</em> with no math first —</p>
+      <p><strong>you don't go back.</strong></p>
+      <p>That's not a sales line. It's what's happened for 10,000+ North Dakota families over 30 years — handed to them by one local family that decided your pain shouldn't be somebody's profit.</p>
+    </div>
+
+    <div class="wrap ps" style="padding-left:0;padding-right:0;">
+      <p style="font-size:15px;color:#2a2d35;margin-bottom:14px;">Come see for yourself this week. No pressure, no obligation — just an open invitation.</p>
+      <p class="sig">James Baker</p>
+      <p class="sigsub">Paradise Spas &amp; Outdoor Living — Minot, North Dakota</p>
+
+      <h3>P.S.</h3>
+      <p>In case you skipped to the bottom: a Minot family hauled a quarter-million dollars of hot tubs onto the Red River Valley Fairgrounds to prove the one thing the pain-and-pill industry doesn't want you to know — twenty minutes a day in 104° water does what the copays never did. James has used it to help 10,000+ families get their movement, their sleep, and their lives back. Reserve a <strong>free, no-pressure</strong> viewing this week. Totally up to you.</p>
+
+      <h3>P.P.S.</h3>
+      <p>It was never the jets. It was never the brand. And it was never really about pain — it was about everything the pain was quietly costing you. The grandkids. The walks. The "maybe later" you're tired of saying. You can keep reading about it… or you can hold a free spot and feel it for yourself this week. Don't be standing in the exact same place next July, wishing you'd just come by.</p>
+    </div>
+
+    <div class="cta" style="margin-top:6px;">
+      <a href="#reserve">Reserve My Private Viewing →</a>
+      <span class="micro">Free · no obligation · Red River Valley Fair, July 3–12</span>
+    </div>
+
+    <p class="disclaim">Hydrotherapy may support circulation, muscle relaxation, sleep, and stress relief and ease everyday aches; individual results vary. It is not a substitute for professional medical care or treatment of any condition — please consult your doctor. <span class="ph-note">[confirm final disclaimer language with compliance before publishing]</span></p>
+  </div>
+</section>
+
+<!-- STICKY CTA -->
+<div class="sticky">
+  <div class="txt">
+    <b>Red River Valley Fair · July 3–12</b>
+    <small>Free, no-pressure viewing · totally up to you</small>
+  </div>
+  <a href="#reserve">Reserve My Spot</a>
+</div>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script src="../call-tracking.js"></script>
+<script src="../pricing-tracking.js"></script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a4454fd638eec5af4195a51"></script>
+</body>
+</html>

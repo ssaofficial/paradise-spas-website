@@ -1,0 +1,115 @@
+/* Red River Valley Fair — gated inventory theme */
+
+/* Neutral overlay — red stays on the card, not the full-screen glow */
+.inventory-gate--rrvf {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 45%, rgba(240, 165, 0, 0.07) 0%, transparent 55%),
+    linear-gradient(165deg, rgba(15, 23, 42, 0.62) 0%, rgba(30, 41, 59, 0.55) 100%);
+  align-items: center;
+  justify-content: center;
+  padding:
+    calc(12px + env(safe-area-inset-top, 0px))
+    16px
+    calc(12px + env(safe-area-inset-bottom, 0px));
+}
+
+.inventory-gate--rrvf .inventory-gate-header {
+  background: linear-gradient(135deg, #8A141B 0%, #B11E26 55%, #E23B3F 100%);
+}
+
+.inventory-gate--rrvf .inventory-gate-eyebrow {
+  color: #FFD56A;
+}
+
+.inventory-gate--rrvf .inventory-gate-stat {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.inventory-gate--rrvf .inventory-gate-form label:not(.inventory-gate-form-consent) {
+  color: #8A141B;
+}
+
+.inventory-gate--rrvf .inventory-gate-form input:focus,
+.inventory-gate--rrvf .inventory-gate-form select:focus {
+  border-color: #B11E26;
+  box-shadow: 0 0 0 3px rgba(177, 30, 38, 0.14);
+}
+
+.inventory-gate--rrvf .inventory-gate-form button[type="submit"],
+.inventory-gate--rrvf .inventory-gate-submit {
+  background: #B11E26;
+}
+
+.inventory-gate--rrvf .inventory-gate-form button[type="submit"]:hover,
+.inventory-gate--rrvf .inventory-gate-submit:hover {
+  background: #8A141B;
+}
+
+.inventory-gate--rrvf .inventory-gate-form-shell {
+  border-color: rgba(177, 30, 38, 0.12);
+}
+
+.inventory-gate--rrvf .inventory-gate-thank-icon {
+  background: rgba(177, 30, 38, 0.12);
+  color: #B11E26;
+}
+
+.inventory-gate--rrvf .inventory-gate-thank h3 {
+  color: #8A141B;
+}
+
+body.inventory-gate-fair .inventory-unlocked-banner {
+  background: rgba(177, 30, 38, 0.08);
+  border-color: rgba(177, 30, 38, 0.22);
+  color: #8A141B;
+}
+
+body.inventory-gate-fair .demo-pill {
+  background: rgba(177, 30, 38, 0.95);
+  color: #fff;
+}
+
+body.inventory-gate-fair .demo-reset {
+  border-color: #fff;
+  color: #fff;
+}
+
+.inventory-gate-scarcity {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(177, 30, 38, 0.07);
+  border: 1px solid rgba(177, 30, 38, 0.14);
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: #5c1a1f;
+  text-align: left;
+}
+
+.inventory-gate-scarcity strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #8A141B;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 640px) {
+  .inventory-gate--rrvf {
+    align-items: center;
+    justify-content: center;
+    padding:
+      calc(12px + env(safe-area-inset-top, 0px))
+      14px
+      calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .inventory-gate--rrvf .inventory-gate-footer {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+}

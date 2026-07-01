@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Thank You | Paradise Spas and Outdoor Living</title>
   <meta name="description" content="Thanks for reaching out to Paradise Spas in Minot, ND. Our team will follow up shortly.">
   <meta name="robots" content="noindex, nofollow">
@@ -64,20 +64,21 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
     <div class="thank-you-icon" aria-hidden="true">&#10003;</div>
     <p class="section-eyebrow">You&#39;re All Set</p>
     <h1 class="thank-you-h1">Thank You!</h1>
-    <p class="thank-you-lead">We received your request and a member of our Minot team will reach out shortly — usually within 2 hours during business hours.</p>
+    <p class="thank-you-lead" id="thankYouLead">We received your request and a member of our Minot team will reach out shortly — usually within 2 hours during business hours.</p>
+    <p class="thank-you-lead" id="thankYouUnlockMsg" hidden>Unlocking your inventory now&hellip; you&#39;ll see in-stock hot tubs, pricing, and monthly payments in just a moment.</p>
 
-    <div class="thank-you-next">
+    <div class="thank-you-next" id="thankYouNextBlock">
       <h2>What happens next?</h2>
       <ul>
         <li>We&#39;ll confirm your info and answer any questions about models, pricing, or financing.</li>
         <li>You can browse in-stock hot tubs, swim spas, and saunas anytime.</li>
-        <li>Prefer to talk now? Call us 24/7 at <a href="tel:7018382614">701-838-2614</a>.</li>
+        <li>Prefer to talk now? Call us 24/7 at <a href="tel:+17017145879">701-714-5879</a>.</li>
       </ul>
     </div>
 
     <div class="thank-you-actions">
-      <a href="inventory.html" class="btn-primary">Browse In-Stock Inventory</a>
-      <a href="tel:7018382614" class="btn-secondary">Call 701-838-2614</a>
+      <a href="inventory.html" class="btn-primary" id="thankYouPrimaryCta">Browse In-Stock Inventory</a>
+      <a href="tel:+17017145879" class="btn-secondary">Call 701-714-5879</a>
     </div>
   </div>
 </section>
@@ -90,5 +91,47 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
 </footer>
 
   <script src="call-tracking.js"></script>
+  <script src="pricing-tracking.js"></script>
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var unlock = params.get('unlock');
+    if (!unlock) return;
+
+    var lead = document.getElementById('thankYouLead');
+    var unlockMsg = document.getElementById('thankYouUnlockMsg');
+    var nextBlock = document.getElementById('thankYouNextBlock');
+    var primaryCta = document.getElementById('thankYouPrimaryCta');
+
+    var storageKey = 'paradise_inventory_unlocked';
+    var returnUrl = 'inventory.html?inventory_unlocked=1';
+
+    if (unlock === 'rrvf-inventory') {
+      storageKey = 'paradise_rrvf_inventory_unlocked';
+      returnUrl = '/inventoryredrivervalleyfair/?inventory_unlocked=1';
+    } else if (unlock !== 'inventory') {
+      return;
+    }
+
+    try {
+      localStorage.setItem(storageKey, '1');
+      localStorage.setItem(storageKey + '_at', String(Date.now()));
+    } catch (err) { /* ignore */ }
+
+    if (lead) lead.hidden = true;
+    if (unlockMsg) unlockMsg.hidden = false;
+    if (nextBlock) nextBlock.hidden = true;
+    if (primaryCta) {
+      primaryCta.textContent = unlock === 'rrvf-inventory'
+        ? 'View Fair Inventory'
+        : 'View Unlocked Inventory';
+      primaryCta.href = returnUrl;
+    }
+
+    setTimeout(function () {
+      window.location.href = returnUrl;
+    }, 1800);
+  })();
+  </script>
 </body>
 </html>

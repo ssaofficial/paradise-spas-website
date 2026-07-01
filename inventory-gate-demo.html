@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>DEMO — Red River Valley Fair Gated Inventory | Paradise Spas</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260701-mobile">
+  <link rel="stylesheet" href="inventory-hot-tubs.css?v=20260630">
+  <link rel="stylesheet" href="inventory-gate.css?v=20260701m">
+  <link rel="stylesheet" href="inventory-gate-fair.css?v=20260701m">
+  <style>
+    .demo-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 16px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .demo-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(177, 30, 38, 0.12);
+      border: 1px solid rgba(177, 30, 38, 0.1);
+    }
+    .demo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: #f4f7fb;
+      padding: 12px;
+    }
+    .demo-card-body { padding: 16px; }
+    .demo-card-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dark-section);
+      margin: 0 0 8px;
+    }
+    .demo-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+    .demo-retail { font-size: 12px; color: var(--text-muted); text-decoration: line-through; }
+    .demo-our { font-size: 15px; font-weight: 700; color: #8A141B; }
+    .demo-save { font-size: 13px; font-weight: 800; color: #15803d; }
+    .demo-mo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #8A141B;
+    }
+    .demo-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      background: #B11E26;
+      color: #fff;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body class="inventory-page inventory-locked inventory-gate-fair demo-page" data-gate-storage-key="paradise_rrvf_inventory_unlocked">
+
+<div class="demo-pill">
+  FAIR DEMO
+  <button type="button" class="demo-reset" id="demoReset">Reset</button>
+</div>
+
+<div class="announcement-bar">
+  Red River Valley Fair Inventory &mdash; Hot Tubs Available For Local Delivery In Minot
+</div>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="paradiselogo.svg" alt="Paradise Spas" width="160" height="40" decoding="async">
+  </a>
+  <a href="tel:+17017145879" class="nav-call-cta"><span>Call Us 24/7</span></a>
+</nav>
+
+<p class="inventory-unlocked-banner">&#10003; Fair inventory unlocked — Red River Valley Fair pricing is now visible.</p>
+
+<div id="inventory-gate" class="inventory-gate inventory-gate--rrvf" role="dialog" aria-modal="true">
+  <div class="inventory-gate-panel">
+    <div class="inventory-gate-header">
+      <img src="paradiselogo.svg" alt="" class="inventory-gate-logo" width="140" height="36" decoding="async">
+      <p class="inventory-gate-eyebrow">Red River Valley Fair &bull; July 3&ndash;12</p>
+      <h2 id="inventory-gate-title">Unlock Fair Inventory &amp; Pricing</h2>
+      <p class="inventory-gate-lead">See in-stock hot tubs with Red River Valley Fair pricing and monthly payments. Quick form — no obligation.</p>
+      <div class="inventory-gate-stats">
+        <span class="inventory-gate-stat">Fair pricing</span>
+        <span class="inventory-gate-stat">17+ in stock</span>
+        <span class="inventory-gate-stat">From $79/mo</span>
+      </div>
+    </div>
+
+    <div class="inventory-gate-scroll-body">
+      <div class="inventory-gate-body" id="demoFormWrap">
+      <form class="inventory-gate-form" id="demoUnlockForm">
+        <label for="demoFair">Are you coming to the Red River Valley Fair?</label>
+        <select id="demoFair" required>
+          <option value="">Select one…</option>
+          <option value="yes">Yes — I&#39;ll be at the fair</option>
+          <option value="maybe">Maybe — still planning</option>
+          <option value="no">No — can&#39;t make it this year</option>
+        </select>
+
+        <label for="demoName">Full name</label>
+        <input type="text" id="demoName" placeholder="Jane Smith" autocomplete="name" required>
+
+        <label for="demoEmail">Email</label>
+        <input type="email" id="demoEmail" placeholder="you@email.com" autocomplete="email" required>
+
+        <label for="demoPhone">Phone</label>
+        <input type="tel" id="demoPhone" placeholder="(701) 555-0100" autocomplete="tel" required>
+
+        <button type="submit">Unlock Fair Inventory <span aria-hidden="true">→</span></button>
+        <p class="inventory-gate-scarcity">
+          <strong>Limited fair inventory</strong>
+          We lock online pricing because these units sell fast at the fair and in-store. A quick form makes sure what you see is still available for local buyers — not held by tire-kickers.
+        </p>
+      </form>
+      </div>
+
+      <div class="inventory-gate-thank" id="demoThankFlash">
+        <div class="inventory-gate-thank-icon">&#10003;</div>
+        <h3>Thank you!</h3>
+        <p>Unlocking inventory now…</p>
+      </div>
+    </div>
+
+    <div class="inventory-gate-footer" id="demoGateFooter">
+      <p class="inventory-gate-trust">&#128274; Demo preview — live fair page uses your GHL form + lead tracking.</p>
+    </div>
+  </div>
+</div>
+
+<div class="inventory-gated-wrap">
+  <section class="ht-inventory-section">
+    <p class="rrvf-inventory-kicker" style="text-align:center;padding-top:12px;">Paradise Spas &bull; Red River Valley Fair</p>
+    <h1>Hot Tubs Available For Local Delivery</h1>
+    <p class="ht-sub">Browse fair inventory with discounted pricing once you unlock above.</p>
+    <p class="ht-results-bar"><strong>6</strong> hot tubs shown</p>
+    <div class="demo-card-grid">
+      <article class="demo-card">
+        <img src="product-strong-g2.png" alt="Strong Spas G-2">
+        <div class="demo-card-body">
+          <h3>Strong Spas G-2 36-Jet Lounger</h3>
+          <div class="demo-price-row">
+            <div>
+              <p class="demo-retail">Retail $10,995</p>
+              <p class="demo-our">Our Price $9,995</p>
+              <p class="demo-save">Save $1,000</p>
+            </div>
+            <p class="demo-mo">$99/mo</p>
+          </div>
+          <span class="demo-cta">Find Out Discounted Fair Price →</span>
+        </div>
+      </article>
+      <article class="demo-card">
+        <img src="product-artesian-748b.png" alt="Artesian 748B">
+        <div class="demo-card-body">
+          <h3>Artesian South Seas 748B Deluxe</h3>
+          <div class="demo-price-row">
+            <div>
+              <p class="demo-retail">Retail $11,995</p>
+              <p class="demo-our">Our Price $10,495</p>
+              <p class="demo-save">Save $1,500</p>
+            </div>
+            <p class="demo-mo">$120/mo</p>
+          </div>
+          <span class="demo-cta">Find Out Discounted Fair Price →</span>
+        </div>
+      </article>
+      <article class="demo-card">
+        <img src="product-strong-g2.png" alt="Family spa">
+        <div class="demo-card-body">
+          <h3>Family Spa 5-Person — In Stock</h3>
+          <div class="demo-price-row">
+            <div>
+              <p class="demo-retail">Retail $9,499</p>
+              <p class="demo-our">Our Price $8,299</p>
+              <p class="demo-save">Save $1,200</p>
+            </div>
+            <p class="demo-mo">$89/mo</p>
+          </div>
+          <span class="demo-cta">Find Out Discounted Fair Price →</span>
+        </div>
+      </article>
+      <article class="demo-card">
+        <img src="product-artesian-748b.png" alt="Lounger spa">
+        <div class="demo-card-body">
+          <h3>7-Person Lounger — Best Seller</h3>
+          <div class="demo-price-row">
+            <div>
+              <p class="demo-retail">Retail $12,995</p>
+              <p class="demo-our">Our Price $11,495</p>
+              <p class="demo-save">Save $1,500</p>
+            </div>
+            <p class="demo-mo">$129/mo</p>
+          </div>
+          <span class="demo-cta">Find Out Discounted Fair Price →</span>
+        </div>
+      </article>
+      <article class="demo-card">
+        <img src="product-swim-spa.png" alt="Swim spa">
+        <div class="demo-card-body">
+          <h3>TidalFit R200 Dual Zone Swim Spa</h3>
+          <div class="demo-price-row">
+            <div>
+              <p class="demo-retail">Retail $24,995</p>
+              <p class="demo-our">Our Price $22,995</p>
+              <p class="demo-save">Save $2,000</p>
+            </div>
+            <p class="demo-mo">$149/mo</p>
+          </div>
+          <span class="demo-cta">Find Out Discounted Fair Price →</span>
+        </div>
+      </article>
+      <article class="demo-card">
+        <img src="product-pro6-sauna.png" alt="Sauna">
+        <div class="demo-card-body">
+          <h3>Pro 6 Melanie 3-Person Sauna</h3>
+          <div class="demo-price-row">
+            <div>
+              <p class="demo-retail">Retail $4,995</p>
+              <p class="demo-our">Our Price $3,995</p>
+              <p class="demo-save">Save $1,000</p>
+            </div>
+            <p class="demo-mo">$99/mo</p>
+          </div>
+          <span class="demo-cta">Find Out Discounted Fair Price →</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('demoUnlockForm');
+  var formWrap = document.getElementById('demoFormWrap');
+  var thankFlash = document.getElementById('demoThankFlash');
+  var footer = document.getElementById('demoGateFooter');
+  var resetBtn = document.getElementById('demoReset');
+  var scrollY = 0;
+  var scrollLocked = false;
+
+  function isInsideScrollableGate(target) {
+    if (!target || !target.closest) return false;
+    return !!target.closest('.inventory-gate-panel, .inventory-gate-scroll-body');
+  }
+
+  function blockScrollEvent(e) {
+    if (!document.body.classList.contains('inventory-locked')) return;
+    if (isInsideScrollableGate(e.target)) return;
+    e.preventDefault();
+  }
+
+  function scrollFocusedFieldIntoView(e) {
+    var gate = document.getElementById('inventory-gate');
+    if (!gate || gate.hidden) return;
+    var scrollBody = gate.querySelector('.inventory-gate-scroll-body');
+    if (!scrollBody) return;
+    var target = e.target;
+    if (!scrollBody.contains(target)) return;
+    if (!target.matches || !target.matches('input, select, textarea, button')) return;
+    requestAnimationFrame(function () {
+      try {
+        target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      } catch (err) {
+        target.scrollIntoView(false);
+      }
+    });
+  }
+
+  function enableScrollLock() {
+    if (scrollLocked) return;
+    scrollLocked = true;
+    document.documentElement.classList.add('inventory-locked');
+    document.addEventListener('touchmove', blockScrollEvent, { passive: false });
+    document.addEventListener('wheel', blockScrollEvent, { passive: false });
+    document.addEventListener('focusin', scrollFocusedFieldIntoView);
+  }
+
+  function disableScrollLock() {
+    if (!scrollLocked) return;
+    scrollLocked = false;
+    document.documentElement.classList.remove('inventory-locked');
+    document.removeEventListener('touchmove', blockScrollEvent, { passive: false });
+    document.removeEventListener('wheel', blockScrollEvent, { passive: false });
+    document.removeEventListener('focusin', scrollFocusedFieldIntoView);
+  }
+
+  function lockDemo() {
+    scrollY = window.scrollY || 0;
+    document.body.classList.add('inventory-locked');
+    document.body.classList.remove('inventory-unlocked');
+    document.getElementById('inventory-gate').hidden = false;
+    formWrap.hidden = false;
+    footer.hidden = false;
+    thankFlash.classList.remove('is-visible');
+    form.reset();
+    enableScrollLock();
+  }
+
+  function unlockDemo() {
+    disableScrollLock();
+    document.body.classList.remove('inventory-locked');
+    document.body.classList.add('inventory-unlocked');
+    window.scrollTo(0, scrollY);
+    document.getElementById('inventory-gate').hidden = true;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    formWrap.hidden = true;
+    footer.hidden = true;
+    thankFlash.classList.add('is-visible');
+    setTimeout(unlockDemo, 1200);
+  });
+
+  resetBtn.addEventListener('click', lockDemo);
+  lockDemo();
+})();
+</script>
+</body>
+</html>
