@@ -160,7 +160,7 @@ body.inventory-unlocked .inventory-gated-wrap {
   text-align: left;
 }
 
-.inventory-gate-form label:not(.inventory-gate-form-consent) {
+.inventory-gate-form label {
   display: block;
   font-size: 12px;
   font-weight: 700;
@@ -170,7 +170,8 @@ body.inventory-unlocked .inventory-gated-wrap {
 }
 
 .inventory-gate-form input,
-.inventory-gate-form select {
+.inventory-gate-form select,
+.inventory-gate-form textarea {
   width: 100%;
   min-height: 42px;
   border: 1.5px solid var(--divider, #E8E4DC);
@@ -185,7 +186,8 @@ body.inventory-unlocked .inventory-gated-wrap {
 }
 
 .inventory-gate-form input:focus,
-.inventory-gate-form select:focus {
+.inventory-gate-form select:focus,
+.inventory-gate-form textarea:focus {
   outline: none;
   border-color: var(--dark-section, #0d4cae);
   box-shadow: 0 0 0 3px rgba(13, 76, 174, 0.12);
@@ -250,22 +252,18 @@ body.inventory-unlocked .inventory-gated-wrap {
   font-weight: 600;
 }
 
-.inventory-gate-form-consent {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  margin: 4px 0 10px;
-  font-size: 11px;
+.inventory-gate-form-disclaimer {
+  margin: 10px 0 0;
+  font-size: 10px;
   line-height: 1.45;
-  color: var(--text-secondary, #555);
-  font-weight: 500;
+  color: var(--text-secondary, #777);
+  font-weight: 400;
+  text-align: center;
 }
 
-.inventory-gate-form-consent input[type="checkbox"] {
-  width: auto;
-  min-height: auto;
-  margin: 3px 0 0;
-  flex-shrink: 0;
+.inventory-gate-form-disclaimer a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .inventory-gate-form-honeypot {
@@ -428,7 +426,7 @@ body.inventory-unlocked .inventory-unlocked-banner {
     padding-bottom: 2px;
   }
 
-  .inventory-gate-form label:not(.inventory-gate-form-consent) {
+  .inventory-gate-form label {
     font-size: 11px;
     margin-bottom: 3px;
   }
@@ -446,18 +444,10 @@ body.inventory-unlocked .inventory-unlocked-banner {
     font-size: 14px;
   }
 
-  .inventory-gate-form-consent {
-    min-height: 44px;
-    align-items: center;
-    padding: 4px 0;
-  }
-
-  .inventory-gate-form-consent input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    margin: 0;
+  .inventory-gate-form-disclaimer {
+    font-size: 10px;
+    line-height: 1.4;
+    margin-top: 8px;
   }
 
   .inventory-gate-form-shell:has(iframe),

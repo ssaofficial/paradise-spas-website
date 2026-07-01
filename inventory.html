@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260701-mobile">
   <link rel="stylesheet" href="inventory-hot-tubs.css?v=20260630">
-  <link rel="stylesheet" href="inventory-gate.css?v=20260701m">
+  <link rel="stylesheet" href="inventory-gate.css?v=20260702d">
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -940,7 +940,7 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
       <div class="inventory-gate-body">
       <div class="inventory-gate-form-shell inventory-gate-form-shell--native" data-gate-form="native">
         <p id="paradise-lead-error" class="inventory-gate-form-error" hidden></p>
-        <form class="inventory-gate-form" id="paradise-lead-form" novalidate>
+        <form class="inventory-gate-form paradise-lead-form" id="paradise-lead-form" data-paradise-lead-form data-lead-source="inventory-gate" data-lead-success="unlock" novalidate>
           <div class="inventory-gate-form-honeypot" aria-hidden="true">
             <label for="website_url">Website</label>
             <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
@@ -963,14 +963,10 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
           <label for="phone">Phone</label>
           <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(701) 555-0100">
 
-          <label class="inventory-gate-form-consent">
-            <input type="checkbox" name="consent" value="yes" required>
-            <span>By submitting, I consent to receive calls, texts, and emails from Paradise Spas, including automated messages. Consent is not required to purchase. Reply STOP to opt out of texts or call 701-714-5879.</span>
-          </label>
-
           <div class="inventory-gate-turnstile cf-turnstile" data-sitekey="" data-theme="light"></div>
 
           <button type="submit">Unlock Inventory <span aria-hidden="true">&rarr;</span></button>
+          <p class="inventory-gate-form-disclaimer">By submitting, I consent to receive calls, texts, and emails from Paradise Spas, including automated messages. Consent is not required to purchase. Reply STOP to opt out of texts or call <a href="tel:+17017145879">701-714-5879</a>.</p>
         </form>
       </div>
       </div>
@@ -1288,29 +1284,16 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
     <div class="ghl-modal-trust">
       <span class="ghl-trust-badge"><span class="ghl-trust-icon" aria-hidden="true">&#128274;</span> No spam — we respect your privacy</span>
     </div>
-    <div class="ghl-form-shell" id="ghl-form-shell">
-      <div class="ghl-form-loader" id="ghl-form-loader" aria-live="polite">
-        <span class="ghl-form-loader-spinner" aria-hidden="true"></span>
-        <span>Loading form…</span>
-      </div>
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/iz3wpzwCI9GQhR3wlwbV"
-        class="ghl-form-iframe"
-        id="inline-ghl-modal-form"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="WEBSITE FORM"
-        data-height="595"
-        data-layout-iframe-id="inline-ghl-modal-form"
-        data-form-id="iz3wpzwCI9GQhR3wlwbV"
-        title="WEBSITE FORM"
-      ></iframe>
-    </div>
+    <div class="ghl-form-shell" id="ghl-form-shell"
+         data-native-form
+         data-lead-source="pricing_modal"
+         data-submit-label="Get My Local Price &amp;rarr;"
+         data-show-financing="true"
+         data-show-product="true"
+         data-lead-success="thank-you"
+         data-field-prefix="ghl-"
+         data-form-id="ghl-modal-lead-form"
+         data-error-id="ghl-modal-lead-error"></div>
   </div>
 </div>
 
@@ -1538,9 +1521,9 @@ if (htChipReset) {
 </script>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script src="inventory-gate.js?v=20260701m"></script>
-<script src="lead-form.js?v=20260702a"></script>
+<script src="native-form.js?v=20260702d"></script>
+<script src="lead-form.js?v=20260702d"></script>
 <script src="ghl-modal.js"></script>
 <script src="inventory-hot-tubs.js?v=20260701"></script>
 <script>

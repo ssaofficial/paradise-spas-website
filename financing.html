@@ -7,6 +7,7 @@
   <meta name="description" content="Flexible hot tub financing from $79/month. Prequalify in minutes without affecting your credit score. Paradise Spas and Outdoor Living, Minot, ND.">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260701-mobile">
+  <link rel="stylesheet" href="inventory-gate.css?v=20260702d">
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -40,7 +41,7 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 </head>
-<body>
+<body data-lead-api="/api/lead" data-turnstile-site-key="">
 
 <!-- [1] ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
@@ -122,24 +123,17 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
     <div class="financing-inline-form">
       <h2 class="financing-form-heading">Prequalify Now — It's Free</h2>
       <p class="financing-form-sub">Check your rate in minutes — no obligation and no impact to your credit score.</p>
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/iz3wpzwCI9GQhR3wlwbV"
-        style="width:100%;height:595px;border:none;border-radius:8px"
-        id="inline-financing-form"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="WEBSITE FORM"
-        data-height="595"
-        data-layout-iframe-id="inline-financing-form"
-        data-form-id="iz3wpzwCI9GQhR3wlwbV"
-        title="WEBSITE FORM"
-      ></iframe>
-      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      <div class="paradise-native-form-shell"
+           data-native-form
+           data-lead-source="financing-page"
+           data-submit-label="Check My Rate &amp;rarr;"
+           data-show-financing="true"
+           data-financing-required="false"
+           data-lead-success="thank-you"
+           data-field-prefix="financing-"
+           data-form-id="financing-lead-form"
+           data-error-id="financing-lead-error"></div>
+
     </div>
 
     <p class="financing-page-disclaimer">Financing subject to credit approval. Terms and rates vary. Monthly payment example based on promotional financing offer. See dealer for complete details.</p>
@@ -208,5 +202,8 @@ document.getElementById('navHamburger').addEventListener('click', function() {
 
   <script src="call-tracking.js"></script>
   <script src="pricing-tracking.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="native-form.js?v=20260702d"></script>
+<script src="lead-form.js?v=20260702d"></script>
 </body>
 </html>

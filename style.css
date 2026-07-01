@@ -2545,6 +2545,28 @@ html {
   background: #F7F4EF;
 }
 
+/* Native lead forms (shared with inventory gate) */
+.paradise-native-form-shell {
+  margin-top: 8px;
+}
+
+.paradise-native-form-shell .inventory-gate-form {
+  text-align: left;
+}
+
+.ghl-form-shell.is-ready,
+.ghl-form-shell[data-native-form].is-ready {
+  min-height: auto;
+}
+
+.ghl-form-shell .inventory-gate-turnstile {
+  display: none;
+}
+
+.ghl-modal-panel .inventory-gate-form-disclaimer {
+  font-size: 9px;
+}
+
 /* Product pages: hide chat bubble while pricing form modal is open */
 body.ghl-modal-open #lc_web_chat,
 body.ghl-modal-open .lc_web_chat,

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hot Tub Sale | Paradise Spas and Outdoor Living — Minot, ND</title>
+<meta name="description" content="Save up to $5,000 on a new hot tub from Paradise Spas. 30+ years serving North Dakota. In-stock models, local delivery, financing from $79/month.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #09122c;
+    --navy-text: #0d4cae;
+    --amber: #F0A500;
+    --amber-hover: #d4920a;
+    --page: #eeeeee;
+    --white: #ffffff;
+    --muted: #989898;
+    --star: #f0a500;
+    --content: 353px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Open Sans', system-ui, sans-serif;
+    color: #000;
+    background: var(--page);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── 1. Urgency bar ── */
+  .urgency-bar {
+    background: var(--amber);
+    text-align: center;
+    padding: 17px 16px;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--navy-text);
+    line-height: 1.2;
+  }
+
+  /* ── 2. Logo bar ── */
+  .logo-bar {
+    background: var(--white);
+    text-align: center;
+    padding: 22px 16px;
+  }
+  .logo-bar img {
+    margin: 0 auto;
+    height: 48px;
+    width: auto;
+  }
+
+  /* ── 3. Hero (background photo + stacked cards) ── */
+  .hero {
+    position: relative;
+    background: var(--white) url('../lifestyle-hot-tub.png') center top / cover no-repeat;
+    padding: 12px 18px 24px;
+    min-height: 820px;
+  }
+  .hero-stack {
+    max-width: var(--content);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .offer-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 24px 20px 20px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,.12);
+    margin-bottom: 10px;
+  }
+  .offer-card h1 {
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.08;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .offer-card .month {
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--navy);
+    margin-top: 6px;
+  }
+  .offer-card .deadline {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-top: 4px;
+  }
+
+  .form-card {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 26px 20px 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.2);
+  }
+  .form-badge {
+    background: var(--amber);
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .form-badge span {
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .form-title {
+    text-align: center;
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .form-card .ghl-inline {
+    width: 100%;
+    min-height: 430px;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    background: var(--white);
+  }
+  .form-disclaimer {
+    margin-top: 12px;
+    font-size: 9px;
+    line-height: 1.45;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ── 4. Review card ── */
+  .section-pad {
+    max-width: var(--content);
+    margin: 0 auto;
+    padding: 0 18px;
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 22px 20px;
+    margin-top: 20px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.08);
+  }
+  .review-card .stars {
+    color: var(--star);
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .review-card .quote {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    margin-bottom: 14px;
+  }
+  .review-card .author-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .review-card .google-g {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    color: #4285f4;
+    flex-shrink: 0;
+  }
+  .review-card .author-name {
+    font-weight: 800;
+    font-size: 18px;
+    color: #000;
+  }
+  .review-card .tagline {
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+  }
+
+  /* ── Mobile promo repeat (Hansons pattern) ── */
+  .mobile-promo {
+    text-align: center;
+    padding: 24px 18px 8px;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--amber);
+    line-height: 1.2;
+  }
+  .mid-disclaimer {
+    max-width: var(--content);
+    margin: 0 auto;
+    padding: 8px 18px 16px;
+    font-size: 8px;
+    line-height: 1.5;
+    color: #000;
+    text-align: center;
+  }
+
+  /* ── 5. Gallery ── */
+  .gallery-block {
+    background: var(--white);
+    padding: 28px 18px 8px;
+  }
+  .gallery-block h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--navy-text);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    max-width: var(--content);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gallery-photos {
+    max-width: var(--content);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .gallery-photos img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+  }
+
+  /* ── 6. CTA buttons (full-width Hansons style) ── */
+  .cta-wrap {
+    padding: 28px 30px;
+    max-width: calc(var(--content) + 60px);
+    margin: 0 auto;
+  }
+  .btn-quote {
+    display: block;
+    width: 100%;
+    background: var(--amber);
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    padding: 18px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: .02em;
+    line-height: 1.2;
+  }
+  .btn-quote:hover { background: var(--amber-hover); }
+
+  /* ── 7. Trust section ── */
+  .trust-block {
+    background: var(--white);
+    padding: 32px 18px 8px;
+  }
+  .trust-block h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--navy-text);
+    line-height: 1.25;
+    margin-bottom: 22px;
+    max-width: var(--content);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .trust-reviews {
+    max-width: var(--content);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ── 8. Closing — light block (headline + 2 photos) ── */
+  .close-light {
+    background: var(--white);
+    padding: 32px 18px 20px;
+    text-align: center;
+  }
+  .close-light h2 {
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--navy-text);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    max-width: var(--content);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .close-duo {
+    max-width: var(--content);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .close-duo img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+  }
+
+  /* ── 9. Closing — dark block ── */
+  .close-dark {
+    background: var(--navy-text);
+    padding: 32px 18px 36px;
+    text-align: center;
+    color: var(--white);
+  }
+  .close-dark .sub {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.35;
+    max-width: 340px;
+    margin: 0 auto 22px;
+  }
+  .close-dark .stars-badge {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 10px 18px;
+    background: rgba(255,255,255,.08);
+    border-radius: 6px;
+  }
+  .close-dark .stars-badge .stars {
+    color: var(--star);
+    font-size: 22px;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .close-dark .stars-badge .label {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: .85;
+  }
+  .close-dark h2 {
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.25;
+  }
+  .close-dark .hero-shot {
+    max-width: var(--content);
+    margin: 24px auto 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .close-dark .hero-shot img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+  }
+  .close-dark .limited {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 22px;
+    color: var(--white);
+  }
+  .close-dark .cta-wrap { padding-top: 0; padding-bottom: 0; }
+
+  /* ── 10. Footer ── */
+  .site-footer {
+    background: var(--white);
+    padding: 20px 18px 28px;
+    text-align: center;
+  }
+  .site-footer p {
+    font-size: 14px;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer .fine {
+    font-size: 12px;
+    line-height: 1.45;
+    max-width: 360px;
+    margin: 0 auto 12px;
+  }
+  .site-footer .fb {
+    font-size: 8px;
+    line-height: 1.5;
+    max-width: 360px;
+    margin: 0 auto;
+    color: #000;
+  }
+
+  @media (min-width: 480px) {
+    :root { --content: 420px; }
+    .offer-card h1 { font-size: 40px; }
+    .urgency-bar { font-size: 22px; }
+  }
+
+  @media (min-width: 768px) {
+    :root { --content: 642px; }
+    .hero { min-height: 900px; padding: 20px 24px 32px; }
+    .offer-card h1 { font-size: 48px; }
+    .gallery-block h2,
+    .trust-block h2 { font-size: 26px; }
+    .close-light h2,
+    .close-dark h2 { font-size: 28px; }
+    .close-dark .sub { font-size: 22px; max-width: 520px; }
+  }
+</style>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xeoe7g20ml");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5WGSEGZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E5WGSEGZYP');
+</script>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1317738110513512');
+fbq('track', 'PageView');
+</script>
+  <link rel="stylesheet" href="../inventory-gate.css?v=20260702d">
+</head>
+<body data-lead-api="/api/lead" data-turnstile-site-key="">
+
+<!-- 1. URGENCY BAR -->
+<div class="urgency-bar">Get Up To $5,000 OFF Hot Tub Installation!!</div>
+
+<!-- 2. LOGO -->
+<div class="logo-bar">
+  <img src="../paradiselogo.svg" alt="Paradise Spas and Outdoor Living" width="200" height="50" decoding="async">
+</div>
+
+<!-- 3. HERO: offer card + form on background photo -->
+<section class="hero" id="quote">
+  <div class="hero-stack">
+    <div class="offer-card">
+      <h1>Get Up To $5,000 OFF<br>Hot Tub Installations!</h1>
+      <p class="month">This Summer</p>
+      <p class="deadline">Sale ends July 31*</p>
+    </div>
+
+    <div class="form-card">
+      <div class="form-badge"><span>First 50 North Dakota Homeowners Only</span></div>
+      <p class="form-title">See if you qualify here:</p>
+      <div data-native-form
+           data-lead-source="hot-tub-offer"
+           data-submit-label="See If I Qualify &amp;rarr;"
+           data-show-financing="true"
+           data-financing-required="false"
+           data-lead-success="thank-you"
+           data-field-prefix="offer-"
+           data-form-id="offer-lead-form"
+           data-error-id="offer-lead-error"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FIRST REVIEW (Hansons order: stars → quote → author → tagline) -->
+<div class="section-pad">
+  <div class="review-card">
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="quote">Customer service was great from the purchase to the delivery. We really wanted our new hot tub before family came into town and James made that happen! Riley and Josh delivered our new hot tub and were exceptional! They had the old one out and new one in in no time! I cannot thank these guys enough! We love our new hot tub!</p>
+    <div class="author-row">
+      <span class="google-g">G</span>
+      <span class="author-name">Katie P, Google</span>
+    </div>
+    <p class="tagline">Paradise Spas did a wonderful job!</p>
+  </div>
+</div>
+
+<!-- Mobile promo repeat + mid disclaimers (Hansons pattern) -->
+<p class="mobile-promo">Get Up To $5,000 OFF Hot Tub Installation!!</p>
+<p class="mid-disclaimer">*Certain offers are not combinable.<br><br>This site is not a part of the Facebook&trade; website or Facebook&trade; Inc. Additionally, this site is NOT endorsed by Facebook&trade; in any way. FACEBOOK&trade; is a trademark of FACEBOOK&trade;, Inc.</p>
+
+<!-- 5. GALLERY -->
+<section class="gallery-block">
+  <h2>Check out some of our recent installations!</h2>
+  <div class="gallery-photos">
+    <img src="../lifestyle-hot-tub.png" alt="Hot tub installed on a North Dakota patio" loading="lazy" width="800" height="600">
+    <img src="../showroom-interior.webp" alt="Paradise Spas showroom in Minot, ND" loading="lazy" width="800" height="600">
+  </div>
+</section>
+
+<!-- 6. CTA -->
+<div class="cta-wrap">
+  <a href="/inventoryredrivervalleyfair/" class="btn-quote">View Available Inventory</a>
+</div>
+
+<!-- 7. TRUST + REVIEWS -->
+<section class="trust-block">
+  <h2>30+ Years and 10,000+ Hot Tubs Delivered Across North Dakota</h2>
+  <div class="trust-reviews">
+    <div class="review-card" style="margin-top:0;">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">Sooooo happy with the whole process of getting our new hot tub! From the sales guys to the installers! Riley and Josh were able to get this hot tub all the way around the back of the house down a hill! I don't know how they did it but they were able to do it perfectly! They were both super friendly as well. Thank you!</p>
+      <div class="author-row">
+        <span class="google-g">G</span>
+        <span class="author-name">Stephanie P, Google</span>
+      </div>
+      <p class="tagline">Would recommend to anyone!</p>
+    </div>
+    <div class="review-card" style="margin-top:0;">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">My aquatic tub has been delivered. Terry and the crew did a great job unloading the tub in the right location and gave me a quick tutorial on how to maintain my new tub. Thanks Terry and staff.</p>
+      <div class="author-row">
+        <span class="google-g">G</span>
+        <span class="author-name">Carol P, Google</span>
+      </div>
+      <p class="tagline">Definitely using again in the future!</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CTA -->
+<div class="cta-wrap">
+  <a href="/inventoryredrivervalleyfair/" class="btn-quote">View Available Inventory</a>
+</div>
+
+<!-- 9. CLOSING — light (headline + side-by-side photos) -->
+<section class="close-light">
+  <h2>Ready to Upgrade Your Backyard?</h2>
+  <div class="close-duo">
+    <img src="../product-artesian-748b.png" alt="Artesian hot tub installation" loading="lazy" width="400" height="530">
+    <img src="../product-strong-g2.png" alt="Strong Spas hot tub delivery" loading="lazy" width="400" height="530">
+  </div>
+</section>
+
+<!-- 10. CLOSING — dark (subtitle, stars, repeat headline, CTA, hero image, urgency) -->
+<section class="close-dark">
+  <p class="sub">Competitive pricing backed by premium American-made spas. Hot tub delivery and setup completed by your local Minot team.</p>
+  <div class="stars-badge">
+    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span class="label">4.9 out of 5 — 170 Google Reviews</span>
+  </div>
+  <h2>Ready to Upgrade Your Backyard?</h2>
+  <div class="cta-wrap">
+    <a href="/inventoryredrivervalleyfair/" class="btn-quote">View Available Inventory</a>
+  </div>
+  <div class="hero-shot">
+    <img src="../showroom-staff.webp" alt="Paradise Spas team delivering a hot tub in Minot" loading="lazy" width="800" height="500">
+  </div>
+  <p class="limited">Limited spots. Book now.</p>
+</section>
+
+<!-- 11. FOOTER -->
+<footer class="site-footer">
+  <p>&copy; 2026 Paradise Spas and Outdoor Living. All rights reserved. | <a href="https://www.paradisespas.com/contact">Contact Us</a></p>
+  <p class="fine">Cannot be combined with other offers. Subject to credit approval. Not valid on prior sales. Restrictions may apply. Call for details.</p>
+  <p class="fb">This site is not a part of the Facebook&trade; website or Facebook&trade; Inc. Additionally, this site is NOT endorsed by Facebook&trade; in any way. FACEBOOK&trade; is a trademark of FACEBOOK&trade;, Inc.</p>
+</footer>
+
+<script src="../call-tracking.js"></script>
+<script src="../pricing-tracking.js"></script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a4454fd638eec5af4195a51"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="../native-form.js?v=20260702d"></script>
+<script src="../lead-form.js?v=20260702d"></script>
+</body>
+</html>

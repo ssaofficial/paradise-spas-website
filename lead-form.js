@@ -1,26 +1,12 @@
 /**
- * Native lead form → /api/lead (Cloudflare Pages Function)
- * Requires body[data-lead-source] on inventory gate pages.
+ * Native lead forms → /api/lead (Cloudflare Pages Function)
  */
 (function () {
-  var form = document.getElementById('paradise-lead-form');
-  if (!form) return;
-
   var body = document.body;
-  var source = body.getAttribute('data-lead-source') || 'website-form';
-  var apiPath = body.getAttribute('data-lead-api') || '/api/lead';
-  var submitBtn = form.querySelector('[type="submit"]');
-  var errorEl = document.getElementById('paradise-lead-error');
+  var defaultApiPath = body.getAttribute('data-lead-api') || '/api/lead';
   var siteKey = body.getAttribute('data-turnstile-site-key') || '';
-  var turnstileEl = form.querySelector('.cf-turnstile');
   var LEAD_VALUE = 950;
   var LEAD_CURRENCY = 'USD';
-
-  if (turnstileEl && siteKey) {
-    turnstileEl.setAttribute('data-sitekey', siteKey);
-  } else if (turnstileEl && !siteKey) {
-    turnstileEl.hidden = true;
-  }
 
   function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
@@ -43,13 +29,28 @@
     return 'fb.1.' + Date.now() + '.' + fbclid;
   }
 
-  function showError(message) {
+  function getErrorEl(form) {
+    var errorId = form.getAttribute('data-error-id');
+    if (errorId) {
+      var byId = document.getElementById(errorId);
+      if (byId) return byId;
+    }
+    var shell = form.closest('[data-native-form], .inventory-gate-form-shell');
+    if (shell) {
+      var shellError = shell.querySelector('.paradise-lead-error, .inventory-gate-form-error');
+      if (shellError) return shellError;
+    }
+    return document.getElementById('paradise-lead-error');
+  }
+
+  function showError(form, message) {
+    var errorEl = getErrorEl(form);
     if (!errorEl) return;
     errorEl.textContent = message;
     errorEl.hidden = !message;
   }
 
-  function trackGenerateLead(eventId) {
+  function trackGenerateLead(source, eventId) {
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
         event_category: 'engagement',
@@ -68,7 +69,7 @@
     }
   }
 
-  function getTurnstileToken() {
+  function getTurnstileToken(form) {
     if (!siteKey || !window.turnstile) return '';
     var widget = form.querySelector('.cf-turnstile');
     if (!widget) return '';
@@ -79,74 +80,121 @@
     }
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    showError('');
+  function setupTurnstile(form) {
+    var turnstileEl = form.querySelector('.cf-turnstile');
+    if (!turnstileEl) return null;
+    if (siteKey) {
+      turnstileEl.setAttribute('data-sitekey', siteKey);
+    } else {
+      turnstileEl.hidden = true;
+    }
+    return turnstileEl;
+  }
 
-    if (siteKey && turnstileEl && !turnstileEl.hidden && !getTurnstileToken()) {
-      showError('Please complete the security check.');
+  function handleSuccess(form) {
+    var mode = form.getAttribute('data-lead-success') || 'thank-you';
+
+    if (mode === 'unlock' && window.ParadiseInventoryGate && typeof window.ParadiseInventoryGate.unlock === 'function') {
+      window.ParadiseInventoryGate.unlock();
       return;
     }
 
-    var consent = form.querySelector('[name="consent"]');
-    if (consent && !consent.checked) {
-      showError('Please accept the consent statement to continue.');
-      return;
+    if (mode === 'close-modal' && window.ParadiseGhlModal && typeof window.ParadiseGhlModal.close === 'function') {
+      window.ParadiseGhlModal.close();
     }
 
-    var eventId = createEventId();
-    var payload = {
-      source: source,
-      full_name: (form.querySelector('[name="full_name"]') || {}).value || '',
-      email: (form.querySelector('[name="email"]') || {}).value || '',
-      phone: (form.querySelector('[name="phone"]') || {}).value || '',
-      fair_attendance: (form.querySelector('[name="fair_attendance"]') || {}).value || '',
-      financing_interest: (form.querySelector('[name="financing_interest"]') || {}).value || '',
-      page_url: window.location.href,
-      consent: !!(consent && consent.checked),
-      turnstile_token: getTurnstileToken(),
-      website_url: (form.querySelector('[name="website_url"]') || {}).value || '',
-      meta_event_id: eventId,
-      fbp: getCookie('_fbp'),
-      fbc: getFbc()
-    };
-
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.setAttribute('aria-busy', 'true');
+    if (mode === 'thank-you' || mode === 'close-modal') {
+      window.location.href = body.getAttribute('data-thank-you-url') || '/thank-you.html';
     }
+  }
 
-    fetch(apiPath, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(function (res) {
-        return res.json().catch(function () { return { ok: false, error: 'Unexpected server response.' }; })
-          .then(function (data) { return { res: res, data: data }; });
-      })
-      .then(function (result) {
-        if (!result.data.ok) {
-          throw new Error(result.data.error || 'Something went wrong. Please call 701-714-5879.');
-        }
+  function bindForm(form) {
+    if (form.dataset.leadBound === '1') return;
+    form.dataset.leadBound = '1';
 
-        trackGenerateLead(result.data.meta_event_id || eventId);
+    var apiPath = form.getAttribute('data-lead-api') || defaultApiPath;
+    var source = form.getAttribute('data-lead-source') || body.getAttribute('data-lead-source') || 'website-form';
+    var submitBtn = form.querySelector('[type="submit"]');
+    var turnstileEl = setupTurnstile(form);
 
-        if (window.ParadiseInventoryGate && typeof window.ParadiseInventoryGate.unlock === 'function') {
-          window.ParadiseInventoryGate.unlock();
-        }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      showError(form, '');
+
+      if (siteKey && turnstileEl && !turnstileEl.hidden && !getTurnstileToken(form)) {
+        showError(form, 'Please complete the security check.');
+        return;
+      }
+
+      var eventId = createEventId();
+      var payload = {
+        source: source,
+        full_name: (form.querySelector('[name="full_name"]') || {}).value || '',
+        email: (form.querySelector('[name="email"]') || {}).value || '',
+        phone: (form.querySelector('[name="phone"]') || {}).value || '',
+        message: (form.querySelector('[name="message"]') || {}).value || '',
+        fair_attendance: (form.querySelector('[name="fair_attendance"]') || {}).value || '',
+        financing_interest: (form.querySelector('[name="financing_interest"]') || {}).value || '',
+        product_name: (form.querySelector('[name="product_name"]') || {}).value || '',
+        product_category: (form.querySelector('[name="product_category"]') || {}).value || '',
+        estimated_retail_price: (form.querySelector('[name="estimated_retail_price"]') || {}).value || '',
+        our_price: (form.querySelector('[name="our_price"]') || {}).value || '',
+        monthly_payment: (form.querySelector('[name="monthly_payment"]') || {}).value || '',
+        page_url: window.location.href,
+        consent: true,
+        turnstile_token: getTurnstileToken(form),
+        website_url: (form.querySelector('[name="website_url"]') || {}).value || '',
+        meta_event_id: eventId,
+        fbp: getCookie('_fbp'),
+        fbc: getFbc()
+      };
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+      }
+
+      fetch(apiPath, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       })
-      .catch(function (err) {
-        showError(err.message || 'Something went wrong. Please call 701-714-5879.');
-        if (window.turnstile && siteKey) {
-          try { window.turnstile.reset(); } catch (resetErr) { /* ignore */ }
-        }
-      })
-      .finally(function () {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.removeAttribute('aria-busy');
-        }
-      });
-  });
+        .then(function (res) {
+          return res.json().catch(function () { return { ok: false, error: 'Unexpected server response.' }; })
+            .then(function (data) { return { res: res, data: data }; });
+        })
+        .then(function (result) {
+          if (!result.data.ok) {
+            throw new Error(result.data.error || 'Something went wrong. Please call 701-714-5879.');
+          }
+
+          trackGenerateLead(source, result.data.meta_event_id || eventId);
+          handleSuccess(form);
+        })
+        .catch(function (err) {
+          showError(form, err.message || 'Something went wrong. Please call 701-714-5879.');
+          if (window.turnstile && siteKey) {
+            try { window.turnstile.reset(); } catch (resetErr) { /* ignore */ }
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.removeAttribute('aria-busy');
+          }
+        });
+    });
+  }
+
+  function bindAll() {
+    document.querySelectorAll('[data-paradise-lead-form], #paradise-lead-form').forEach(bindForm);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindAll);
+  } else {
+    bindAll();
+  }
+
+  window.ParadiseLeadForm = { bindAll: bindAll };
 })();

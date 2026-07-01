@@ -235,8 +235,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1317738110513512');
 fbq('track', 'PageView');
 </script>
+  <link rel="stylesheet" href="../inventory-gate.css?v=20260702d">
 </head>
-<body>
+<body data-lead-api="/api/lead" data-turnstile-site-key="">
 
 <!-- HERO -->
 <header class="hero">
@@ -485,23 +486,15 @@ fbq('track', 'PageView');
     <div class="resform" id="reserve">
       <h3>Hold my private viewing time</h3>
       <p class="rsub">Drop your name, email, and phone. We'll hold you a time at the fair and text you the details. That's it.</p>
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/iz3wpzwCI9GQhR3wlwbV"
-        class="ghl-inline"
-        id="inline-fair-reserve-form"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="WEBSITE FORM"
-        data-height="595"
-        data-layout-iframe-id="inline-fair-reserve-form"
-        data-form-id="iz3wpzwCI9GQhR3wlwbV"
-        title="Reserve My Private Viewing"
-      ></iframe>
+      <div class="paradise-native-form-shell resform-native"
+           data-native-form
+           data-lead-source="fair-reserve"
+           data-submit-label="Reserve My Private Viewing &amp;rarr;"
+           data-show-fair="true"
+           data-lead-success="thank-you"
+           data-field-prefix="fair-"
+           data-form-id="fair-reserve-lead-form"
+           data-error-id="fair-reserve-lead-error"></div>
       <p class="rnote"><b>100% free. No obligation. Totally up to you.</b><br>No pressure, no hard sell, no salesman chasing you. Come feel it for yourself and decide on your own time.</p>
     </div>
   </div>
@@ -559,9 +552,11 @@ fbq('track', 'PageView');
   <a href="#reserve">Reserve My Spot</a>
 </div>
 
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script src="../call-tracking.js"></script>
 <script src="../pricing-tracking.js"></script>
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a4454fd638eec5af4195a51"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="../native-form.js?v=20260702d"></script>
+<script src="../lead-form.js?v=20260702d"></script>
 </body>
 </html>
