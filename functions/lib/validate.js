@@ -50,7 +50,7 @@ export function validateLeadPayload(body) {
     return { ok: false, error: 'Please answer the fair question.' };
   }
 
-  if (source === 'inventory-gate' && !financingInterest) {
+  if ((source === 'inventory-gate' || source === 'minot-lead') && !financingInterest) {
     return { ok: false, error: 'Please answer the financing question.' };
   }
 

@@ -14,7 +14,7 @@ function ghlHeaders(token) {
 function tagsForSource(source) {
   var tags = ['website-form', 'lead-api'];
   if (source === 'fair-inventory-gate') tags.push('fair-inventory-unlock');
-  if (source === 'inventory-gate') tags.push('inventory-unlock');
+  if (source === 'minot-lead' || source === 'inventory-gate') tags.push('minot-lead', 'inventory-unlock');
   if (source === 'contact-page') tags.push('contact-page');
   if (source === 'financing-page') tags.push('financing-page');
   if (source === 'fair-reserve') tags.push('fair-reserve');

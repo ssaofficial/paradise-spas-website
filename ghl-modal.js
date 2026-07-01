@@ -43,10 +43,11 @@
     var subEl = overlay.querySelector('.ghl-modal-sub');
     var productEl = document.getElementById('ghl-product-line');
     var form = getModalForm();
+    var campaignSource = document.body.getAttribute('data-lead-campaign');
     var trackSource = options.source || (options.financing ? 'financing' : (options.product && options.product.name ? 'product_detail' : 'pricing_modal'));
 
     if (form) {
-      form.setAttribute('data-lead-source', trackSource);
+      form.setAttribute('data-lead-source', campaignSource || trackSource);
     }
 
     if (options.product && options.product.name) {
