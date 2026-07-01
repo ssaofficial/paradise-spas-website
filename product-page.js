@@ -12,7 +12,7 @@
     var chatScript = document.createElement('script');
     chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
     chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
-    chatScript.setAttribute('data-widget-id', '6a428113cf2c64bbfadc2891');
+    chatScript.setAttribute('data-widget-id', '6a4454fd638eec5af4195a51');
     document.body.appendChild(chatScript);
   }
 
