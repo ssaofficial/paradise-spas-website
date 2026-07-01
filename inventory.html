@@ -1549,13 +1549,69 @@ if (htChipReset) {
   });
 </script>
 <script>
-  setTimeout(function() {
-    var chatScript = document.createElement('script');
-    chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
-    chatScript.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
-    chatScript.setAttribute('data-widget-id', '6a4454fd638eec5af4195a51');
-    document.body.appendChild(chatScript);
-  }, 20000);
+(function () {
+  var CHAT_WIDGET_ID = '6a428113cf2c64bbfadc2891';
+  var chatLoadTimer = null;
+  var chatDisabled = false;
+  var chatScriptEl = null;
+
+  function removeChatElements() {
+    [
+      '#lc_web_chat',
+      '.lc_web_chat',
+      'iframe#lc_iframe',
+      '[id^="chat-widget"]',
+      '[class*="lc-webchat"]',
+      '[class*="lc_web"]'
+    ].forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        el.remove();
+      });
+    });
+  }
+
+  function disableChatWidget() {
+    if (chatDisabled) return;
+    chatDisabled = true;
+    if (chatLoadTimer) {
+      clearTimeout(chatLoadTimer);
+      chatLoadTimer = null;
+    }
+    if (chatScriptEl && chatScriptEl.parentNode) {
+      chatScriptEl.parentNode.removeChild(chatScriptEl);
+      chatScriptEl = null;
+    }
+    removeChatElements();
+    setTimeout(removeChatElements, 0);
+    setTimeout(removeChatElements, 300);
+  }
+
+  function loadChatWidget() {
+    if (chatDisabled || chatScriptEl) return;
+    chatScriptEl = document.createElement('script');
+    chatScriptEl.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    chatScriptEl.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    chatScriptEl.setAttribute('data-widget-id', CHAT_WIDGET_ID);
+    document.body.appendChild(chatScriptEl);
+  }
+
+  chatLoadTimer = setTimeout(loadChatWidget, 20000);
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-ghl-trigger]')) {
+      disableChatWidget();
+    }
+  }, true);
+
+  if (window.ParadiseGhlModal && !window.ParadiseGhlModal._inventoryChatHooked) {
+    window.ParadiseGhlModal._inventoryChatHooked = true;
+    var originalOpen = ParadiseGhlModal.open;
+    ParadiseGhlModal.open = function () {
+      disableChatWidget();
+      return originalOpen.apply(this, arguments);
+    };
+  }
+})();
 </script>
 
   <script src="call-tracking.js"></script>
