@@ -108,6 +108,28 @@
     }
   }
 
+  function leadDedupeKey(email, phone) {
+    var e = String(email || '').trim().toLowerCase();
+    var p = String(phone || '').replace(/\D/g, '').slice(-10);
+    return e + '|' + p;
+  }
+
+  function hasRecentBrowserLead(email, phone) {
+    try {
+      var key = 'paradise_lead_dedupe_' + leadDedupeKey(email, phone);
+      var ts = parseInt(sessionStorage.getItem(key), 10);
+      return ts && Date.now() - ts < 24 * 60 * 60 * 1000;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function markBrowserLead(email, phone) {
+    try {
+      sessionStorage.setItem('paradise_lead_dedupe_' + leadDedupeKey(email, phone), String(Date.now()));
+    } catch (err) { /* ignore */ }
+  }
+
   function bindForm(form) {
     if (form.dataset.leadBound === '1') return;
     form.dataset.leadBound = '1';
@@ -126,6 +148,13 @@
 
       if (siteKey && turnstileEl && !turnstileEl.hidden && !getTurnstileToken(form)) {
         showError(form, 'Please complete the security check.');
+        return;
+      }
+
+      var formEmail = (form.querySelector('[name="email"]') || {}).value || '';
+      var formPhone = (form.querySelector('[name="phone"]') || {}).value || '';
+      if (hasRecentBrowserLead(formEmail, formPhone)) {
+        showError(form, 'We already received your info. Please call 701-714-5879 if you need help.');
         return;
       }
 
@@ -174,6 +203,7 @@
           }
 
           hasSucceeded = true;
+          markBrowserLead(formEmail, formPhone);
           if (result.data.fire_meta !== false && result.data.ghl_ok && !result.data.duplicate) {
             trackGenerateLead(source, result.data.meta_event_id || eventId);
           }
