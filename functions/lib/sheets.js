@@ -155,32 +155,38 @@ export async function findRecentDuplicate(env, email, phone, windowMs) {
   var targetPhone = normalizePhoneForDedupe(phone);
   if (!targetEmail && !targetPhone) return null;
 
-  var data = await sheetsRequest(env, '/values/' + encodeURIComponent('All Leads!B:I'));
+  var data = await sheetsRequest(env, '/values/' + encodeURIComponent('All Leads!A2:K'));
   var rows = data.values || [];
   var cutoff = Date.now() - windowMs;
+  var pendingCutoff = Date.now() - (30 * 60 * 1000);
   var sentMatch = null;
   var recentFailedMatch = null;
 
   for (var i = rows.length - 1; i >= 0; i--) {
     var row = rows[i];
     if (!row || !row.length) continue;
+    if (String(row[0] || '').toLowerCase() === 'submission_id') continue;
 
-    var submittedAt = Date.parse(row[0] || '');
+    var submittedAt = Date.parse(row[1] || '');
     if (!submittedAt || submittedAt < cutoff) continue;
 
-    var rowEmail = normalizeEmailForDedupe(row[3] || '');
-    var rowPhone = normalizePhoneForDedupe(row[4] || '');
+    var rowEmail = normalizeEmailForDedupe(row[4] || '');
+    var rowPhone = normalizePhoneForDedupe(row[5] || '');
     var matches = (targetEmail && rowEmail && rowEmail === targetEmail) ||
       (targetPhone && rowPhone && rowPhone === targetPhone);
     if (!matches) continue;
 
-    var status = String(row[7] || '').toUpperCase();
+    var status = String(row[8] || '').toUpperCase();
     if (status === 'SENT' || status === 'DUPLICATE') {
-      sentMatch = { submittedAt: row[0], email: rowEmail, phone: rowPhone, status: status };
+      sentMatch = { submittedAt: row[1], email: rowEmail, phone: rowPhone, status: status };
+      break;
+    }
+    if (status === 'PENDING' && submittedAt >= pendingCutoff) {
+      sentMatch = { submittedAt: row[1], email: rowEmail, phone: rowPhone, status: status };
       break;
     }
     if (status === 'FAILED' && !recentFailedMatch) {
-      recentFailedMatch = { submittedAt: row[0], email: rowEmail, phone: rowPhone, status: status };
+      recentFailedMatch = { submittedAt: row[1], email: rowEmail, phone: rowPhone, status: status };
     }
   }
 
