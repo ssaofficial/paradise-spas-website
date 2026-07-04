@@ -47,12 +47,14 @@ export async function onRequestPost(context) {
 
   var duplicateMatch = null;
   var duplicateScan = 'miss';
+  var duplicateScanError = '';
   try {
     duplicateMatch = await findRecentDuplicate(env, lead.email, lead.phone);
     duplicateScan = duplicateMatch ? 'hit' : 'miss';
   } catch (err) {
     duplicateScan = 'error';
-    console.error('findRecentDuplicate failed:', err.message || err);
+    duplicateScanError = err.message || String(err);
+    console.error('findRecentDuplicate failed:', duplicateScanError);
   }
 
   var isSentDuplicate = duplicateMatch &&
@@ -124,6 +126,7 @@ export async function onRequestPost(context) {
     duplicate: !!isSentDuplicate,
     ghl_retry: !!isFailedRetry,
     duplicate_scan: duplicateScan,
+    duplicate_scan_error: duplicateScanError || undefined,
     ghl_ok: ghlResult.ok,
     fire_meta: shouldFireMeta,
     ghl_contact_id: ghlContactId || undefined,

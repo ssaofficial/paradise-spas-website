@@ -155,7 +155,7 @@ export async function findRecentDuplicate(env, email, phone, windowMs) {
   var targetPhone = normalizePhoneForDedupe(phone);
   if (!targetEmail && !targetPhone) return null;
 
-  var data = await sheetsRequest(env, '/values/' + encodeURIComponent('All Leads!A2:K'));
+  var data = await sheetsRequest(env, '/values/' + encodeURIComponent("'All Leads'!A:K"));
   var rows = data.values || [];
   var cutoff = Date.now() - windowMs;
   var pendingCutoff = Date.now() - (30 * 60 * 1000);
@@ -165,7 +165,7 @@ export async function findRecentDuplicate(env, email, phone, windowMs) {
   for (var i = rows.length - 1; i >= 0; i--) {
     var row = rows[i];
     if (!row || !row.length) continue;
-    if (String(row[0] || '').toLowerCase() === 'submission_id') continue;
+    if (i === 0 && String(row[0] || '').toLowerCase() === 'submission_id') continue;
 
     var submittedAt = Date.parse(row[1] || '');
     if (!submittedAt || submittedAt < cutoff) continue;
