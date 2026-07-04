@@ -82,6 +82,7 @@ function leadRow(lead, ghlStatus, ghlContactId, ghlError) {
 }
 
 async function sheetsRequest(env, path, options) {
+  options = options || {};
   var token = await getGoogleAccessToken(env);
   var sheetId = env.GOOGLE_SHEETS_ID;
   if (!sheetId) throw new Error('GOOGLE_SHEETS_ID is not configured.');
