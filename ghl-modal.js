@@ -37,6 +37,12 @@
 
   function openModal(options) {
     options = options || {};
+    if (document.body.classList.contains('inventory-gate-fair')) {
+      if (window.FairInPersonModal && typeof window.FairInPersonModal.open === 'function') {
+        window.FairInPersonModal.open(options);
+      }
+      return;
+    }
     setTrustMode(!!options.financing);
 
     var titleEl = overlay.querySelector('.ghl-modal-title');
@@ -83,6 +89,12 @@
   }
 
   function closeModal() {
+    if (document.body.classList.contains('inventory-gate-fair')) {
+      if (window.FairInPersonModal && typeof window.FairInPersonModal.close === 'function') {
+        window.FairInPersonModal.close();
+      }
+      return;
+    }
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('ghl-modal-open');

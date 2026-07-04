@@ -1,0 +1,670 @@
+/* Fair nurture landing page — extends Red River Valley Fair campaign styles */
+:root {
+  --red: #B11E26;
+  --red-bright: #E23B3F;
+  --red-deep: #8A141B;
+  --blue: #1F3FC4;
+  --blue-deep: #16308F;
+  --paper: #FBF7F2;
+  --ink: #23252b;
+  --muted: #5a6275;
+  --line: #e6dfd6;
+  --green: #1f7a45;
+  --star: #F0A500;
+  --maxw: 680px;
+}
+
+.fair-nurture-page {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 96px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.fair-nurture-page h1,
+.fair-nurture-page h2,
+.fair-nurture-page h3,
+.fair-nurture-page .display {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fair-nurture-wrap {
+  max-width: var(--maxw);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 22px;
+}
+
+.fair-nurture-hero {
+  display: block;
+  width: 100%;
+  background: var(--red);
+  color: #fff;
+  padding: 40px 0 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fair-nurture-hero .star-deco {
+  position: absolute;
+  color: rgba(255, 255, 255, .06);
+  font-size: 200px;
+  line-height: 1;
+  top: -20px;
+  right: -30px;
+  pointer-events: none;
+}
+
+.fair-nurture-hero h1 {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.22;
+  text-align: center;
+  letter-spacing: -.01em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.fair-nurture-hero .hero-lead {
+  text-align: center;
+  color: #ffe1db;
+  font-size: 15px;
+  max-width: 580px;
+  margin: 0 auto 14px;
+}
+
+.fair-nurture-hero .hero-lead strong {
+  color: #fff;
+}
+
+.fair-nurture-booth {
+  text-align: center;
+  font-size: 13.5px;
+  color: #f3c9c4;
+  line-height: 1.55;
+  margin: 18px 0 8px;
+}
+
+.fair-nurture-booth strong {
+  color: #fff;
+}
+
+.fair-nurture-sec {
+  padding: 30px 0;
+}
+
+.fair-nurture-sec.cream {
+  background: var(--paper);
+}
+
+.fair-nurture-sec h2 {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--blue);
+  margin: 0 0 16px;
+  letter-spacing: -.01em;
+}
+
+.fair-nurture-sec h3 {
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--blue);
+  margin: 22px 0 10px;
+}
+
+.fair-nurture-sec p {
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 14px;
+  color: #2a2d35;
+}
+
+.fair-nurture-sec ul.bullets {
+  list-style: none;
+  margin: 10px 0 16px;
+  padding: 0;
+}
+
+.fair-nurture-sec ul.bullets li {
+  position: relative;
+  padding: 10px 0 10px 26px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.fair-nurture-sec ul.bullets li:last-child {
+  border-bottom: none;
+}
+
+.fair-nurture-sec ul.bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.fair-nurture-photo {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+.fair-nurture-photo.hero {
+  aspect-ratio: 3/2;
+  max-height: 420px;
+  border-color: #7a1118;
+}
+
+.fair-nurture-photo.slot {
+  aspect-ratio: 4/3;
+  max-height: 360px;
+  background: repeating-linear-gradient(45deg, #dfe3ea, #dfe3ea 12px, #e8ebf1 12px, #e8ebf1 24px);
+  min-height: 180px;
+}
+
+.fair-nurture-photo-caption {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #8a93a6;
+  text-align: center;
+  margin-top: -12px;
+  margin-bottom: 18px;
+}
+
+.fair-nurture-review {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 15px 16px;
+  margin: 20px 0;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(36, 58, 142, .06);
+}
+
+.fair-nurture-review .stars {
+  color: var(--star);
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.fair-nurture-review blockquote {
+  font-size: 13.5px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.fair-nurture-review .who {
+  display: block;
+  margin-top: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  font-style: normal;
+}
+
+.fair-nurture-review .tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10.5px;
+  color: #9aa3b2;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.fair-nurture-faq h3 {
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.fair-nurture-inv-grid {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.fair-product-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.fair-product-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(36, 58, 142, .06);
+}
+
+.fair-product-img-wrap {
+  background: var(--paper);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.fair-product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fair-product-body {
+  padding: 14px 16px 16px;
+}
+
+.fair-product-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.fair-product-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 10px;
+  line-height: 1.45;
+}
+
+.fair-product-price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--red);
+  margin: 0 0 12px;
+}
+
+.fair-product-cta {
+  display: block;
+  text-align: center;
+  background: var(--red);
+  color: #fff !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 9px;
+  box-shadow: 0 3px 0 var(--red-deep);
+}
+
+.fair-product-cta:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--red-deep);
+}
+
+/* Booking embed */
+.fair-nurture-booking {
+  margin: 24px 0 8px;
+}
+
+.fair-booking-iframe {
+  width: 100%;
+  min-height: 680px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.fair-booking-fallback {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 24px 18px;
+  text-align: center;
+  background: var(--paper);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.fair-booking-fallback code {
+  font-size: 12px;
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.fair-booking-fallback a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.fair-nurture-inv-card {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  border-radius: 10px;
+  padding: 16px 18px;
+  background: #fff;
+}
+
+.fair-nurture-inv-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0 0 6px;
+}
+
+.fair-nurture-inv-card p {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.fair-nurture-inv-card .model {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.fair-nurture-callout {
+  border-left: 4px solid var(--red);
+  background: var(--paper);
+  padding: 16px 18px;
+  margin: 22px 0;
+  border-radius: 0 10px 10px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--blue);
+}
+
+.fair-nurture-cta {
+  text-align: center;
+  margin: 28px 0 8px;
+}
+
+.fair-nurture-cta a,
+.fair-nurture-cta button.cta-btn {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 16px 28px;
+  border-radius: 10px;
+  box-shadow: 0 4px 0 var(--red-deep);
+  border: none;
+  cursor: pointer;
+  line-height: 1.25;
+}
+
+.fair-nurture-cta a:active,
+.fair-nurture-cta button.cta-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--red-deep);
+}
+
+.fair-nurture-hero .fair-nurture-cta a {
+  background: #fff;
+  color: var(--red);
+  box-shadow: 0 4px 0 #6f0f15;
+}
+
+.fair-nurture-hero .fair-nurture-cta a:active {
+  box-shadow: 0 2px 0 #6f0f15;
+}
+
+.fair-nurture-cta .micro {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.fair-nurture-hero .fair-nurture-cta .micro {
+  color: #ffd9d2;
+}
+
+.fair-nurture-rule {
+  height: 1px;
+  background: var(--line);
+  margin: 32px 0;
+  border: none;
+}
+
+.fair-nurture-sig {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--blue);
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/* Reservation form */
+.fair-nurture-resform {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin: 20px 0;
+  box-shadow: 0 3px 14px rgba(36, 58, 142, .08);
+}
+
+.fair-nurture-resform h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 21px;
+  color: var(--blue);
+  text-align: center;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+
+.fair-nurture-resform .rsub {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.fair-nurture-resform label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.fair-nurture-resform input,
+.fair-nurture-resform select {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 14px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  margin-bottom: 12px;
+  background: #fbfafa;
+}
+
+.fair-nurture-resform .rbtn {
+  display: block;
+  width: 100%;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  text-align: center;
+  border: none;
+  padding: 17px;
+  border-radius: 10px;
+  box-shadow: 0 4px 0 var(--red-deep);
+  cursor: pointer;
+}
+
+.fair-nurture-resform .rbtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--red-deep);
+}
+
+.fair-nurture-resform .rbtn:disabled {
+  opacity: .7;
+  cursor: wait;
+}
+
+.fair-nurture-resform .form-error {
+  color: var(--red);
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.fair-nurture-resform .form-success {
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.fair-nurture-resform .form-success h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--green);
+  margin: 0 0 8px;
+}
+
+.fair-nurture-resform .form-disclaimer {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-top: 10px;
+}
+
+.fair-nurture-resform .form-disclaimer a {
+  color: var(--blue);
+}
+
+/* Sticky mobile CTA */
+.fair-nurture-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background: var(--blue-deep);
+  border-top: 3px solid var(--red);
+  padding: 11px 16px calc(11px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fair-nurture-sticky .txt {
+  color: #fff;
+}
+
+.fair-nurture-sticky .txt b {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  display: block;
+  line-height: 1.2;
+}
+
+.fair-nurture-sticky .txt small {
+  color: #aeb8d8;
+  font-size: 11px;
+}
+
+.fair-nurture-sticky a {
+  background: var(--red);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12.5px;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 9px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .fair-nurture-wrap {
+    padding: 0 18px;
+  }
+
+  .fair-nurture-hero {
+    padding: 32px 0 28px;
+  }
+
+  .fair-nurture-hero h1 {
+    font-size: 22px;
+  }
+
+  .fair-nurture-sec h2 {
+    font-size: 21px;
+  }
+
+  .fair-nurture-sec p {
+    font-size: 15.5px;
+  }
+
+  .fair-nurture-cta a,
+  .fair-nurture-cta button.cta-btn {
+    font-size: 15px;
+    padding: 15px 20px;
+  }
+
+  .fair-nurture-sticky {
+    padding: 9px 12px calc(9px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .fair-nurture-sticky .txt small {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --maxw: 760px;
+  }
+
+  .fair-nurture-hero h1 {
+    font-size: 30px;
+  }
+
+  .fair-nurture-sec h2 {
+    font-size: 26px;
+  }
+
+  .fair-product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fair-booking-iframe {
+    min-height: 720px;
+  }
+}

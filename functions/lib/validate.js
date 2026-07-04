@@ -37,6 +37,8 @@ export function validateLeadPayload(body) {
   var source = String(body.source || 'website-form').trim();
   var fairAttendance = String(body.fair_attendance || body.fairAttendance || '').trim();
   var fairVisitDay = String(body.fair_visit_day || body.fairVisitDay || '').trim();
+  var fairVisitDate = String(body.fair_visit_date || body.fairVisitDate || '').trim();
+  var fairVisitTime = String(body.fair_visit_time || body.fairVisitTime || '').trim();
   var financingInterest = String(body.financing_interest || body.financingInterest || '').trim();
   var message = String(body.message || '').trim();
   var productName = String(body.product_name || body.productName || '').trim();
@@ -57,6 +59,10 @@ export function validateLeadPayload(body) {
   }
   if (phoneOnlySource && !EMAIL_RE.test(email)) {
     email = 'fair+' + phone + '@lead.paradisespas.com';
+  }
+
+  if (source === 'fair-in-person-visit' && (!fairVisitDay || !fairVisitTime)) {
+    return { ok: false, error: 'Please choose your fair visit day and time.' };
   }
 
   if (source === 'fair-inventory-gate' && !fairAttendance) {
@@ -81,6 +87,8 @@ export function validateLeadPayload(body) {
       source: source,
       fairAttendance: fairAttendance || fairVisitDay,
       fairVisitDay: fairVisitDay,
+      fairVisitDate: fairVisitDate,
+      fairVisitTime: fairVisitTime,
       financingInterest: financingInterest,
       message: message,
       productName: productName,

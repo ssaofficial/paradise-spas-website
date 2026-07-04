@@ -21,12 +21,12 @@ Static dealer website built for Paradise Spas (Minot, ND). Use as a starting poi
    - Hero/lifestyle/product images
    - Colors in `style.css` (search for `#0d4cae`, `#F0A500`)
 3. **Update business info** across HTML files
-   - Phone: search `7018382614` / `701-838-2614`
+   - Phone: search `7017145879` / `701-714-5879`
    - Address, email, Facebook URL
    - Page titles and meta descriptions
 4. **GoHighLevel**
    - Form ID: search `iz3wpzwCI9GQhR3wlwbV`
-   - Chat widget ID: search `6a428113cf2c64bbfadc2891`
+   - Chat widget ID: search `6a4454fd638eec5af4195a51`
    - Set form redirect to `https://YOURDOMAIN.com/thank-you.html`
 5. **Tracking IDs** (in every HTML `<head>`)
    - Meta Pixel: search `1317738110513512`
@@ -59,10 +59,14 @@ Requires [Wrangler](https://developers.cloudflare.com/workers/wrangler/) and `CL
 | `style.css` | All styling |
 | `ghl-modal.js` | GHL popup modal |
 | `call-tracking.js` | GA4 + Clarity call-click events |
+| `pricing-tracking.js` | GA4 + Clarity pricing-click events |
 | `category-page.js` | Category page interactions |
 | `product-page.js` | Product page gallery/tabs |
 | `_redirects` | Cloudflare URL redirects |
 | `thank-you.html` | Post-form redirect + conversion events |
+| `dashboard/` | Looker Studio setup + GHL→Sheets sync for Increase ROAS reporting |
+| `functions/api/lead.js` | Lead vault API (Sheet backup → GHL) — see `dashboard/LEAD_INSURANCE_OWNER_SETUP.md` |
+| `lead-form.js` | Native gate form submit handler |
 
 ## Pages
 

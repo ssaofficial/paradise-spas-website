@@ -5,6 +5,7 @@
 
   var ASSET_PREFIX = document.body.dataset.invAssetPrefix || '';
   var CTA_LABEL = document.body.dataset.invCtaLabel || 'See Local Price & Availability';
+  var IS_FAIR_PAGE = document.body.classList.contains('inventory-gate-fair');
 
   var HOT_TUB_PRODUCTS = [
     { badge: 'Budget-Friendly', title: 'Strong Spas G-2 36-Jet Lounger', retail: 10995, our: 9995, monthly: 99, capacity: '4–5 Person', bestUse: 'Lower Payment', benefit: 'Full-Body Lounger', chips: ['budget-friendly', 'loungers'], outcome: 'Best for buyers who want a lower monthly payment and a lounger-style spa without jumping into premium pricing.', image: 'product-strong-g2.png', seats: '4-5' },
@@ -34,7 +35,10 @@
     return '<div class="inv-pill">' + icon + '<span>' + label + '</span></div>';
   }
 
-  function renderCtaLabel() {
+  function renderCtaLabel(p) {
+    if (p && p.fairCta) {
+      return p.fairCta + ' <span class="inv-card-cta-arrow" aria-hidden="true">→</span>';
+    }
     if (CTA_LABEL.indexOf('DISCOUNTED FAIR PRICE') !== -1) {
       return (
         '<span class="inv-cta-lines">' +
@@ -46,11 +50,272 @@
     return CTA_LABEL + ' <span class="inv-card-cta-arrow" aria-hidden="true">→</span>';
   }
 
-  function renderCard(p, index) {
+  var fairProductsShuffled = null;
+
+  function shuffleProducts(list) {
+    var items = list.slice();
+    for (var i = items.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = items[i];
+      items[i] = items[j];
+      items[j] = tmp;
+    }
+    return items;
+  }
+
+  function getProducts() {
+    if (!IS_FAIR_PAGE) return HOT_TUB_PRODUCTS;
+    if (!fairProductsShuffled) fairProductsShuffled = shuffleProducts(FAIR_ONLY_PRODUCTS);
+    return fairProductsShuffled;
+  }
+
+  var FAIR_ONLY_PRODUCTS = [
+    {
+      badge: 'Budget-Friendly',
+      title: 'Strong Spas G-2B 36-Jet Lounger',
+      capacity: '4–5 Person',
+      bestUse: '36 Jets',
+      benefit: 'Full-Body Lounger',
+      outcome: 'Best for shoppers who want a comfortable lounger spa, easy monthly payments, and a practical hot tub that fits the family without overspending.',
+      monthly: 79,
+      image: 'product-strong-g2b.png',
+      seats: '4-5',
+      chips: ['budget-friendly', 'loungers'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Ask about local delivery, financing, and fair-only availability.'
+    },
+    {
+      badge: 'Budget-Friendly',
+      title: 'Strong Spas G-2L Lounger',
+      capacity: '4–5 Person',
+      bestUse: 'Lounger',
+      benefit: 'Easy Payment',
+      outcome: 'Best for shoppers who want a simple, comfortable lounger spa with an affordable monthly payment and enough room to relax without buying more hot tub than they need.',
+      monthly: 79,
+      image: 'product-strong-g2l.png',
+      seats: '4-5',
+      chips: ['budget-friendly', 'loungers'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Family Favorite',
+      title: 'Ocho Rios CS',
+      capacity: '5–6 Person',
+      bestUse: 'Open Seating',
+      benefit: 'Family Spa',
+      outcome: 'Best for families who want an open-seat hot tub with plenty of room to relax, hang out, and enjoy time together without everyone fighting for one lounger seat.',
+      monthly: 79,
+      image: 'product-ocho-rios-cs.png',
+      seats: '6-7',
+      chips: ['family-favorites'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Best Starter Spa',
+      title: 'Eco Spa E3',
+      capacity: '2–3 Person',
+      bestUse: 'Compact Size',
+      benefit: 'Easy Ownership',
+      outcome: 'Best for couples or first-time hot tub buyers who want something simple, affordable, and easy to own without taking up too much backyard space.',
+      monthly: 79,
+      image: 'product-eco-spa-e3.png',
+      seats: '2-3',
+      chips: ['budget-friendly', 'compact-spas', 'easy-ownership'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Best Value Spa',
+      title: 'Eco Spa E5',
+      capacity: '4–5 Person',
+      bestUse: 'Open Seating',
+      benefit: 'Easy Ownership',
+      outcome: 'Best for families or couples who want more room than a starter spa, simple upkeep, and an affordable way to enjoy a hot tub at home.',
+      monthly: 79,
+      image: 'product-eco-spa-e5.png',
+      seats: '4-5',
+      chips: ['budget-friendly', 'family-favorites', 'easy-ownership'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Couples Favorite',
+      title: 'Eco Spa E4',
+      capacity: '3–4 Person',
+      bestUse: 'Compact Comfort',
+      benefit: 'Easy Ownership',
+      outcome: 'Best for couples or smaller families who want a little more room than a starter spa while still keeping the hot tub simple, affordable, and easy to fit at home.',
+      monthly: 79,
+      image: 'product-eco-spa-e4.png',
+      seats: '4-5',
+      chips: ['family-favorites', 'easy-ownership', 'compact-spas'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Premium Lounger',
+      title: 'Forsythia',
+      capacity: '5–6 Person',
+      bestUse: 'Lounger',
+      benefit: 'Hydrotherapy',
+      outcome: 'Best for buyers who want a more premium hot tub with a full-body lounger, stronger therapy seats, and enough room for family or friends to relax together.',
+      monthly: 79,
+      image: 'product-forsythia.png',
+      seats: '6-7',
+      chips: ['loungers', 'premium-comfort'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Family Comfort',
+      title: 'Kona',
+      capacity: '5–6 Person',
+      bestUse: 'Open Seating',
+      benefit: 'Relaxation Spa',
+      outcome: 'Best for families who want a roomy, comfortable hot tub for relaxing after work, spending time together, and making the backyard feel more enjoyable year-round.',
+      monthly: 79,
+      image: 'product-kona.png',
+      seats: '6-7',
+      chips: ['family-favorites', 'premium-comfort'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Luxury Family Spa',
+      title: 'Nassau Royale',
+      capacity: '6–7 Person',
+      bestUse: 'Open Seating',
+      benefit: 'Premium Comfort',
+      outcome: 'Best for families who want a larger, more comfortable hot tub with plenty of room for guests, relaxing nights, and making the backyard feel like a private retreat.',
+      monthly: 79,
+      image: 'product-nassau-royale.png',
+      seats: '6-7',
+      chips: ['family-favorites', 'premium-comfort'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Premium Lounger',
+      title: 'Caribbean Breeze',
+      capacity: '5–6 Person',
+      bestUse: 'Lounger',
+      benefit: 'Therapy Seating',
+      outcome: 'Best for buyers who want a comfortable lounge seat, strong therapy jets, and enough space for family or friends without going all the way to the largest spa.',
+      monthly: 79,
+      image: 'product-caribbean-breeze.png',
+      seats: '6-7',
+      chips: ['loungers', 'premium-comfort'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Roomy Lounger',
+      title: 'Ocean Breeze',
+      capacity: '5–6 Person',
+      bestUse: 'Lounger',
+      benefit: 'Family Comfort',
+      outcome: 'Best for families who want a roomy hot tub with a relaxing lounge seat, comfortable therapy, and space to enjoy the backyard together.',
+      monthly: 79,
+      image: 'product-ocean-breeze.png',
+      seats: '6-7',
+      chips: ['loungers', 'family-favorites'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Backyard Favorite',
+      title: 'Cabana Bay',
+      capacity: '5–6 Person',
+      bestUse: 'Open Seating',
+      benefit: 'Family Comfort',
+      outcome: 'Best for families who want a comfortable, easy-to-enjoy hot tub with open seating, room to relax together, and a backyard upgrade everyone can use.',
+      monthly: 79,
+      image: 'product-cabana-bay.png',
+      seats: '6-7',
+      chips: ['family-favorites', 'premium-comfort'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Relaxation Favorite',
+      title: 'Serenity Cove',
+      capacity: '5–6 Person',
+      bestUse: 'Comfort Seating',
+      benefit: 'Relaxation Spa',
+      outcome: 'Best for buyers who want a peaceful, comfortable hot tub for relaxing after long days, spending quiet time together, and making home feel more like a retreat.',
+      monthly: 79,
+      image: 'product-serenity-cove.png',
+      seats: '6-7',
+      chips: ['premium-comfort', 'family-favorites'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    },
+    {
+      badge: 'Peaceful Retreat',
+      title: 'Tranquility Harbor',
+      capacity: '5–6 Person',
+      bestUse: 'Comfort Seating',
+      benefit: 'Relaxation Spa',
+      outcome: 'Best for buyers who want a calm, comfortable hot tub for relaxing at night, easing stress, and turning the backyard into a quiet place to unwind.',
+      monthly: 79,
+      image: 'product-tranquility-harbor.png',
+      seats: '6-7',
+      chips: ['premium-comfort', 'family-favorites'],
+      fairFinancingOnly: true,
+      fairCta: 'SEE IT IN PERSON AT THE FAIR',
+      fairMicro: 'Fair units are limited — come see it in person before it\'s gone.'
+    }
+  ];
+
+  function renderPriceBox(p) {
+    if (p.fairFinancingOnly) {
+      return (
+        '<div class="inv-price-box inv-price-box--financing-only">' +
+          '<div class="inv-price-left">' +
+            '<p class="inv-financing-label">Financing As Low As</p>' +
+          '</div>' +
+          '<p class="inv-card-monthly">' + formatMoney(p.monthly) + '/mo</p>' +
+        '</div>'
+      );
+    }
     return (
-      '<article class="inv-card ht-card" data-category="Hot Tubs" data-seats="' + p.seats + '" data-monthly="' + p.monthly + '" data-chips="' + p.chips.join(' ') + '" data-original-order="' + index + '">' +
+      '<div class="inv-price-box">' +
+        '<div class="inv-price-left">' +
+          '<p class="inv-card-msrp">Retail Price: <span>' + formatMoney(p.retail) + '</span></p>' +
+          '<p class="inv-card-price">Our Price: <span>' + formatMoney(p.our) + '</span></p>' +
+          '<p class="inv-card-save">Save ' + formatMoney(p.retail - p.our) + '</p>' +
+        '</div>' +
+        '<p class="inv-card-monthly">' + formatMoney(p.monthly) + '/mo</p>' +
+      '</div>'
+    );
+  }
+
+  function renderCard(p, index) {
+    var cardClass = 'inv-card ht-card' + (p.fairFinancingOnly ? ' ht-card--fair-financing' : '');
+    var retailAttr = p.fairFinancingOnly ? '' : (' data-estimated-retail-price="' + p.retail + '"');
+    var ourAttr = p.fairFinancingOnly ? '' : (' data-our-price="' + p.our + '"');
+    var microCopy = p.fairMicro || 'Ask about local delivery, financing, and availability.';
+    var badgeHtml = IS_FAIR_PAGE ? '' : ('<span class="product-tag">' + p.badge + '</span>');
+
+    return (
+      '<article class="' + cardClass + '" data-category="Hot Tubs" data-seats="' + p.seats + '" data-monthly="' + p.monthly + '" data-chips="' + p.chips.join(' ') + '" data-original-order="' + index + '">' +
         '<div class="inv-card-img">' +
-          '<span class="product-tag">' + p.badge + '</span>' +
+          badgeHtml +
           '<img src="' + ASSET_PREFIX + p.image + '" alt="' + p.title + '" loading="lazy">' +
         '</div>' +
         '<div class="inv-card-body">' +
@@ -63,23 +328,16 @@
               pill(p.benefit, ICON_SPARK) +
             '</div>' +
             '<p class="inv-card-outcome">' + p.outcome + '</p>' +
-            '<div class="inv-price-box">' +
-              '<div class="inv-price-left">' +
-                '<p class="inv-card-msrp">Retail Price: <span>' + formatMoney(p.retail) + '</span></p>' +
-                '<p class="inv-card-price">Our Price: <span>' + formatMoney(p.our) + '</span></p>' +
-                '<p class="inv-card-save">Save ' + formatMoney(p.retail - p.our) + '</p>' +
-              '</div>' +
-              '<p class="inv-card-monthly">' + formatMoney(p.monthly) + '/mo</p>' +
-            '</div>' +
+            renderPriceBox(p) +
           '</div>' +
           '<button type="button" class="inv-card-cta" data-ghl-trigger' +
             ' data-product-name="' + p.title + '"' +
-            ' data-estimated-retail-price="' + p.retail + '"' +
-            ' data-our-price="' + p.our + '"' +
+            retailAttr +
+            ourAttr +
             ' data-monthly-payment="' + p.monthly + '"' +
             ' data-product-category="' + p.chips.join(', ') + '"' +
-          '>' + renderCtaLabel() + '</button>' +
-          '<p class="inv-card-micro">Ask about local delivery, financing, and availability.</p>' +
+          '>' + renderCtaLabel(p) + '</button>' +
+          '<p class="inv-card-micro">' + microCopy + '</p>' +
         '</div>' +
       '</article>'
     );
@@ -90,7 +348,7 @@
   function renderGrid() {
     var grid = document.getElementById('htGrid');
     if (!grid) return;
-    grid.innerHTML = HOT_TUB_PRODUCTS.map(renderCard).join('');
+    grid.innerHTML = getProducts().map(renderCard).join('');
     bindProductTriggers(grid);
     applyChipFilter();
     if (window.refreshInventory) window.refreshInventory();

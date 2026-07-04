@@ -18,11 +18,15 @@
     }
 
     if (typeof gtag === 'function') {
-      gtag('event', 'call_click', {
+      gtag('event', 'click_call', {
         event_category: 'engagement',
         event_label: source,
         page_path: page
       });
+    }
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact');
     }
   }
 

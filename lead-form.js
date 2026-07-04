@@ -99,6 +99,11 @@
       return;
     }
 
+    if (mode === 'fair-in-person-confirmed' && window.FairInPersonModal && typeof window.FairInPersonModal.showConfirmed === 'function') {
+      window.FairInPersonModal.showConfirmed();
+      return;
+    }
+
     if (mode === 'close-modal' && window.ParadiseGhlModal && typeof window.ParadiseGhlModal.close === 'function') {
       window.ParadiseGhlModal.close();
     }
@@ -108,15 +113,44 @@
     }
   }
 
-  function leadDedupeKey(email, phone) {
+  function leadDedupeKey(email, phone, source) {
     var e = String(email || '').trim().toLowerCase();
     var p = String(phone || '').replace(/\D/g, '').slice(-10);
-    return e + '|' + p;
+    return String(source || 'default') + '|' + e + '|' + p;
   }
 
-  function hasRecentBrowserLead(email, phone) {
+  function contactStorageKey() {
+    var gateKey = body.getAttribute('data-gate-storage-key') || 'paradise_inventory_unlocked';
+    return gateKey + '_contact';
+  }
+
+  function saveLeadContact(contact) {
+    if (!contact) return;
     try {
-      var key = 'paradise_lead_dedupe_' + leadDedupeKey(email, phone);
+      localStorage.setItem(contactStorageKey(), JSON.stringify({
+        full_name: contact.full_name || '',
+        email: contact.email || '',
+        phone: contact.phone || '',
+        savedAt: Date.now()
+      }));
+    } catch (err) { /* ignore */ }
+  }
+
+  function getSavedLeadContact() {
+    try {
+      var raw = localStorage.getItem(contactStorageKey());
+      if (!raw) return null;
+      var data = JSON.parse(raw);
+      if (!data || (!data.full_name && !data.email && !data.phone)) return null;
+      return data;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function hasRecentBrowserLead(email, phone, source) {
+    try {
+      var key = 'paradise_lead_dedupe_' + leadDedupeKey(email, phone, source);
       var ts = parseInt(sessionStorage.getItem(key), 10);
       return ts && Date.now() - ts < 24 * 60 * 60 * 1000;
     } catch (err) {
@@ -124,9 +158,9 @@
     }
   }
 
-  function markBrowserLead(email, phone) {
+  function markBrowserLead(email, phone, source) {
     try {
-      sessionStorage.setItem('paradise_lead_dedupe_' + leadDedupeKey(email, phone), String(Date.now()));
+      sessionStorage.setItem('paradise_lead_dedupe_' + leadDedupeKey(email, phone, source), String(Date.now()));
     } catch (err) { /* ignore */ }
   }
 
@@ -143,7 +177,7 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (isSubmitting || hasSucceeded) return;
+      if (isSubmitting || (hasSucceeded && source !== 'fair-in-person-visit')) return;
       showError(form, '');
 
       if (siteKey && turnstileEl && !turnstileEl.hidden && !getTurnstileToken(form)) {
@@ -153,7 +187,7 @@
 
       var formEmail = (form.querySelector('[name="email"]') || {}).value || '';
       var formPhone = (form.querySelector('[name="phone"]') || {}).value || '';
-      if (hasRecentBrowserLead(formEmail, formPhone)) {
+      if (source !== 'fair-in-person-visit' && hasRecentBrowserLead(formEmail, formPhone, source)) {
         showError(form, 'We already received your info. Please call 701-714-5879 if you need help.');
         return;
       }
@@ -173,6 +207,9 @@
         phone: (form.querySelector('[name="phone"]') || {}).value || '',
         message: (form.querySelector('[name="message"]') || {}).value || '',
         fair_attendance: (form.querySelector('[name="fair_attendance"]') || {}).value || '',
+        fair_visit_day: (form.querySelector('[name="fair_visit_day"]') || {}).value || '',
+        fair_visit_date: (form.querySelector('[name="fair_visit_date"]') || {}).value || '',
+        fair_visit_time: (form.querySelector('[name="fair_visit_time"]') || {}).value || '',
         financing_interest: (form.querySelector('[name="financing_interest"]') || {}).value || '',
         product_name: (form.querySelector('[name="product_name"]') || {}).value || '',
         product_category: (form.querySelector('[name="product_category"]') || {}).value || '',
@@ -203,7 +240,14 @@
           }
 
           hasSucceeded = true;
-          markBrowserLead(formEmail, formPhone);
+          markBrowserLead(formEmail, formPhone, source);
+          if (source === 'fair-inventory-gate' || body.classList.contains('inventory-gate-fair')) {
+            saveLeadContact({
+              full_name: payload.full_name,
+              email: payload.email,
+              phone: (form.querySelector('[name="phone"]') || {}).value || ''
+            });
+          }
           if (result.data.fire_meta !== false && result.data.ghl_ok && !result.data.duplicate) {
             trackGenerateLead(source, result.data.meta_event_id || eventId);
           }
@@ -211,6 +255,12 @@
         })
         .catch(function (err) {
           showError(form, err.message || 'Something went wrong. Please call 701-714-5879.');
+          if (source === 'fair-in-person-visit') {
+            form.dispatchEvent(new CustomEvent('paradise-lead-error', {
+              bubbles: true,
+              detail: { message: err.message || 'Something went wrong. Please call 701-714-5879.' }
+            }));
+          }
           if (window.turnstile && siteKey) {
             try { window.turnstile.reset(); } catch (resetErr) { /* ignore */ }
           }
@@ -223,6 +273,15 @@
           }
         });
     });
+
+    form._paradiseLeadReset = function () {
+      isSubmitting = false;
+      hasSucceeded = false;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+      }
+    };
   }
 
   function bindAll() {
@@ -235,5 +294,14 @@
     bindAll();
   }
 
-  window.ParadiseLeadForm = { bindAll: bindAll };
+  window.ParadiseLeadForm = {
+    bindAll: bindAll,
+    getSavedContact: getSavedLeadContact,
+    saveContact: saveLeadContact,
+    resetForm: function (formEl) {
+      if (formEl && typeof formEl._paradiseLeadReset === 'function') {
+        formEl._paradiseLeadReset();
+      }
+    }
+  };
 })();

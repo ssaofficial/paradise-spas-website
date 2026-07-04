@@ -75,14 +75,17 @@ export async function onRequestPost(context) {
     }, 500, env, request);
   }
 
+  var isVisitConfirm = lead.source === 'fair-in-person-visit';
+  var skipGhlForDuplicate = isSentDuplicate && !isVisitConfirm;
+
   var ghlResult = { ok: false, error: 'GHL not configured' };
-  if (isSentDuplicate) {
+  if (skipGhlForDuplicate) {
     ghlResult = { ok: false, error: 'Skipped — duplicate submission within 24h', retryable: false };
   } else if (ghlConfigured(env)) {
     ghlResult = await upsertContact(env, lead);
   }
 
-  var ghlStatus = isSentDuplicate
+  var ghlStatus = skipGhlForDuplicate
     ? 'DUPLICATE'
     : (isFailedRetry && !ghlResult.ok ? 'FAILED' : (ghlResult.ok ? 'SENT' : 'FAILED'));
   var ghlContactId = ghlResult.contactId || '';
@@ -94,7 +97,7 @@ export async function onRequestPost(context) {
     } catch (err) { /* PENDING row still in sheet */ }
   }
 
-  if (!ghlResult.ok && !isSentDuplicate) {
+  if (!ghlResult.ok && !skipGhlForDuplicate) {
     try {
       await appendMissedLead(env, lead, ghlError);
     } catch (err) { /* ignore */ }
@@ -103,7 +106,7 @@ export async function onRequestPost(context) {
     } catch (err) { /* ignore */ }
   }
 
-  var shouldFireMeta = !isSentDuplicate && !isFailedRetry && ghlResult.ok;
+  var shouldFireMeta = !isVisitConfirm && !isSentDuplicate && !isFailedRetry && ghlResult.ok;
   var metaResult = { sent: false };
   if (shouldFireMeta) {
     try {
@@ -127,10 +130,14 @@ export async function onRequestPost(context) {
     meta_event_id: shouldFireMeta
       ? (metaResult.event_id || body.meta_event_id || lead.submissionId)
       : undefined,
-    message: isSentDuplicate
-      ? 'We already have your info — unlocking inventory now.'
-      : (ghlResult.ok
-        ? (isFailedRetry ? 'Thank you — we updated your info and unlocked inventory.' : 'Thank you — unlocking inventory now.')
-        : 'Thank you — your info is saved. Our team will follow up shortly.')
+    message: isVisitConfirm
+      ? (ghlResult.ok
+        ? 'Your visit is confirmed.'
+        : 'Thank you — your visit request is saved. Our team will follow up shortly.')
+      : (isSentDuplicate
+        ? 'We already have your info — unlocking inventory now.'
+        : (ghlResult.ok
+          ? (isFailedRetry ? 'Thank you — we updated your info and unlocked inventory.' : 'Thank you — unlocking inventory now.')
+          : 'Thank you — your info is saved. Our team will follow up shortly.'))
   }, 200, env, request);
 }

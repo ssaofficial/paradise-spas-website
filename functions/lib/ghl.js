@@ -11,9 +11,34 @@ function ghlHeaders(token) {
   };
 }
 
+function slugTag(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function uniqueTags(tags) {
+  var seen = {};
+  return tags.filter(function (tag) {
+    if (!tag || seen[tag]) return false;
+    seen[tag] = true;
+    return true;
+  });
+}
+
+function normalizeContactTags(contact) {
+  if (!contact || !contact.tags) return [];
+  return contact.tags.map(function (tag) {
+    if (typeof tag === 'string') return tag;
+    return tag.name || tag.tag || '';
+  }).filter(Boolean);
+}
+
 function tagsForSource(source) {
   var tags = ['website-form', 'lead-api'];
   if (source === 'fair-inventory-gate') tags.push('fair-inventory-unlock');
+  if (source === 'fair-in-person-visit') tags.push('fair-in-person-visit');
   if (source === 'minot-lead' || source === 'inventory-gate') tags.push('minot-lead', 'inventory-unlock');
   if (source === 'contact-page') tags.push('contact-page');
   if (source === 'financing-page') tags.push('financing-page');
@@ -26,6 +51,31 @@ function tagsForSource(source) {
   return tags;
 }
 
+function tagsForLead(lead) {
+  var tags = tagsForSource(lead.source || '');
+
+  if (lead.source === 'fair-inventory-gate' && lead.fairAttendance) {
+    tags.push('fair-attendance-' + slugTag(lead.fairAttendance));
+  }
+
+  if (lead.source === 'fair-in-person-visit') {
+    tags.push('fair-visit-confirmed');
+    if (lead.fairVisitDate) {
+      tags.push('fair-visit-' + slugTag(lead.fairVisitDate));
+    } else if (lead.fairVisitDay) {
+      tags.push('fair-visit-day-' + slugTag(lead.fairVisitDay));
+    }
+    if (lead.fairVisitTime) {
+      tags.push('fair-visit-' + slugTag(lead.fairVisitTime));
+    }
+    if (lead.productName) {
+      tags.push('fair-product-' + slugTag(lead.productName));
+    }
+  }
+
+  return uniqueTags(tags);
+}
+
 function buildContactPayload(lead, locationId, forCreate) {
   var payload = {
     firstName: lead.firstName,
@@ -33,7 +83,7 @@ function buildContactPayload(lead, locationId, forCreate) {
     email: lead.email,
     phone: '+1' + lead.phone,
     source: 'Paradise Spas Website — ' + lead.source,
-    tags: tagsForSource(lead.source)
+    tags: tagsForLead(lead)
   };
 
   if (forCreate) {
@@ -46,6 +96,12 @@ function buildContactPayload(lead, locationId, forCreate) {
   }
   if (lead.fairVisitDay) {
     customFields.push({ key: 'fair_visit_day', field_value: lead.fairVisitDay });
+  }
+  if (lead.fairVisitDate) {
+    customFields.push({ key: 'fair_visit_date', field_value: lead.fairVisitDate });
+  }
+  if (lead.fairVisitTime) {
+    customFields.push({ key: 'fair_visit_time', field_value: lead.fairVisitTime });
   }
   if (lead.financingInterest) {
     customFields.push({ key: 'financing_interest', field_value: lead.financingInterest });
@@ -133,6 +189,7 @@ export async function upsertContact(env, lead) {
 
       if (existing && existing.id) {
         payload = buildContactPayload(lead, locationId, false);
+        payload.tags = uniqueTags(normalizeContactTags(existing).concat(payload.tags));
         result = await ghlFetch('/contacts/' + existing.id, {
           method: 'PUT',
           body: JSON.stringify(payload)
