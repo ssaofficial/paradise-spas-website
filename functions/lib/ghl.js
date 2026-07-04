@@ -26,7 +26,7 @@ function tagsForSource(source) {
   return tags;
 }
 
-function buildContactPayload(lead) {
+function buildContactPayload(lead, locationId, forCreate) {
   var payload = {
     firstName: lead.firstName,
     lastName: lead.lastName || '.',
@@ -35,6 +35,10 @@ function buildContactPayload(lead) {
     source: 'Paradise Spas Website — ' + lead.source,
     tags: tagsForSource(lead.source)
   };
+
+  if (forCreate) {
+    payload.locationId = locationId;
+  }
 
   var customFields = [];
   if (lead.fairAttendance) {
@@ -116,7 +120,6 @@ export async function upsertContact(env, lead) {
   }
 
   var locationId = env.GHL_LOCATION_ID || DEFAULT_LOCATION;
-  var payload = buildContactPayload(lead);
   var delays = [0, 1000, 3000, 9000];
   var lastError = 'Unknown GHL error';
 
@@ -126,13 +129,16 @@ export async function upsertContact(env, lead) {
     try {
       var existing = await findContactByEmail(lead.email, locationId, token);
       var result;
+      var payload;
 
       if (existing && existing.id) {
+        payload = buildContactPayload(lead, locationId, false);
         result = await ghlFetch('/contacts/' + existing.id, {
           method: 'PUT',
           body: JSON.stringify(payload)
         }, token);
       } else {
+        payload = buildContactPayload(lead, locationId, true);
         result = await ghlFetch('/contacts/', {
           method: 'POST',
           body: JSON.stringify(payload)

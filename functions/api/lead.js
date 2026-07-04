@@ -116,8 +116,8 @@ export async function onRequestPost(context) {
   return jsonResponse({
     ok: true,
     submission_id: lead.submissionId,
-    duplicate: isSentDuplicate,
-    ghl_retry: isFailedRetry,
+    duplicate: !!isSentDuplicate,
+    ghl_retry: !!isFailedRetry,
     ghl_ok: ghlResult.ok,
     fire_meta: shouldFireMeta,
     ghl_contact_id: ghlContactId || undefined,
