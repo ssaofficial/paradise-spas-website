@@ -23,11 +23,20 @@ export function validateLeadPayload(body) {
     return { ok: false, error: 'Spam detected.' };
   }
 
+  var testEmail = String(body.email || '').trim().toLowerCase();
+  if (testEmail.indexOf('@example.com') !== -1 || testEmail.indexOf('sheet-fixed-test') !== -1) {
+    return { ok: false, error: 'Test submissions are not accepted.' };
+  }
+
+  var clientSubmissionId = String(body.submission_id || body.submissionId || body.meta_event_id || body.metaEventId || '').trim();
+  var submissionId = /^[0-9a-f-]{36}$/i.test(clientSubmissionId) ? clientSubmissionId : crypto.randomUUID();
+
   var fullName = String(body.full_name || body.fullName || '').trim();
   var email = String(body.email || '').trim().toLowerCase();
   var phone = normalizePhone(body.phone);
   var source = String(body.source || 'website-form').trim();
   var fairAttendance = String(body.fair_attendance || body.fairAttendance || '').trim();
+  var fairVisitDay = String(body.fair_visit_day || body.fairVisitDay || '').trim();
   var financingInterest = String(body.financing_interest || body.financingInterest || '').trim();
   var message = String(body.message || '').trim();
   var productName = String(body.product_name || body.productName || '').trim();
@@ -39,11 +48,15 @@ export function validateLeadPayload(body) {
   if (!fullName || fullName.length < 2) {
     return { ok: false, error: 'Please enter your full name.' };
   }
-  if (!EMAIL_RE.test(email)) {
+  var phoneOnlySource = source === 'fair-soak-reserve';
+  if (!phoneOnlySource && !EMAIL_RE.test(email)) {
     return { ok: false, error: 'Please enter a valid email.' };
   }
   if (phone.length < PHONE_DIGITS_MIN) {
     return { ok: false, error: 'Please enter a valid phone number.' };
+  }
+  if (phoneOnlySource && !EMAIL_RE.test(email)) {
+    email = 'fair+' + phone + '@lead.paradisespas.com';
   }
 
   if (source === 'fair-inventory-gate' && !fairAttendance) {
@@ -59,14 +72,15 @@ export function validateLeadPayload(body) {
   return {
     ok: true,
     data: {
-      submissionId: crypto.randomUUID(),
+      submissionId: submissionId,
       fullName: fullName,
       firstName: names.firstName,
       lastName: names.lastName,
       email: email,
       phone: phone,
       source: source,
-      fairAttendance: fairAttendance,
+      fairAttendance: fairAttendance || fairVisitDay,
+      fairVisitDay: fairVisitDay,
       financingInterest: financingInterest,
       message: message,
       productName: productName,

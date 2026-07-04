@@ -116,9 +116,12 @@
     var source = form.getAttribute('data-lead-source') || body.getAttribute('data-lead-source') || 'website-form';
     var submitBtn = form.querySelector('[type="submit"]');
     var turnstileEl = setupTurnstile(form);
+    var isSubmitting = false;
+    var hasSucceeded = false;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isSubmitting || hasSucceeded) return;
       showError(form, '');
 
       if (siteKey && turnstileEl && !turnstileEl.hidden && !getTurnstileToken(form)) {
@@ -126,9 +129,16 @@
         return;
       }
 
+      isSubmitting = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+      }
+
       var eventId = createEventId();
       var payload = {
         source: source,
+        submission_id: eventId,
         full_name: (form.querySelector('[name="full_name"]') || {}).value || '',
         email: (form.querySelector('[name="email"]') || {}).value || '',
         phone: (form.querySelector('[name="phone"]') || {}).value || '',
@@ -149,11 +159,6 @@
         fbc: getFbc()
       };
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.setAttribute('aria-busy', 'true');
-      }
-
       fetch(apiPath, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -168,7 +173,10 @@
             throw new Error(result.data.error || 'Something went wrong. Please call 701-714-5879.');
           }
 
-          trackGenerateLead(source, result.data.meta_event_id || eventId);
+          hasSucceeded = true;
+          if (result.data.fire_meta !== false && result.data.ghl_ok && !result.data.duplicate) {
+            trackGenerateLead(source, result.data.meta_event_id || eventId);
+          }
           handleSuccess(form);
         })
         .catch(function (err) {
@@ -178,7 +186,8 @@
           }
         })
         .finally(function () {
-          if (submitBtn) {
+          isSubmitting = false;
+          if (!hasSucceeded && submitBtn) {
             submitBtn.disabled = false;
             submitBtn.removeAttribute('aria-busy');
           }

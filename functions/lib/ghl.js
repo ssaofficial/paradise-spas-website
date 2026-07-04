@@ -18,6 +18,7 @@ function tagsForSource(source) {
   if (source === 'contact-page') tags.push('contact-page');
   if (source === 'financing-page') tags.push('financing-page');
   if (source === 'fair-reserve') tags.push('fair-reserve');
+  if (source === 'fair-soak-reserve') tags.push('fair-soak-reserve');
   if (source === 'product-page') tags.push('product-page');
   if (source.indexOf('product') !== -1 || source === 'pricing_modal' || source === 'product_detail') {
     tags.push('pricing-request');
@@ -25,9 +26,8 @@ function tagsForSource(source) {
   return tags;
 }
 
-function buildContactPayload(lead, locationId) {
+function buildContactPayload(lead) {
   var payload = {
-    locationId: locationId,
     firstName: lead.firstName,
     lastName: lead.lastName || '.',
     email: lead.email,
@@ -39,6 +39,9 @@ function buildContactPayload(lead, locationId) {
   var customFields = [];
   if (lead.fairAttendance) {
     customFields.push({ key: 'fair_attendance', field_value: lead.fairAttendance });
+  }
+  if (lead.fairVisitDay) {
+    customFields.push({ key: 'fair_visit_day', field_value: lead.fairVisitDay });
   }
   if (lead.financingInterest) {
     customFields.push({ key: 'financing_interest', field_value: lead.financingInterest });
@@ -113,7 +116,7 @@ export async function upsertContact(env, lead) {
   }
 
   var locationId = env.GHL_LOCATION_ID || DEFAULT_LOCATION;
-  var payload = buildContactPayload(lead, locationId);
+  var payload = buildContactPayload(lead);
   var delays = [0, 1000, 3000, 9000];
   var lastError = 'Unknown GHL error';
 

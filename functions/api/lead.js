@@ -1,6 +1,6 @@
 import { corsHeaders, jsonResponse } from '../lib/cors.js';
 import { validateLeadPayload, verifyTurnstile } from '../lib/validate.js';
-import { appendLeadVault, appendMissedLead, sheetsConfigured, updateLeadVaultRow } from '../lib/sheets.js';
+import { appendLeadVault, appendMissedLead, findRecentDuplicate, sheetsConfigured, updateLeadVaultRow } from '../lib/sheets.js';
 import { upsertContact, ghlConfigured } from '../lib/ghl.js';
 import { sendFailureAlert } from '../lib/alert.js';
 import { sendLeadEvent } from '../lib/meta-capi.js';
@@ -45,9 +45,24 @@ export async function onRequestPost(context) {
     return jsonResponse({ ok: false, error: turnstile.error }, 400, env, request);
   }
 
+  var duplicateMatch = null;
+  try {
+    duplicateMatch = await findRecentDuplicate(env, lead.email, lead.phone);
+  } catch (err) { /* proceed if duplicate check fails */ }
+
+  var isSentDuplicate = duplicateMatch &&
+    (duplicateMatch.status === 'SENT' || duplicateMatch.status === 'DUPLICATE');
+  var isFailedRetry = duplicateMatch && duplicateMatch.status === 'FAILED';
+  var isDuplicate = isSentDuplicate;
   var vaultRange = '';
   try {
-    var pendingAppend = await appendLeadVault(env, lead, 'PENDING', '', '');
+    var pendingAppend = await appendLeadVault(
+      env,
+      lead,
+      isDuplicate ? 'DUPLICATE' : (isFailedRetry ? 'RETRY' : 'PENDING'),
+      '',
+      isSentDuplicate ? 'Duplicate email/phone within 24h' : (isFailedRetry ? 'Retry after prior GHL failure' : '')
+    );
     vaultRange = pendingAppend.updates && pendingAppend.updates.updatedRange
       ? pendingAppend.updates.updatedRange
       : '';
@@ -59,11 +74,15 @@ export async function onRequestPost(context) {
   }
 
   var ghlResult = { ok: false, error: 'GHL not configured' };
-  if (ghlConfigured(env)) {
+  if (isSentDuplicate) {
+    ghlResult = { ok: false, error: 'Skipped — duplicate submission within 24h', retryable: false };
+  } else if (ghlConfigured(env)) {
     ghlResult = await upsertContact(env, lead);
   }
 
-  var ghlStatus = ghlResult.ok ? 'SENT' : 'FAILED';
+  var ghlStatus = isSentDuplicate
+    ? 'DUPLICATE'
+    : (isFailedRetry && !ghlResult.ok ? 'FAILED' : (ghlResult.ok ? 'SENT' : 'FAILED'));
   var ghlContactId = ghlResult.contactId || '';
   var ghlError = ghlResult.error || '';
 
@@ -73,7 +92,7 @@ export async function onRequestPost(context) {
     } catch (err) { /* PENDING row still in sheet */ }
   }
 
-  if (!ghlResult.ok) {
+  if (!ghlResult.ok && !isSentDuplicate) {
     try {
       await appendMissedLead(env, lead, ghlError);
     } catch (err) { /* ignore */ }
@@ -82,24 +101,34 @@ export async function onRequestPost(context) {
     } catch (err) { /* ignore */ }
   }
 
+  var shouldFireMeta = !isSentDuplicate && !isFailedRetry && ghlResult.ok;
   var metaResult = { sent: false };
-  try {
-    metaResult = await sendLeadEvent(env, request, lead, {
-      eventId: body.meta_event_id || body.metaEventId || lead.submissionId,
-      fbp: body.fbp || '',
-      fbc: body.fbc || ''
-    });
-  } catch (err) { /* CAPI must not block lead capture */ }
+  if (shouldFireMeta) {
+    try {
+      metaResult = await sendLeadEvent(env, request, lead, {
+        eventId: body.meta_event_id || body.metaEventId || lead.submissionId,
+        fbp: body.fbp || '',
+        fbc: body.fbc || ''
+      });
+    } catch (err) { /* CAPI must not block lead capture */ }
+  }
 
   return jsonResponse({
     ok: true,
     submission_id: lead.submissionId,
+    duplicate: isSentDuplicate,
+    ghl_retry: isFailedRetry,
     ghl_ok: ghlResult.ok,
+    fire_meta: shouldFireMeta,
     ghl_contact_id: ghlContactId || undefined,
     meta_capi: metaResult.sent === true,
-    meta_event_id: metaResult.event_id || body.meta_event_id || lead.submissionId,
-    message: ghlResult.ok
-      ? 'Thank you — unlocking inventory now.'
-      : 'Thank you — your info is saved. Our team will follow up shortly.'
+    meta_event_id: shouldFireMeta
+      ? (metaResult.event_id || body.meta_event_id || lead.submissionId)
+      : undefined,
+    message: isSentDuplicate
+      ? 'We already have your info — unlocking inventory now.'
+      : (ghlResult.ok
+        ? (isFailedRetry ? 'Thank you — we updated your info and unlocked inventory.' : 'Thank you — unlocking inventory now.')
+        : 'Thank you — your info is saved. Our team will follow up shortly.')
   }, 200, env, request);
 }

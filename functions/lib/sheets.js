@@ -136,3 +136,53 @@ export async function appendMissedLead(env, lead, ghlError) {
 export function sheetsConfigured(env) {
   return !!(env.GOOGLE_SHEETS_ID && env.GOOGLE_SERVICE_ACCOUNT_EMAIL && env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY);
 }
+
+var DUPLICATE_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+function normalizeEmailForDedupe(email) {
+  return String(email || '').trim().toLowerCase();
+}
+
+function normalizePhoneForDedupe(phone) {
+  var digits = String(phone || '').replace(/\D/g, '');
+  if (digits.length === 11 && digits.charAt(0) === '1') digits = digits.slice(1);
+  return digits.slice(-10);
+}
+
+export async function findRecentDuplicate(env, email, phone, windowMs) {
+  windowMs = windowMs || DUPLICATE_WINDOW_MS;
+  var targetEmail = normalizeEmailForDedupe(email);
+  var targetPhone = normalizePhoneForDedupe(phone);
+  if (!targetEmail && !targetPhone) return null;
+
+  var data = await sheetsRequest(env, '/values/' + encodeURIComponent('All Leads!B:I'));
+  var rows = data.values || [];
+  var cutoff = Date.now() - windowMs;
+  var sentMatch = null;
+  var recentFailedMatch = null;
+
+  for (var i = rows.length - 1; i >= 0; i--) {
+    var row = rows[i];
+    if (!row || !row.length) continue;
+
+    var submittedAt = Date.parse(row[0] || '');
+    if (!submittedAt || submittedAt < cutoff) continue;
+
+    var rowEmail = normalizeEmailForDedupe(row[3] || '');
+    var rowPhone = normalizePhoneForDedupe(row[4] || '');
+    var matches = (targetEmail && rowEmail && rowEmail === targetEmail) ||
+      (targetPhone && rowPhone && rowPhone === targetPhone);
+    if (!matches) continue;
+
+    var status = String(row[7] || '').toUpperCase();
+    if (status === 'SENT' || status === 'DUPLICATE') {
+      sentMatch = { submittedAt: row[0], email: rowEmail, phone: rowPhone, status: status };
+      break;
+    }
+    if (status === 'FAILED' && !recentFailedMatch) {
+      recentFailedMatch = { submittedAt: row[0], email: rowEmail, phone: rowPhone, status: status };
+    }
+  }
+
+  return sentMatch || recentFailedMatch;
+}
