@@ -119,10 +119,7 @@
 
   function init() {
     var params = new URLSearchParams(window.location.search);
-    var ref = document.referrer || '';
-    var fromPostOptIn = ref.indexOf('redrivervalleyavailableinventoryonly') !== -1;
-
-    if (params.get('inventory_unlocked') === '1' || params.get('post_optin') === '1' || fromPostOptIn) {
+    if (params.get('inventory_unlocked') === '1') {
       persistUnlock();
       applyUnlocked(true);
       if (window.history && window.history.replaceState) {

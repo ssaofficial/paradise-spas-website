@@ -58,6 +58,10 @@ function tagsForLead(lead) {
     tags.push('fair-attendance-' + slugTag(lead.fairAttendance));
   }
 
+  if (lead.trafficChannel === 'organic') {
+    tags.push('organic');
+  }
+
   if (lead.source === 'fair-in-person-visit') {
     tags.push('fair-visit-confirmed');
     if (lead.fairVisitDate) {

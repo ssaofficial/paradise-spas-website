@@ -17,7 +17,6 @@
     '/inventory': { name: 'Minot Inventory', category: 'funnel' },
     '/inventoryredrivervalleyfair': { name: 'Fair Inventory Gate', category: 'funnel' },
     '/redrivervalleyfair': { name: 'Red River Valley Fair', category: 'event' },
-    '/redrivervalleyavailableinventoryonly': { name: 'Fair Post-Opt-In Survey', category: 'funnel' },
     '/hot-tub-offer': { name: 'Hot Tub Offer', category: 'funnel' },
     '/find-my-spa': { name: 'Find My Spa Quiz', category: 'funnel' },
     '/hot-tubs': { name: 'Hot Tubs Category', category: 'catalog' },

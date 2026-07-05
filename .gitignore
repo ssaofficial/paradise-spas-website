@@ -4,4 +4,8 @@ node_modules/
 *.log
 .env
 .env.*
+.cursor/
 .cursor/mcp.json
+*-ga4*.json
+ga4-credentials.json
+**/paradise-ga4.json

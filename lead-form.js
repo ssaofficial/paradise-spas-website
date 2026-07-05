@@ -13,6 +13,17 @@
     return match ? decodeURIComponent(match[2]) : '';
   }
 
+  function getTrafficChannel() {
+    if (window.ParadiseTraffic && typeof window.ParadiseTraffic.getChannel === 'function') {
+      return window.ParadiseTraffic.getChannel();
+    }
+    return '';
+  }
+
+  if (window.ParadiseTraffic && typeof window.ParadiseTraffic.capture === 'function') {
+    window.ParadiseTraffic.capture();
+  }
+
   function createEventId() {
     if (window.crypto && typeof window.crypto.randomUUID === 'function') {
       return window.crypto.randomUUID();
@@ -217,6 +228,7 @@
         our_price: (form.querySelector('[name="our_price"]') || {}).value || '',
         monthly_payment: (form.querySelector('[name="monthly_payment"]') || {}).value || '',
         page_url: window.location.href,
+        traffic_channel: getTrafficChannel(),
         consent: true,
         turnstile_token: getTurnstileToken(form),
         website_url: (form.querySelector('[name="website_url"]') || {}).value || '',

@@ -1,0 +1,11 @@
+{
+  "name": "agency-website",
+  "private": true,
+  "scripts": {
+    "deploy": "npx wrangler pages deploy . --project-name YOUR_PROJECT_NAME --branch main",
+    "preview:deploy": "npx wrangler pages deploy . --project-name YOUR_PROJECT_NAME --branch preview"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}

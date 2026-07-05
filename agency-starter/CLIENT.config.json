@@ -1,0 +1,11 @@
+{
+  "clientName": "YOUR CLIENT NAME",
+  "primaryDomain": "https://www.example.com",
+  "ghlLocationId": "PASTE_GHL_LOCATION_ID",
+  "ga4MeasurementId": "G-XXXXXXXX",
+  "metaPixelId": "",
+  "leadValueUsd": 500,
+  "defaultPhone": "5555550100",
+  "cloudflareProject": "your-pages-project-name",
+  "alertEmail": "you@youragency.com"
+}

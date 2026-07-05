@@ -1,0 +1,59 @@
+/* Minimal form styles — customize to match client brand */
+.lead-form-section {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.lead-form-shell.is-ready .lead-form {
+  display: grid;
+  gap: 12px;
+}
+
+.lead-form label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.lead-form input,
+.lead-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.lead-form button[type="submit"] {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #1f3fc4;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.lead-form button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.lead-form-error {
+  color: #b11e26;
+  font-size: 0.875rem;
+}
+
+.lead-form-disclaimer {
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.45;
+}
+
+.lead-form-honeypot {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}

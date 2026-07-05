@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch main",
-    "preview:deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch preview"
+    "preview:deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch preview",
+    "ga4:funnel": "node scripts/ga4-funnel-report.mjs",
+    "ga4:pages": "node scripts/ga4-funnel-report.mjs --all-pages"
   },
   "devDependencies": {
     "wrangler": "latest"

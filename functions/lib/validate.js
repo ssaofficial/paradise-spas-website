@@ -46,6 +46,11 @@ export function validateLeadPayload(body) {
   var estimatedRetailPrice = String(body.estimated_retail_price || body.estimatedRetailPrice || '').trim();
   var ourPrice = String(body.our_price || body.ourPrice || '').trim();
   var monthlyPayment = String(body.monthly_payment || body.monthlyPayment || '').trim();
+  var trafficChannel = String(body.traffic_channel || body.trafficChannel || '').trim().toLowerCase();
+  var allowedChannels = { organic: true, paid: true, direct: true, referral: true, internal: true };
+  if (trafficChannel && !allowedChannels[trafficChannel]) {
+    trafficChannel = '';
+  }
 
   if (!fullName || fullName.length < 2) {
     return { ok: false, error: 'Please enter your full name.' };
@@ -97,6 +102,7 @@ export function validateLeadPayload(body) {
       ourPrice: ourPrice,
       monthlyPayment: monthlyPayment,
       pageUrl: String(body.page_url || body.pageUrl || '').trim(),
+      trafficChannel: trafficChannel,
       consent: body.consent !== false && body.consent !== 'false'
     }
   };
