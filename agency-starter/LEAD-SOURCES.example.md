@@ -15,5 +15,8 @@ Every form uses `data-lead-source`. Map each code to a GHL tag + workflow.
 **Custom fields written:**
 - `lead_source_page` — full URL
 - `contact_message` — message textarea (if shown)
+- `company_name` — company field (if shown)
+- `service_interest` — service dropdown (if shown)
+- `utm_source`, `utm_campaign`, `utm_content`, `fbclid` — from URL params on form submit
 
 Add rows as you add forms. Update `functions/lib/ghl.js` for new tags.

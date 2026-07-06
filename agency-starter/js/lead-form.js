@@ -1,11 +1,13 @@
 /**
  * Native lead forms → POST /api/lead
- * Fires GA4 generate_lead + Meta Lead once on success (thank-you page does NOT re-fire).
+ * Fires GA4 generate_lead + Meta Lead once on GHL success (thank-you page does NOT re-fire).
  */
 (function () {
   var body = document.body;
   var defaultApiPath = body.getAttribute('data-lead-api') || '/api/lead';
   var siteKey = body.getAttribute('data-turnstile-site-key') || '';
+  var clientPhone = body.getAttribute('data-client-phone') || '';
+  var phoneDisplay = clientPhone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   var LEAD_VALUE = parseFloat(body.getAttribute('data-lead-value') || '500') || 500;
   var LEAD_CURRENCY = 'USD';
 
@@ -28,6 +30,38 @@
     var fbclid = params.get('fbclid');
     if (!fbclid) return '';
     return 'fb.1.' + Date.now() + '.' + fbclid;
+  }
+
+  function getUtmParams() {
+    var params = new URLSearchParams(window.location.search);
+    return {
+      utm_source: params.get('utm_source') || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content: params.get('utm_content') || '',
+      fbclid: params.get('fbclid') || ''
+    };
+  }
+
+  function leadDedupeKey(email, phone) {
+    var e = String(email || '').trim().toLowerCase();
+    var p = String(phone || '').replace(/\D/g, '').slice(-10);
+    return e + '|' + p;
+  }
+
+  function hasRecentBrowserLead(email, phone) {
+    try {
+      var key = 'agency_lead_dedupe_' + leadDedupeKey(email, phone);
+      var ts = parseInt(sessionStorage.getItem(key), 10);
+      return ts && Date.now() - ts < 24 * 60 * 60 * 1000;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function markBrowserLead(email, phone) {
+    try {
+      sessionStorage.setItem('agency_lead_dedupe_' + leadDedupeKey(email, phone), String(Date.now()));
+    } catch (err) { /* ignore */ }
   }
 
   function getErrorEl(form) {
@@ -114,9 +148,12 @@
     var source = form.getAttribute('data-lead-source') || body.getAttribute('data-lead-source') || 'website-form';
     var submitBtn = form.querySelector('[type="submit"]');
     var turnstileEl = setupTurnstile(form);
+    var isSubmitting = false;
+    var hasSucceeded = false;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isSubmitting || hasSucceeded) return;
       showError(form, '');
 
       if (siteKey && turnstileEl && !turnstileEl.hidden && !getTurnstileToken(form)) {
@@ -124,16 +161,38 @@
         return;
       }
 
+      var formEmail = (form.querySelector('[name="email"]') || {}).value || '';
+      var formPhone = (form.querySelector('[name="phone"]') || {}).value || '';
+      if (hasRecentBrowserLead(formEmail, formPhone)) {
+        var callMsg = phoneDisplay
+          ? 'We already received your info. Please call ' + phoneDisplay + ' if you need help.'
+          : 'We already received your info. Please contact us if you need help.';
+        showError(form, callMsg);
+        return;
+      }
+
+      isSubmitting = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+      }
+
       var eventId = createEventId();
+      var utm = getUtmParams();
       var payload = {
         source: source,
+        submission_id: eventId,
         full_name: (form.querySelector('[name="full_name"]') || {}).value || '',
-        email: (form.querySelector('[name="email"]') || {}).value || '',
-        phone: (form.querySelector('[name="phone"]') || {}).value || '',
+        email: formEmail,
+        phone: formPhone,
         message: (form.querySelector('[name="message"]') || {}).value || '',
         company: (form.querySelector('[name="company"]') || {}).value || '',
         service_interest: (form.querySelector('[name="service_interest"]') || {}).value || '',
         page_url: window.location.href,
+        utm_source: utm.utm_source,
+        utm_campaign: utm.utm_campaign,
+        utm_content: utm.utm_content,
+        fbclid: utm.fbclid,
         consent: true,
         turnstile_token: getTurnstileToken(form),
         website_url: (form.querySelector('[name="website_url"]') || {}).value || '',
@@ -141,11 +200,6 @@
         fbp: getCookie('_fbp'),
         fbc: getFbc()
       };
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.setAttribute('aria-busy', 'true');
-      }
 
       fetch(apiPath, {
         method: 'POST',
@@ -160,7 +214,12 @@
           if (!result.data.ok) {
             throw new Error(result.data.error || 'Something went wrong. Please try again.');
           }
-          trackGenerateLead(source, result.data.meta_event_id || eventId);
+
+          hasSucceeded = true;
+          markBrowserLead(formEmail, formPhone);
+          if (result.data.fire_meta !== false && result.data.ghl_ok && !result.data.duplicate) {
+            trackGenerateLead(source, result.data.meta_event_id || eventId);
+          }
           handleSuccess(form);
         })
         .catch(function (err) {
@@ -170,7 +229,8 @@
           }
         })
         .finally(function () {
-          if (submitBtn) {
+          isSubmitting = false;
+          if (!hasSucceeded && submitBtn) {
             submitBtn.disabled = false;
             submitBtn.removeAttribute('aria-busy');
           }

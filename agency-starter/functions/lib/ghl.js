@@ -28,14 +28,30 @@ function tagsForSource(source) {
   return tags;
 }
 
+function uniqueTags(tags) {
+  var seen = {};
+  return tags.filter(function (tag) {
+    if (!tag || seen[tag]) return false;
+    seen[tag] = true;
+    return true;
+  });
+}
+
+function normalizeContactTags(contact) {
+  if (!contact || !contact.tags) return [];
+  return contact.tags.map(function (tag) {
+    if (typeof tag === 'string') return tag;
+    return tag.name || tag.tag || '';
+  }).filter(Boolean);
+}
+
 function contactSourceLabel(env, source) {
   var name = env.CLIENT_NAME || 'Website';
   return name + ' — ' + source;
 }
 
-function buildContactPayload(lead, locationId, env) {
+function buildContactPayload(lead, locationId, env, forCreate) {
   var payload = {
-    locationId: locationId,
     firstName: lead.firstName,
     lastName: lead.lastName || '.',
     email: lead.email,
@@ -43,6 +59,10 @@ function buildContactPayload(lead, locationId, env) {
     source: contactSourceLabel(env, lead.source),
     tags: tagsForSource(lead.source)
   };
+
+  if (forCreate) {
+    payload.locationId = locationId;
+  }
 
   var customFields = [];
   if (lead.message) {
@@ -56,6 +76,18 @@ function buildContactPayload(lead, locationId, env) {
   }
   if (lead.pageUrl) {
     customFields.push({ key: 'lead_source_page', field_value: lead.pageUrl });
+  }
+  if (lead.utmSource) {
+    customFields.push({ key: 'utm_source', field_value: lead.utmSource });
+  }
+  if (lead.utmCampaign) {
+    customFields.push({ key: 'utm_campaign', field_value: lead.utmCampaign });
+  }
+  if (lead.utmContent) {
+    customFields.push({ key: 'utm_content', field_value: lead.utmContent });
+  }
+  if (lead.fbclid) {
+    customFields.push({ key: 'fbclid', field_value: lead.fbclid });
   }
   if (customFields.length) payload.customFields = customFields;
 
@@ -110,7 +142,6 @@ export async function upsertContact(env, lead) {
     return { ok: false, error: 'GHL_LOCATION_ID is not configured.', retryable: false };
   }
 
-  var payload = buildContactPayload(lead, locationId, env);
   var delays = [0, 1000, 3000, 9000];
   var lastError = 'Unknown GHL error';
 
@@ -120,13 +151,17 @@ export async function upsertContact(env, lead) {
     try {
       var existing = await findContactByEmail(lead.email, locationId, token);
       var result;
+      var payload;
 
       if (existing && existing.id) {
+        payload = buildContactPayload(lead, locationId, env, false);
+        payload.tags = uniqueTags(normalizeContactTags(existing).concat(payload.tags));
         result = await ghlFetch('/contacts/' + existing.id, {
           method: 'PUT',
           body: JSON.stringify(payload)
         }, token);
       } else {
+        payload = buildContactPayload(lead, locationId, env, true);
         result = await ghlFetch('/contacts/', {
           method: 'POST',
           body: JSON.stringify(payload)

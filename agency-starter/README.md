@@ -77,6 +77,8 @@ Define your **lead sources** in `LEAD-SOURCES.md` (copy from example) and map th
 
 **Before `</body>`** — paste from `snippets/body-scripts.html`.
 
+**Subfolder pages** (e.g. `/services/index.html`): use `../js/call-tracking.js` paths or a shared layout — root-relative `js/...` breaks tracking on nested pages.
+
 **Contact form** — paste from `snippets/form-contact.html` where you want the form.
 
 ---
@@ -117,10 +119,16 @@ Share sheet with service account email (Editor).
 
 ## 6. GHL setup
 
-1. Create custom fields: `lead_source_page`, `contact_message` (match keys in `ghl.js`)
+1. Create custom fields: `lead_source_page`, `contact_message`, `company_name`, `service_interest`, `utm_source`, `utm_campaign`, `utm_content`, `fbclid` (match keys in `ghl.js`)
 2. Add tags you'll use: `contact-page`, `quote-request`, `book-call`, `lp-facebook`, etc.
 3. Workflows: **Trigger → Contact tag added → [your tag]**
 4. Private Integration token (`pit-...`) with contacts write scope
+
+**Lead reliability (built in):**
+- GHL create uses `locationId` in POST body only; updates omit it (prevents 422 on repeat submitters)
+- Meta Lead + CAPI fire only after successful GHL save, not on duplicates
+- 24h duplicate detection by email/phone in Lead Vault
+- Browser submit lock prevents double-click duplicates
 
 ---
 
@@ -149,10 +157,12 @@ npm run deploy
 ## 9. QA (15 min)
 
 - [ ] Submit contact form → Sheet row + GHL contact + correct tag
+- [ ] Submit same email again within 24h → duplicate row, no second Meta Lead, no duplicate GHL contact
 - [ ] GA4 Realtime: `generate_lead` once (not twice)
-- [ ] Meta: one Lead per submit (browser + server, same event ID)
+- [ ] Meta: one Lead per submit only when GHL succeeds (browser + server, same event ID)
 - [ ] Phone tap: `click_call`
-- [ ] CTA click: `pricing_click`
+- [ ] CTA click with `data-track-pricing`: `pricing_click` (nav contact links should NOT fire this)
+- [ ] GHL retry: submit with email already in GHL → contact updates, no 422 error
 
 ---
 

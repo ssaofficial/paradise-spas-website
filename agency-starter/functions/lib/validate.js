@@ -23,6 +23,14 @@ export function validateLeadPayload(body) {
     return { ok: false, error: 'Spam detected.' };
   }
 
+  var testEmail = String(body.email || '').trim().toLowerCase();
+  if (testEmail.indexOf('@example.com') !== -1 || testEmail.indexOf('sheet-fixed-test') !== -1) {
+    return { ok: false, error: 'Test submissions are not accepted.' };
+  }
+
+  var clientSubmissionId = String(body.submission_id || body.submissionId || body.meta_event_id || body.metaEventId || '').trim();
+  var submissionId = /^[0-9a-f-]{36}$/i.test(clientSubmissionId) ? clientSubmissionId : crypto.randomUUID();
+
   var fullName = String(body.full_name || body.fullName || '').trim();
   var email = String(body.email || '').trim().toLowerCase();
   var phone = normalizePhone(body.phone);
@@ -30,6 +38,10 @@ export function validateLeadPayload(body) {
   var message = String(body.message || '').trim();
   var company = String(body.company || '').trim();
   var serviceInterest = String(body.service_interest || body.serviceInterest || '').trim();
+  var utmSource = String(body.utm_source || body.utmSource || '').trim();
+  var utmCampaign = String(body.utm_campaign || body.utmCampaign || '').trim();
+  var utmContent = String(body.utm_content || body.utmContent || '').trim();
+  var fbclid = String(body.fbclid || '').trim();
 
   if (!fullName || fullName.length < 2) {
     return { ok: false, error: 'Please enter your full name.' };
@@ -46,7 +58,7 @@ export function validateLeadPayload(body) {
   return {
     ok: true,
     data: {
-      submissionId: crypto.randomUUID(),
+      submissionId: submissionId,
       fullName: fullName,
       firstName: names.firstName,
       lastName: names.lastName,
@@ -57,6 +69,10 @@ export function validateLeadPayload(body) {
       company: company,
       serviceInterest: serviceInterest,
       pageUrl: String(body.page_url || body.pageUrl || '').trim(),
+      utmSource: utmSource,
+      utmCampaign: utmCampaign,
+      utmContent: utmContent,
+      fbclid: fbclid,
       consent: body.consent !== false && body.consent !== 'false'
     }
   };

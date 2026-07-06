@@ -30,7 +30,7 @@
   window.TrackPricingClick = trackPricingClick;
 
   document.addEventListener('click', function (event) {
-    var target = event.target.closest('[data-track-pricing], .btn-quote, a[href*="book"], a[href*="contact"]');
+    var target = event.target.closest('[data-track-pricing], .btn-quote, a[href*="book"]');
     if (!target) return;
     if (target.matches('a[href^="tel:"]')) return;
     trackPricingClick(getPricingSource(target));
