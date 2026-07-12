@@ -25,18 +25,14 @@
     time: ''
   };
 
-  var FAIR_DAYS = [
-    { value: '2026-07-03', label: 'Friday, July 3' },
-    { value: '2026-07-04', label: 'Saturday, July 4' },
-    { value: '2026-07-05', label: 'Sunday, July 5' },
-    { value: '2026-07-06', label: 'Monday, July 6' },
-    { value: '2026-07-07', label: 'Tuesday, July 7' },
-    { value: '2026-07-08', label: 'Wednesday, July 8' },
-    { value: '2026-07-09', label: 'Thursday, July 9' },
-    { value: '2026-07-10', label: 'Friday, July 10' },
-    { value: '2026-07-11', label: 'Saturday, July 11' },
-    { value: '2026-07-12', label: 'Sunday, July 12' }
-  ];
+  var FAIR_START_KEY = '2026-07-03';
+  var FAIR_END_KEY = '2026-07-12';
+  var FAIR_DAY_LABEL_FORMATTER = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric'
+  });
 
   function todayFairKey() {
     var parts = new Intl.DateTimeFormat('en-CA', {
@@ -53,7 +49,21 @@
 
   function availableDays() {
     var today = todayFairKey();
-    return FAIR_DAYS.filter(function (day) { return day.value >= today; });
+    var start = today > FAIR_START_KEY ? today : FAIR_START_KEY;
+    var days = [];
+    var current = new Date(start + 'T12:00:00-05:00');
+    var end = new Date(FAIR_END_KEY + 'T12:00:00-05:00');
+
+    while (current <= end) {
+      var key = current.toISOString().slice(0, 10);
+      days.push({
+        value: key,
+        label: FAIR_DAY_LABEL_FORMATTER.format(current)
+      });
+      current.setDate(current.getDate() + 1);
+    }
+
+    return days;
   }
 
   function getSavedContact() {

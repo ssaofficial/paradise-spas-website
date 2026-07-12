@@ -223,6 +223,52 @@ body.inventory-gate-fair .ht-card--fair-financing .inv-card-img img {
     aspect-ratio: 5 / 4;
     align-self: center;
   }
+
+  body.inventory-gate-fair .ht-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  body.inventory-gate-fair .ht-grid .inv-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-width: 0;
+    border-radius: 12px;
+  }
+
+  body.inventory-gate-fair .ht-grid .inv-card-img {
+    width: 42%;
+    max-width: 380px;
+    min-width: 280px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  body.inventory-gate-fair .ht-grid .inv-card-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 24px 28px;
+    justify-content: space-between;
+  }
+
+  body.inventory-gate-fair .ht-grid .inv-card-pills {
+    display: flex;
+    justify-content: flex-start;
+    gap: 28px;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--divider);
+  }
+
+  body.inventory-gate-fair .ht-grid .inv-pill {
+    min-height: auto;
+    padding: 0;
+    background: transparent;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* Fair inventory page — countdown header (replaces nav) */

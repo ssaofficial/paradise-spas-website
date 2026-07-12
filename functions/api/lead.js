@@ -76,7 +76,8 @@ export async function onRequestPost(context) {
   }
 
   var isVisitConfirm = lead.source === 'fair-in-person-visit';
-  var skipGhlForDuplicate = isSentDuplicate && !isVisitConfirm;
+  var isActiveInventoryProductRequest = !!lead.modelInterestTag || (lead.productPageUrl || lead.pageUrl || '').indexOf('/active-inventory/') !== -1;
+  var skipGhlForDuplicate = isSentDuplicate && !isVisitConfirm && !isActiveInventoryProductRequest;
 
   var ghlResult = { ok: false, error: 'GHL not configured' };
   if (skipGhlForDuplicate) {
@@ -118,6 +119,15 @@ export async function onRequestPost(context) {
     } catch (err) { /* CAPI must not block lead capture */ }
   }
 
+  var productSuccessMessage = '';
+  if (lead.productName && lead.formIntent === 'Fair Price Request') {
+    productSuccessMessage = 'Thank you. Your request for the ' + lead.productName + ' has been received. Paradise Spas will contact you with current fair pricing, financing options, and availability.';
+  } else if (lead.productName && lead.formIntent === 'Backup Availability Request') {
+    productSuccessMessage = 'Thank you. Your backup inquiry for the ' + lead.productName + ' has been received. Paradise Spas will contact you if this unit becomes available.';
+  } else if (lead.productName && lead.formIntent === 'Next Available Unit Request') {
+    productSuccessMessage = 'Thank you. Your request for the next available ' + lead.productName + ' has been received. Paradise Spas will contact you with options.';
+  }
+
   return jsonResponse({
     ok: true,
     submission_id: lead.submissionId,
@@ -135,9 +145,11 @@ export async function onRequestPost(context) {
         ? 'Your visit is confirmed.'
         : 'Thank you — your visit request is saved. Our team will follow up shortly.')
       : (isSentDuplicate
-        ? 'We already have your info — unlocking inventory now.'
+        ? (isActiveInventoryProductRequest && productSuccessMessage ? productSuccessMessage : 'We already have your info — unlocking inventory now.')
         : (ghlResult.ok
-          ? (isFailedRetry ? 'Thank you — we updated your info and unlocked inventory.' : 'Thank you — unlocking inventory now.')
+          ? (productSuccessMessage
+            ? productSuccessMessage
+            : (isFailedRetry ? 'Thank you — we updated your info and unlocked inventory.' : 'Thank you — unlocking inventory now.'))
           : 'Thank you — your info is saved. Our team will follow up shortly.'))
   }, 200, env, request);
 }

@@ -53,7 +53,8 @@ export async function sendLeadEvent(env, request, lead, meta) {
       custom_data: {
         value: LEAD_VALUE,
         currency: LEAD_CURRENCY,
-        content_name: lead.source
+        content_name: lead.productName || lead.source,
+        content_category: lead.campaign || lead.productCategory || ''
       }
     }],
     access_token: env.META_CAPI_ACCESS_TOKEN

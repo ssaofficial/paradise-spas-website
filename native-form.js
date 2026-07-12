@@ -42,13 +42,14 @@
     );
   }
 
-  function fairField(prefix) {
+  function fairField(prefix, fairName) {
     var id = fieldId(prefix, 'fair_attendance');
+    fairName = fairName || 'Red River Valley Fair';
     return (
-      '<label for="' + id + '">Are you coming to the Red River Valley Fair?</label>' +
+      '<label for="' + id + '">Are you coming to the ' + fairName + '?</label>' +
       '<select id="' + id + '" name="fair_attendance" required>' +
         '<option value="">Select one&hellip;</option>' +
-        '<option value="yes">Yes &mdash; I&rsquo;ll be at the fair</option>' +
+        '<option value="yes">Yes &mdash; I&rsquo;ll be there</option>' +
         '<option value="maybe">Maybe &mdash; still planning</option>' +
         '<option value="no">No &mdash; can&rsquo;t make it this year</option>' +
       '</select>'
@@ -91,6 +92,7 @@
     var showMessage = container.getAttribute('data-show-message') === 'true';
     var showProduct = container.getAttribute('data-show-product') === 'true';
     var financingRequired = container.getAttribute('data-financing-required') !== 'false';
+    var fairName = container.getAttribute('data-fair-name') || 'Red River Valley Fair';
 
     var parts = [
       '<p id="' + errorId + '" class="inventory-gate-form-error paradise-lead-error" hidden></p>',
@@ -100,7 +102,7 @@
     ];
 
     if (showProduct) parts.push(productFields(prefix));
-    if (showFair) parts.push(fairField(prefix));
+    if (showFair) parts.push(fairField(prefix, fairName));
     if (showFinancing) parts.push(financingField(prefix, financingRequired));
     if (showMessage) parts.push(contactFields(prefix));
     else parts.push(standardFields(prefix));

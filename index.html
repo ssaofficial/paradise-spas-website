@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="/favicon.ico?v=20260710" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260710">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260710">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260710">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Paradise Spas and Outdoor Living | North Dakota's #1 Hot Tub Store</title>
@@ -8,351 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260701-mobile">
   <link rel="stylesheet" href="inventory-gate.css?v=20260702d">
-  <style>
-    /* Hero takeover splice from reference file. Scoped here so the existing stylesheet and sections below remain untouched. */
-    .hero,
-    .takeover,
-    .truststrip {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .hero .wrap,
-    .takeover .wrap,
-    .truststrip .wrap {
-      max-width: 1200px;
-      margin-inline: auto;
-      padding-inline: clamp(1.2rem, 4vw, 3rem);
-    }
-
-    .hero .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .7rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: #191919;
-    }
-
-    .hero .eyebrow::before {
-      content: "";
-      width: 3px;
-      height: 1.05em;
-      background: #CE1126;
-      flex: none;
-    }
-
-    .hero .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .82rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 1.05em 1.9em;
-      border-radius: 3px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      line-height: 1;
-      transition: .15s;
-    }
-
-    .hero .btn--primary {
-      background: #CE1126;
-      color: #fff;
-    }
-
-    .hero .btn--primary:hover {
-      background: #A80E1F;
-    }
-
-    .hero .textlink {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .8rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: #191919;
-      border-bottom: 2px solid #CE1126;
-      padding-bottom: 2px;
-    }
-
-    .hero {
-      display: block;
-      background: #FAF7F2;
-      padding-block: clamp(3.2rem, 8vw, 6.5rem) clamp(3rem, 7vw, 5.5rem);
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: #191919;
-      font-size: clamp(2.5rem, 7.2vw, 5.6rem);
-      line-height: .95;
-      letter-spacing: -.03em;
-      max-width: 15ch;
-      margin: 1.4rem auto 1.6rem;
-    }
-
-    .hero h1 .red {
-      color: #CE1126;
-    }
-
-    .hero .sub {
-      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-      color: #3A3532;
-      font-weight: 500;
-      max-width: 56ch;
-      margin: 0 auto 2.2rem;
-      line-height: 1.55;
-    }
-
-    .hero .cta-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.8rem;
-      flex-wrap: wrap;
-    }
-
-    .hero .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .68rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: #191919;
-      border: 1px solid #E7E0D6;
-      border-radius: 2px;
-      padding: .55rem .9rem;
-      background: #FFFFFF;
-      margin-top: 2.2rem;
-    }
-
-    .hero .chip .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #CE1126;
-      flex: none;
-    }
-
-    .takeover {
-      background: #191919;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .takeover::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(85% 90% at 50% 42%, rgba(206,17,38,.16), transparent 62%);
-    }
-
-    .takeover .inner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: clamp(1.5rem, 4vw, 3.5rem);
-      padding-block: 1.4rem;
-      min-height: 150px;
-    }
-
-    .takeover .head {
-      flex: none;
-      max-width: 340px;
-    }
-
-    .takeover h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #FAF7F2;
-      font-size: .82rem;
-      letter-spacing: .06em;
-      line-height: 1.35;
-      margin-top: .55rem;
-      max-width: 26ch;
-    }
-
-    .takeover .mapbox {
-      position: relative;
-      flex: 1;
-      min-width: 0;
-    }
-
-    .takeover svg.map {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 158px;
-      margin-inline: auto;
-    }
-
-    .usa {
-      fill: #241F1C;
-      stroke: rgba(250,247,242,.14);
-      stroke-width: 1.2;
-      stroke-linejoin: round;
-    }
-
-    .takeover .stat {
-      display: flex;
-      align-items: baseline;
-      gap: .7rem;
-      flex-wrap: wrap;
-    }
-
-    .takeover .stat .n {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: clamp(1.7rem, 2.6vw, 2.3rem);
-      color: #FAF7F2;
-      line-height: 1;
-      letter-spacing: -.02em;
-    }
-
-    .takeover .stat .n::before {
-      content: "";
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #CE1126;
-      margin-right: .55rem;
-      vertical-align: .45em;
-      box-shadow: 0 0 0 0 rgba(206,17,38,.6);
-      animation: pulse 2.4s ease-out infinite;
-    }
-
-    .takeover .stat .lbl {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: #FAF7F2;
-    }
-
-    .takeover .stat .sub {
-      width: 100%;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: .62rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #A79F97;
-      margin-top: .25rem;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(206,17,38,.55); }
-      70% { box-shadow: 0 0 0 12px rgba(206,17,38,0); }
-      100% { box-shadow: 0 0 0 0 rgba(206,17,38,0); }
-    }
-
-    .node {
-      fill: #CE1126;
-      opacity: .55;
-    }
-
-    .node-open {
-      fill: rgba(250,247,242,.2);
-    }
-
-    .node-glow {
-      fill: none;
-      stroke: #CE1126;
-      stroke-width: 1.2;
-      opacity: 0;
-    }
-
-    .link-line {
-      stroke: rgba(206,17,38,.3);
-      stroke-width: 1;
-      fill: none;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .node,
-      .node-glow {
-        animation-duration: 7s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-out;
-        animation-delay: var(--d, 0s);
-      }
-
-      .node {
-        animation-name: lightup;
-        transform-origin: center;
-        transform-box: fill-box;
-      }
-
-      .node-glow {
-        animation-name: ring;
-        transform-origin: center;
-        transform-box: fill-box;
-      }
-
-      @keyframes lightup {
-        0% { opacity: .55; transform: scale(1); }
-        4% { opacity: 1; transform: scale(1.6); }
-        14% { opacity: 1; transform: scale(1); }
-        55% { opacity: .55; }
-        100% { opacity: .55; transform: scale(1); }
-      }
-
-      @keyframes ring {
-        0% { opacity: .7; transform: scale(.4); }
-        16% { opacity: 0; transform: scale(2.8); }
-        100% { opacity: 0; transform: scale(2.8); }
-      }
-    }
-
-    .truststrip {
-      border-top: 1px solid rgba(250,247,242,.14);
-      background: #191919;
-    }
-
-    .truststrip p {
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .7rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: #A79F97;
-      padding-block: 1.3rem;
-    }
-
-    @media (max-width: 760px) {
-      .takeover .inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.1rem;
-        padding-block: 1.5rem;
-      }
-
-      .takeover svg.map {
-        max-height: 220px;
-        width: 100%;
-      }
-    }
-  </style>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -449,96 +109,22 @@ src="https://www.facebook.com/tr?id=1317738110513512&ev=PageView&noscript=1"
      [3] HERO
      ============================================================ -->
 <section class="hero">
-  <div class="wrap">
-    <span class="eyebrow">By application · One store per market</span>
-    <h1>We work with <span class="red">one</span> hot tub store per market.</h1>
-    <p class="sub">We take on a limited number of stores each year — and never two in the same city. Every application is reviewed by hand, and we say no to most. If your market is still open, it won't stay open for long.</p>
-    <div class="cta-row">
-      <a class="btn btn--primary" href="#">Apply for Your Market</a>
-      <a class="textlink" href="#">See how it works
-        <svg width="16" height="11" viewBox="0 0 18 12" fill="none"><path d="M1 6h15m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
-    </div>
-    <div><span class="chip"><span class="dot"></span>Markets open for 2026 · Limited</span></div>
-  </div>
-</section>
-
-<section class="takeover">
-  <div class="wrap inner">
-    <div class="head">
-      <div class="stat">
-        <span class="n">18</span><span class="lbl">Markets live</span>
-        <span class="sub">Dim dots: markets still open</span>
-      </div>
-      <h2>Every red dot is a market that's already closed. The rest are still open — for now.</h2>
-    </div>
-
-    <div class="mapbox" aria-hidden="true">
-      <svg class="map" viewBox="0 0 760 400" fill="none" preserveAspectRatio="xMidYMid meet">
-        <path class="usa" d="M60 66 L328 56
-          Q352 60 368 78 Q400 94 428 80 Q450 68 468 92 Q495 114 520 96
-          Q560 72 600 92 Q640 74 668 58 Q690 42 706 52 Q712 70 698 88
-          Q676 112 668 132 Q660 150 650 158 Q642 176 636 196 Q630 214 618 232
-          Q610 252 606 268 Q600 288 612 306 Q630 318 640 342 Q650 368 646 388
-          Q638 396 630 382 Q618 356 604 340 Q592 326 576 320 Q540 314 508 322
-          Q488 330 474 322 Q456 314 448 326 Q444 352 436 372 Q428 392 416 380
-          Q396 352 376 336 Q344 318 316 310 Q260 300 216 308 Q160 312 118 300
-          Q98 294 92 278 Q78 246 66 214 Q54 180 58 148 Q52 110 60 66 Z"/>
-        <g class="link-line">
-          <path d="M88 80 L80 112"/><path d="M80 112 L76 196"/><path d="M76 196 L102 263"/>
-          <path d="M102 263 L165 285"/><path d="M165 285 L268 205"/><path d="M268 205 L325 95"/>
-          <path d="M268 205 L408 300"/><path d="M408 300 L440 335"/><path d="M325 95 L415 115"/>
-          <path d="M415 115 L462 150"/><path d="M462 150 L515 130"/><path d="M462 150 L408 300"/>
-          <path d="M515 130 L655 152"/><path d="M440 335 L560 275"/><path d="M560 275 L588 240"/>
-          <path d="M588 240 L628 190"/><path d="M628 190 L655 152"/><path d="M655 152 L676 120"/>
-          <path d="M560 275 L640 370"/>
-        </g>
-        <g>
-          <circle class="node-open" cx="120" cy="85"  r="2"/><circle class="node-open" cx="140" cy="140" r="2"/>
-          <circle class="node-open" cx="85"  cy="172" r="2"/><circle class="node-open" cx="200" cy="175" r="2"/>
-          <circle class="node-open" cx="140" cy="235" r="2"/><circle class="node-open" cx="185" cy="300" r="2"/>
-          <circle class="node-open" cx="250" cy="255" r="2"/><circle class="node-open" cx="300" cy="298" r="2"/>
-          <circle class="node-open" cx="230" cy="120" r="2"/><circle class="node-open" cx="290" cy="150" r="2"/>
-          <circle class="node-open" cx="370" cy="90"  r="2"/><circle class="node-open" cx="380" cy="165" r="2"/>
-          <circle class="node-open" cx="410" cy="170" r="2"/><circle class="node-open" cx="400" cy="195" r="2"/>
-          <circle class="node-open" cx="390" cy="245" r="2"/><circle class="node-open" cx="445" cy="200" r="2"/>
-          <circle class="node-open" cx="445" cy="255" r="2"/><circle class="node-open" cx="405" cy="330" r="2"/>
-          <circle class="node-open" cx="490" cy="318" r="2"/><circle class="node-open" cx="480" cy="245" r="2"/>
-          <circle class="node-open" cx="515" cy="225" r="2"/><circle class="node-open" cx="520" cy="195" r="2"/>
-          <circle class="node-open" cx="495" cy="175" r="2"/><circle class="node-open" cx="455" cy="130" r="2"/>
-          <circle class="node-open" cx="545" cy="170" r="2"/><circle class="node-open" cx="555" cy="150" r="2"/>
-          <circle class="node-open" cx="580" cy="165" r="2"/><circle class="node-open" cx="595" cy="130" r="2"/>
-          <circle class="node-open" cx="645" cy="170" r="2"/><circle class="node-open" cx="625" cy="210" r="2"/>
-          <circle class="node-open" cx="520" cy="265" r="2"/><circle class="node-open" cx="610" cy="300" r="2"/>
-          <circle class="node-open" cx="615" cy="340" r="2"/><circle class="node-open" cx="345" cy="200" r="2"/>
-        </g>
-        <g>
-          <circle class="node" cx="88"  cy="80"  r="3.6" style="--d:.4s"/><circle class="node-glow" cx="88"  cy="80"  r="3.6" style="--d:.4s"/>
-          <circle class="node" cx="80"  cy="112" r="3"   style="--d:.35s"/><circle class="node-glow" cx="80"  cy="112" r="3"   style="--d:.35s"/>
-          <circle class="node" cx="76"  cy="196" r="3.6" style="--d:.3s"/><circle class="node-glow" cx="76"  cy="196" r="3.6" style="--d:.3s"/>
-          <circle class="node" cx="102" cy="263" r="3.6" style="--d:.5s"/><circle class="node-glow" cx="102" cy="263" r="3.6" style="--d:.5s"/>
-          <circle class="node" cx="165" cy="285" r="3"   style="--d:.85s"/><circle class="node-glow" cx="165" cy="285" r="3"   style="--d:.85s"/>
-          <circle class="node" cx="268" cy="205" r="3.6" style="--d:1.35s"/><circle class="node-glow" cx="268" cy="205" r="3.6" style="--d:1.35s"/>
-          <circle class="node" cx="325" cy="95"  r="3.6" style="--d:1.65s"/><circle class="node-glow" cx="325" cy="95"  r="3.6" style="--d:1.65s"/>
-          <circle class="node" cx="408" cy="300" r="3"   style="--d:2s"/><circle class="node-glow" cx="408" cy="300" r="3"   style="--d:2s"/>
-          <circle class="node" cx="415" cy="115" r="3"   style="--d:2.1s"/><circle class="node-glow" cx="415" cy="115" r="3"   style="--d:2.1s"/>
-          <circle class="node" cx="440" cy="335" r="3.6" style="--d:2.15s"/><circle class="node-glow" cx="440" cy="335" r="3.6" style="--d:2.15s"/>
-          <circle class="node" cx="462" cy="150" r="3.6" style="--d:2.35s"/><circle class="node-glow" cx="462" cy="150" r="3.6" style="--d:2.35s"/>
-          <circle class="node" cx="515" cy="130" r="3.6" style="--d:2.6s"/><circle class="node-glow" cx="515" cy="130" r="3.6" style="--d:2.6s"/>
-          <circle class="node" cx="560" cy="275" r="3"   style="--d:2.8s"/><circle class="node-glow" cx="560" cy="275" r="3"   style="--d:2.8s"/>
-          <circle class="node" cx="588" cy="240" r="3"   style="--d:2.95s"/><circle class="node-glow" cx="588" cy="240" r="3"   style="--d:2.95s"/>
-          <circle class="node" cx="628" cy="190" r="3.6" style="--d:3.15s"/><circle class="node-glow" cx="628" cy="190" r="3.6" style="--d:3.15s"/>
-          <circle class="node" cx="640" cy="370" r="3"   style="--d:3.25s"/><circle class="node-glow" cx="640" cy="370" r="3"   style="--d:3.25s"/>
-          <circle class="node" cx="655" cy="152" r="3.6" style="--d:3.3s"/><circle class="node-glow" cx="655" cy="152" r="3.6" style="--d:3.3s"/>
-          <circle class="node" cx="676" cy="120" r="3"   style="--d:3.5s"/><circle class="node-glow" cx="676" cy="120" r="3"   style="--d:3.5s"/>
-        </g>
-      </svg>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Minot, ND &bull; 30+ Years</p>
+    <h1 class="hero-headline">North Dakota's #1 Hot Tub Store.</h1>
+    <p class="hero-sub">Delivered by our local Minot team. Better sleep, less pain, less stress &mdash; right at home.</p>
+    <p class="hero-financing">Feel 10 Years Younger. Hot Tubs Starting at $79/Month.</p>
+    <p class="hero-areas">Serving Minot, Williston, and all of Western North Dakota</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary" data-ghl-trigger>GET TODAY'S LOCAL PRICE</a>
+      <a href="inventory.html" class="btn-secondary">Shop Inventory</a>
     </div>
   </div>
+  <div class="hero-right">
+    <div class="hero-img-overlay"></div>
+    <img src="hero-storefront.png" alt="Paradise Spas and Outdoor Living storefront in Minot, ND" class="hero-img">
+  </div>
 </section>
-
-<div class="truststrip">
-  <p>Trusted by independent hot tub stores across North America</p>
-</div>
 
 <!-- ============================================================
      [4] TRUST BAR
@@ -1240,5 +826,7 @@ document.querySelectorAll('.faq-q').forEach(function(btn) {
 
   <script src="call-tracking.js"></script>
   <script src="pricing-tracking.js"></script>
+<!-- Closebot -->
+<script src="https://api.closebot.com/scripts/cb.js?source=coMRVmh8SR6oGXTA" async></script>
 </body>
 </html>

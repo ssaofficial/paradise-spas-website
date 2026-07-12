@@ -2,8 +2,9 @@
   "name": "hot-tub-dealer-website-template",
   "private": true,
   "scripts": {
-    "deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch main",
-    "preview:deploy": "npx wrangler pages deploy . --project-name paradise-spas --branch preview",
+    "brand:guard": "node scripts/check-paradise-brand-guard.mjs",
+    "deploy": "npm run brand:guard && npx wrangler pages deploy . --project-name paradise-spas --branch main",
+    "preview:deploy": "npm run brand:guard && npx wrangler pages deploy . --project-name paradise-spas --branch preview",
     "ga4:funnel": "node scripts/ga4-funnel-report.mjs",
     "ga4:pages": "node scripts/ga4-funnel-report.mjs --all-pages"
   },

@@ -77,7 +77,31 @@ function leadRow(lead, ghlStatus, ghlContactId, ghlError) {
     lead.pageUrl || '',
     ghlStatus || 'PENDING',
     ghlContactId || '',
-    ghlError || ''
+    ghlError || '',
+    lead.trafficChannel || '',
+    lead.landingPageUrl || '',
+    lead.referrerUrl || '',
+    lead.utmSource || '',
+    lead.utmMedium || '',
+    lead.utmCampaign || '',
+    lead.utmContent || '',
+    lead.utmTerm || '',
+    lead.fbclid || '',
+    lead.gclid || '',
+    lead.msclkid || '',
+    lead.productName || '',
+    lead.productSlug || '',
+    lead.productId || '',
+    lead.productCategory || '',
+    lead.productPageUrl || '',
+    lead.inventoryStatus || '',
+    lead.inventoryStatus && typeof lead.availableQuantity === 'number' ? String(lead.availableQuantity) : '',
+    lead.inventoryStatusTag || '',
+    lead.leadSource || '',
+    lead.campaign || '',
+    lead.modelInterestTag || '',
+    lead.formIntent || '',
+    lead.timestamp || ''
   ];
 }
 
@@ -102,7 +126,7 @@ async function sheetsRequest(env, path, options) {
 }
 
 export async function appendLeadVault(env, lead, ghlStatus, ghlContactId, ghlError) {
-  return sheetsRequest(env, '/values/' + encodeURIComponent('All Leads!A:K') + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {
+  return sheetsRequest(env, '/values/' + encodeURIComponent('All Leads!A:AI') + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {
     method: 'POST',
     body: JSON.stringify({ values: [leadRow(lead, ghlStatus, ghlContactId, ghlError)] })
   });
@@ -116,7 +140,7 @@ export async function updateLeadVaultRow(env, a1Range, lead, ghlStatus, ghlConta
 }
 
 export async function appendMissedLead(env, lead, ghlError) {
-  return sheetsRequest(env, '/values/' + encodeURIComponent('Missed Leads!A:I') + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {
+  return sheetsRequest(env, '/values/' + encodeURIComponent('Missed Leads!A:AG') + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS', {
     method: 'POST',
     body: JSON.stringify({
       values: [[
@@ -128,7 +152,31 @@ export async function appendMissedLead(env, lead, ghlError) {
         lead.fairAttendance || lead.financingInterest || '',
         lead.pageUrl || '',
         ghlError || 'Unknown GHL error',
-        ''
+        '',
+        lead.trafficChannel || '',
+        lead.landingPageUrl || '',
+        lead.referrerUrl || '',
+        lead.utmSource || '',
+        lead.utmMedium || '',
+        lead.utmCampaign || '',
+        lead.utmContent || '',
+        lead.utmTerm || '',
+        lead.fbclid || '',
+        lead.gclid || '',
+        lead.msclkid || '',
+        lead.productName || '',
+        lead.productSlug || '',
+        lead.productId || '',
+        lead.productCategory || '',
+        lead.productPageUrl || '',
+        lead.inventoryStatus || '',
+        lead.inventoryStatus && typeof lead.availableQuantity === 'number' ? String(lead.availableQuantity) : '',
+        lead.inventoryStatusTag || '',
+        lead.leadSource || '',
+        lead.campaign || '',
+        lead.modelInterestTag || '',
+        lead.formIntent || '',
+        lead.timestamp || ''
       ]]
     })
   });
@@ -156,7 +204,7 @@ export async function findRecentDuplicate(env, email, phone, windowMs) {
   var targetPhone = normalizePhoneForDedupe(phone);
   if (!targetEmail && !targetPhone) return null;
 
-  var data = await sheetsRequest(env, '/values/' + encodeURIComponent("'All Leads'!A:K"));
+  var data = await sheetsRequest(env, '/values/' + encodeURIComponent("'All Leads'!A:V"));
   var rows = data.values || [];
   var cutoff = Date.now() - windowMs;
   var pendingCutoff = Date.now() - (30 * 60 * 1000);

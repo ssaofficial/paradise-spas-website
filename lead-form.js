@@ -20,6 +20,13 @@
     return '';
   }
 
+  function getAttribution() {
+    if (window.ParadiseTraffic && typeof window.ParadiseTraffic.getAttribution === 'function') {
+      return window.ParadiseTraffic.getAttribution();
+    }
+    return {};
+  }
+
   if (window.ParadiseTraffic && typeof window.ParadiseTraffic.capture === 'function') {
     window.ParadiseTraffic.capture();
   }
@@ -102,7 +109,7 @@
     return turnstileEl;
   }
 
-  function handleSuccess(form) {
+  function handleSuccess(form, data) {
     var mode = form.getAttribute('data-lead-success') || 'thank-you';
 
     if (mode === 'unlock' && window.ParadiseInventoryGate && typeof window.ParadiseInventoryGate.unlock === 'function') {
@@ -117,6 +124,28 @@
 
     if (mode === 'close-modal' && window.ParadiseGhlModal && typeof window.ParadiseGhlModal.close === 'function') {
       window.ParadiseGhlModal.close();
+    }
+
+    if (mode === 'product-confirmation') {
+      var productName = (form.querySelector('[name="product_name"]') || {}).value || 'this spa';
+      var message = data && data.message
+        ? data.message
+        : 'Thank you. Your request for the ' + productName + ' has been received. Paradise Spas will contact you with current fair pricing, financing options, and availability.';
+      var confirmation = form.querySelector('[data-product-confirmation]');
+      if (!confirmation) {
+        confirmation = document.createElement('div');
+        confirmation.className = 'ai-form-confirmation';
+        confirmation.setAttribute('data-product-confirmation', '');
+        confirmation.setAttribute('role', 'status');
+        confirmation.setAttribute('aria-live', 'polite');
+        form.insertBefore(confirmation, form.firstChild);
+      }
+      confirmation.textContent = message;
+      confirmation.hidden = false;
+      Array.from(form.elements).forEach(function (field) {
+        if (field.type !== 'hidden') field.disabled = true;
+      });
+      return;
     }
 
     if (mode === 'thank-you' || mode === 'close-modal') {
@@ -198,7 +227,9 @@
 
       var formEmail = (form.querySelector('[name="email"]') || {}).value || '';
       var formPhone = (form.querySelector('[name="phone"]') || {}).value || '';
-      if (source !== 'fair-in-person-visit' && hasRecentBrowserLead(formEmail, formPhone, source)) {
+      var formProductSlug = (form.querySelector('[name="product_slug"]') || {}).value || '';
+      var activeProductRequest = form.getAttribute('data-lead-success') === 'product-confirmation' || !!formProductSlug;
+      if (!activeProductRequest && source !== 'fair-in-person-visit' && hasRecentBrowserLead(formEmail, formPhone, source)) {
         showError(form, 'We already received your info. Please call 701-714-5879 if you need help.');
         return;
       }
@@ -210,6 +241,7 @@
       }
 
       var eventId = createEventId();
+      var attribution = getAttribution();
       var payload = {
         source: source,
         submission_id: eventId,
@@ -223,12 +255,34 @@
         fair_visit_time: (form.querySelector('[name="fair_visit_time"]') || {}).value || '',
         financing_interest: (form.querySelector('[name="financing_interest"]') || {}).value || '',
         product_name: (form.querySelector('[name="product_name"]') || {}).value || '',
+        product_slug: formProductSlug,
+        product_id: (form.querySelector('[name="product_id"]') || {}).value || '',
         product_category: (form.querySelector('[name="product_category"]') || {}).value || '',
+        product_page_url: (form.querySelector('[name="product_page_url"]') || {}).value || window.location.href,
+        product_image_url: (form.querySelector('[name="product_image_url"]') || {}).value || '',
+        inventory_status: (form.querySelector('[name="inventory_status"]') || {}).value || '',
+        available_quantity: (form.querySelector('[name="available_quantity"]') || {}).value || '',
+        inventory_status_tag: (form.querySelector('[name="inventory_status_tag"]') || {}).value || '',
+        lead_source: (form.querySelector('[name="lead_source"]') || {}).value || '',
+        campaign: (form.querySelector('[name="campaign"]') || {}).value || '',
+        model_interest_tag: (form.querySelector('[name="model_interest_tag"]') || {}).value || '',
+        form_intent: (form.querySelector('[name="form_intent"]') || {}).value || '',
+        timestamp: (form.querySelector('[name="timestamp"]') || {}).value || new Date().toISOString(),
         estimated_retail_price: (form.querySelector('[name="estimated_retail_price"]') || {}).value || '',
         our_price: (form.querySelector('[name="our_price"]') || {}).value || '',
         monthly_payment: (form.querySelector('[name="monthly_payment"]') || {}).value || '',
         page_url: window.location.href,
-        traffic_channel: getTrafficChannel(),
+        landing_page_url: attribution.landing_page_url || window.location.href,
+        referrer_url: attribution.referrer_url || document.referrer || '',
+        traffic_channel: attribution.traffic_channel || getTrafficChannel(),
+        utm_source: attribution.utm_source || '',
+        utm_medium: attribution.utm_medium || '',
+        utm_campaign: attribution.utm_campaign || '',
+        utm_content: attribution.utm_content || '',
+        utm_term: attribution.utm_term || '',
+        fbclid: attribution.fbclid || '',
+        gclid: attribution.gclid || '',
+        msclkid: attribution.msclkid || '',
         consent: true,
         turnstile_token: getTurnstileToken(form),
         website_url: (form.querySelector('[name="website_url"]') || {}).value || '',
@@ -263,7 +317,7 @@
           if (result.data.fire_meta !== false && result.data.ghl_ok && !result.data.duplicate) {
             trackGenerateLead(source, result.data.meta_event_id || eventId);
           }
-          handleSuccess(form);
+          handleSuccess(form, result.data);
         })
         .catch(function (err) {
           showError(form, err.message || 'Something went wrong. Please call 701-714-5879.');

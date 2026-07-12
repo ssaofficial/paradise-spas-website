@@ -1,9 +1,10 @@
 /**
- * First-touch traffic channel for the session (stored in sessionStorage).
- * Used by lead-form.js → /api/lead → GHL tag "organic" when channel is organic.
+ * First-touch traffic attribution for the session.
+ * Used by lead-form.js -> /api/lead -> GHL source/location/offer tags.
  */
 (function () {
   var KEY = 'paradise_traffic_channel';
+  var ATTR_KEY = 'paradise_traffic_attribution';
 
   function referrerHost() {
     var ref = document.referrer || '';
@@ -91,10 +92,40 @@
     return 'referral';
   }
 
+  function readAttribution() {
+    var params = new URLSearchParams(window.location.search);
+    return {
+      traffic_channel: classifyTraffic(),
+      landing_page_url: window.location.href,
+      referrer_url: document.referrer || '',
+      utm_source: params.get('utm_source') || '',
+      utm_medium: params.get('utm_medium') || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content: params.get('utm_content') || '',
+      utm_term: params.get('utm_term') || '',
+      fbclid: params.get('fbclid') || '',
+      gclid: params.get('gclid') || '',
+      msclkid: params.get('msclkid') || ''
+    };
+  }
+
+  function storedAttribution() {
+    try {
+      var raw = sessionStorage.getItem(ATTR_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (err) {
+      return null;
+    }
+  }
+
   function captureTraffic() {
     try {
-      if (sessionStorage.getItem(KEY)) return;
-      sessionStorage.setItem(KEY, classifyTraffic());
+      if (!sessionStorage.getItem(KEY)) {
+        sessionStorage.setItem(KEY, classifyTraffic());
+      }
+      if (!sessionStorage.getItem(ATTR_KEY)) {
+        sessionStorage.setItem(ATTR_KEY, JSON.stringify(readAttribution()));
+      }
     } catch (err) { /* ignore */ }
   }
 
@@ -106,10 +137,17 @@
     return classifyTraffic();
   }
 
+  function getAttribution() {
+    var stored = storedAttribution();
+    if (stored) return stored;
+    return readAttribution();
+  }
+
   captureTraffic();
 
   window.ParadiseTraffic = {
     getChannel: getChannel,
+    getAttribution: getAttribution,
     capture: captureTraffic
   };
 })();

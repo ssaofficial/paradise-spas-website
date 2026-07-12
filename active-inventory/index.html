@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico?v=20260710" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260710">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260710">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260710">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Active Inventory | Paradise Spas</title>
+  <meta name="description" content="Browse active Red River Valley Fair hot tub inventory from Paradise Spas.">
+  <link rel="canonical" href="https://www.paradisespas.com/active-inventory/">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20260701-mobile">
+  <link rel="stylesheet" href="../inventory-hot-tubs.css?v=20260630g">
+  <link rel="stylesheet" href="../inventory-gate-fair.css?v=20260708b">
+  <style>
+    :root {
+      --dark-section: #0d2d63;
+      --darker-navy: #08204a;
+      --section-alt: #f6f8fb;
+      --text-primary: #102033;
+      --text-secondary: #4a5568;
+      --text-muted: #6b7280;
+      --divider: #e5e7eb;
+      --amber: #f4a300;
+    }
+
+    body {
+      margin: 0;
+      background: #f6f8fb;
+      color: var(--text-primary);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .active-inventory-header {
+      background: linear-gradient(165deg, #8A141B 0%, #B11E26 52%, #C62828 100%);
+      color: #fff;
+      padding: 34px 18px 30px;
+      text-align: center;
+    }
+
+    .active-inventory-eyebrow {
+      margin: 0 0 8px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #FFD56A;
+    }
+
+    .active-inventory-header h1 {
+      margin: 0 auto 12px;
+      max-width: 840px;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 7vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .active-inventory-header p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(1rem, 2.6vw, 1.18rem);
+      line-height: 1.55;
+    }
+
+    .inv-card {
+      background: #fff;
+      border: 1px solid rgba(13, 76, 174, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(13, 76, 174, 0.13);
+    }
+
+    .inv-card-img {
+      position: relative;
+      aspect-ratio: 5 / 4;
+      background: #eef2f7;
+      overflow: hidden;
+    }
+
+    .inv-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    .inv-card-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .inv-card-name {
+      margin: 0 0 10px;
+      color: var(--dark-section);
+      font-family: "Montserrat", sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .inv-card-divider {
+      border: 0;
+      border-top: 1px solid var(--divider);
+      margin: 0 0 14px;
+    }
+
+    .inv-card-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .inv-pill {
+      min-height: 58px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 8px;
+      border-radius: 10px;
+      background: #f7faff;
+      color: var(--dark-section);
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .inv-pill svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .inv-price-box {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .inv-financing-label,
+    .inv-card-msrp,
+    .inv-card-price,
+    .inv-card-save,
+    .inv-card-monthly {
+      margin: 0;
+    }
+
+    .inv-financing-label {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .inv-card-monthly {
+      color: #B11E26;
+      font-family: "Montserrat", sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .inv-card-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 62px;
+      padding: 16px;
+      border: 0;
+      border-radius: 7px;
+      background: #B11E26;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .inv-card-cta:hover {
+      background: #8A141B;
+      color: #fff;
+    }
+
+    .active-inventory-note {
+      width: min(100%, 1200px);
+      margin: 24px auto 0;
+      padding: 0 16px 34px;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    @media (min-width: 901px) {
+      body.inventory-gate-fair .ht-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      body.inventory-gate-fair .ht-grid .inv-card {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      body.inventory-gate-fair .ht-grid .inv-card-img {
+        width: 42%;
+        max-width: 380px;
+        min-width: 280px;
+        flex-shrink: 0;
+        align-self: center;
+      }
+
+      body.inventory-gate-fair .ht-grid .inv-card-body {
+        flex: 1 1 auto;
+        padding: 24px 28px;
+        justify-content: space-between;
+      }
+
+      body.inventory-gate-fair .ht-grid .inv-card-pills {
+        display: flex;
+        justify-content: flex-start;
+        gap: 28px;
+      }
+
+      body.inventory-gate-fair .ht-grid .inv-pill {
+        min-height: auto;
+        padding: 0;
+        background: transparent;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .active-inventory-header {
+        padding: 26px 16px 24px;
+      }
+
+      .inv-card-body {
+        padding: 16px;
+      }
+
+      .inv-card-name {
+        font-size: 19px;
+      }
+
+      .inv-card-pills {
+        grid-template-columns: 1fr;
+      }
+
+      .inv-price-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    body.active-inventory-page .ht-inventory-section {
+      width: min(100%, 1180px);
+      padding: 22px 16px 8px;
+    }
+
+    body.active-inventory-page .ht-results-bar {
+      margin: 0 0 16px;
+      color: #22304a;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    body.active-inventory-page .ht-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    body.active-inventory-page .ht-grid .inv-card,
+    body.active-inventory-page .ht-grid .ht-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-width: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(16, 32, 51, 0.1);
+      transform: none;
+    }
+
+    body.active-inventory-page .ht-grid .inv-card:hover,
+    body.active-inventory-page .ht-grid .ht-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(16, 32, 51, 0.14);
+    }
+
+    .active-card-banner {
+      width: 100%;
+      padding: 12px 14px;
+      background: #14812f;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .active-card-banner--pending {
+      background: #f4c542;
+      color: #0d2d63;
+    }
+
+    .active-card-banner--sold {
+      background: #3f1720;
+      color: #fff;
+    }
+
+    .active-card-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #eef2f7;
+      overflow: hidden;
+    }
+
+    .active-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .active-card--sold .active-card-image img {
+      filter: saturate(0.55);
+    }
+
+    .active-card-sold-badge {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      z-index: 2;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #8a141b;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+      box-shadow: 0 8px 18px rgba(16, 32, 51, 0.18);
+    }
+
+    .active-card-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .active-card-title {
+      margin: 0 0 14px;
+      color: #102a5c;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(21px, 2.1vw, 25px);
+      font-weight: 800;
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+    }
+
+    .active-card-chips {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .active-card-chip {
+      min-width: 0;
+      padding: 9px 7px;
+      border: 1px solid #e1e5ec;
+      border-radius: 8px;
+      background: #f7f8fa;
+      color: #162b58;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .active-card-description {
+      margin: 0 0 16px;
+      color: #566174;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+
+    .active-card-deadline {
+      margin: auto 0 16px;
+      padding: 12px 14px;
+      border: 1px solid #f3c765;
+      border-radius: 8px;
+      background: #fff7df;
+      color: #102a5c;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .active-card-delivery {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #102a5c;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .active-card-delivery svg {
+      width: 23px;
+      height: 23px;
+      flex: 0 0 auto;
+      color: #102a5c;
+    }
+
+    .active-card-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 52px;
+      margin: 0 0 14px;
+      padding: 14px 16px;
+      border: 0;
+      border-radius: 9px;
+      background: #d71920;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: none;
+      cursor: pointer;
+      transition: background 0.16s ease, transform 0.16s ease;
+    }
+
+    .active-card-cta:hover {
+      background: #a91119;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .active-card-cta--sold {
+      background: #0d2d63;
+    }
+
+    .active-card-cta--sold:hover {
+      background: #08204a;
+    }
+
+    .active-card-cta--pending {
+      background: #b7791f;
+      color: #102033;
+    }
+
+    .active-card-cta--pending:hover {
+      background: #936213;
+      color: #fff;
+    }
+
+    .active-card-cta:focus-visible {
+      outline: 3px solid rgba(215, 25, 32, 0.28);
+      outline-offset: 3px;
+    }
+
+    .active-card-statuses {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .active-card-statuses--count-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .active-card-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 28px;
+      padding: 7px 10px;
+      border: 1px solid #e1e5ec;
+      border-radius: 8px;
+      background: #fff;
+      color: #15803d;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .active-card-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      flex: 0 0 auto;
+    }
+
+    .active-card-status--pending {
+      color: #b7791f;
+      border-color: #f3c765;
+      background: #fff7df;
+    }
+
+    .active-card-status--sold {
+      color: #9f1239;
+      border-color: #e5e7eb;
+      background: #f8fafc;
+    }
+
+    .active-card-status--available {
+      color: #15803d;
+      border-color: #bbf7d0;
+      background: #f0fdf4;
+    }
+
+    body.active-inventory-page .product-tag,
+    body.active-inventory-page .inv-card-divider,
+    body.active-inventory-page .inv-price-box,
+    body.active-inventory-page .inv-card-micro,
+    body.active-inventory-page .inv-card-pills,
+    body.active-inventory-page .inv-card-outcome,
+    body.active-inventory-page .inv-card-name,
+    body.active-inventory-page .inv-card-body,
+    body.active-inventory-page .inv-card-img {
+      display: none;
+    }
+
+    @media (max-width: 1050px) {
+      body.active-inventory-page .ht-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      body.active-inventory-page .ht-inventory-section {
+        padding: 16px 14px 6px;
+      }
+
+      body.active-inventory-page .ht-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .active-card-content {
+        padding: 20px;
+      }
+
+      .active-card-banner {
+        font-size: 12px;
+        padding: 11px 12px;
+      }
+
+      .active-card-chip {
+        font-size: 11px;
+        padding: 8px 5px;
+      }
+
+      .active-card-delivery {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeoe7g20ml");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5WGSEGZYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5WGSEGZYP');
+  </script>
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1317738110513512');
+  fbq('track', 'PageView');
+  </script>
+  <script src="../traffic-attribution.js"></script>
+  <script src="../view-content.js"></script>
+</head>
+<body class="inventory-page inventory-unlocked inventory-gate-fair active-inventory-page" data-inv-asset-prefix="../" data-inv-cta-label="GET MY OUT-THE-DOOR PRICE">
+  <div class="announcement-bar">
+    Summer Sale &mdash; Hot Tubs &amp; Swim Spas In Stock | Financing as low as $79/month
+  </div>
+
+  <nav class="navbar">
+    <a href="/" class="nav-logo">
+      <img src="../paradiselogo.svg" alt="Paradise Spas and Outdoor Living" width="160" height="40" decoding="async">
+    </a>
+    <a href="tel:+17017145879" class="nav-call-cta" aria-label="Call Paradise Spas 24/7">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call Us 24/7</span>
+    </a>
+    <div class="nav-links">
+      <a href="/hot-tubs/">HOT TUBS</a>
+      <a href="/swim-spas/">SWIM SPAS</a>
+      <a href="/saunas/">SAUNAS</a>
+      <a href="/financing.html">FINANCING</a>
+      <a href="/find-my-spa/">FIND MY SPA</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:+17017145879" class="phone-badge-wrap nav-phone-badge">
+        <span class="phone-badge-pill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          24/7
+        </span>
+        <span class="phone-badge-number">701-714-5879</span>
+      </a>
+      <a href="https://maps.google.com/?q=1615+South+Broadway+Minot+ND+58701" class="btn-coupon" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a href="/hot-tubs/">HOT TUBS</a>
+    <a href="/swim-spas/">SWIM SPAS</a>
+    <a href="/saunas/">SAUNAS</a>
+    <a href="/financing.html">FINANCING</a>
+    <a href="/find-my-spa/">FIND MY SPA</a>
+    <a href="tel:+17017145879" class="phone-badge-wrap mobile-phone-badge">
+      <span class="phone-badge-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        24/7
+      </span>
+      <span class="phone-badge-number">701-714-5879</span>
+    </a>
+    <a href="https://maps.google.com/?q=1615+South+Broadway+Minot+ND+58701" class="btn-coupon" target="_blank" rel="noopener">Get Directions</a>
+  </div>
+
+  <header class="active-inventory-header">
+    <p class="active-inventory-eyebrow">Active Inventory</p>
+    <h1>Red River Valley Fair Inventory</h1>
+    <p>Browse current fair units without the opt-in gate. Tap any inventory button to view the product page.</p>
+  </header>
+
+  <main>
+    <section class="ht-inventory-section" id="hot-tub-inventory">
+      <p class="ht-results-bar"><strong id="htResultCount">14</strong> hot tubs shown</p>
+      <div class="ht-grid" id="htGrid" aria-live="polite"></div>
+      <p class="inv-no-results" id="htNoResults" hidden>No hot tubs match this filter.</p>
+    </section>
+
+    <p class="active-inventory-note">Fair inventory, estimated payments, and availability can change quickly. Product buttons route to the product page for details.</p>
+  </main>
+
+  <script>
+    document.getElementById('navHamburger').addEventListener('click', function() {
+      document.getElementById('navMobileMenu').classList.toggle('open');
+    });
+  </script>
+  <script>
+    var ACTIVE_INVENTORY_CONFIG = {
+      fairPricingDeadline: 'Fair pricing honored through July 19',
+      deliveryMessage: 'Delivered & running by Friday, July 24',
+      fallbackAvailabilityBanner: 'LIMITED FAIR INVENTORY',
+      fallbackUnitStatus: 'Availability status unavailable',
+      productHref: '../product.html'
+    };
+
+    window.refreshInventory = function(){
+      var activeChip = window.ParadiseHotTubInventory ? window.ParadiseHotTubInventory.getActiveChip() : 'all';
+      var visible = 0;
+      document.querySelectorAll('#htGrid .ht-card').forEach(function(card){
+        var chipMatch = true;
+        if(activeChip !== 'all'){
+          chipMatch = (card.getAttribute('data-chips') || '').split(' ').indexOf(activeChip) !== -1;
+        }
+        card.style.display = chipMatch ? '' : 'none';
+        if(chipMatch){ visible += 1; }
+      });
+      var count = document.getElementById('htResultCount');
+      var noResults = document.getElementById('htNoResults');
+      if(count){ count.textContent = visible; }
+      if(noResults){ noResults.hidden = visible > 0; }
+    };
+  </script>
+  <script src="/active-inventory/product-data.js?v=20260710c"></script>
+  <script src="../inventory-hot-tubs.js?v=20260704w"></script>
+  <script>
+    (function(){
+      var config = ACTIVE_INVENTORY_CONFIG;
+      var truckIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>';
+
+      function textFrom(el) {
+        return el ? String(el.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      }
+
+      function availabilityBanner(card) {
+        var product = card && card._activeInventoryProduct;
+        var status = statusConfig(product);
+        return status.bannerText || config.fallbackAvailabilityBanner;
+      }
+
+      function unitStatuses(card) {
+        var product = card && card._activeInventoryProduct;
+        var status = statusConfig(product);
+        return status.cardStatuses || [];
+      }
+
+      function chipHtml(chips) {
+        return chips.slice(0, 3).map(function(chip) {
+          return '<span class="active-card-chip">' + chip + '</span>';
+        }).join('');
+      }
+
+      function statusHtml(statuses) {
+        return statuses.map(function(item) {
+          var statusClass = item.status.indexOf('sold') !== -1 ? 'sold' : (item.status.indexOf('reserve') !== -1 || item.status.indexOf('pending') !== -1 ? 'pending' : 'available');
+          return '<span class="active-card-status active-card-status--' + statusClass + '"><span class="active-card-status-dot" aria-hidden="true"></span>' + item.label + '</span>';
+        }).join('');
+      }
+
+      function lookupProduct(productName) {
+        if (window.ActiveInventoryProductByInventoryName && window.ActiveInventoryProductByInventoryName[productName]) {
+          return window.ActiveInventoryProductByInventoryName[productName];
+        }
+        if (window.ActiveInventoryProductByName && window.ActiveInventoryProductByName[productName]) {
+          return window.ActiveInventoryProductByName[productName];
+        }
+        if (/^Strong Spas G-2B/i.test(productName)) {
+          return window.ActiveInventoryProductBySlug && window.ActiveInventoryProductBySlug['strong-spas-g-2b-36-jet'];
+        }
+        return null;
+      }
+
+      function statusConfig(product) {
+        var map = window.ActiveInventoryAvailabilityStatus || {};
+        return map[(product && product.inventoryStatus) || ''] || {
+          bannerText: config.fallbackAvailabilityBanner,
+          bannerClass: 'available',
+          cardStatuses: [{ label: config.fallbackUnitStatus, status: 'available' }],
+          cardCtaText: 'GET MY OUT-THE-DOOR PRICE →',
+          cardCtaHref: 'product',
+          deliveryMessage: config.deliveryMessage
+        };
+      }
+
+      function redesignCard(card) {
+        if (!card || card.dataset.activeInventoryRedesigned === '1') return;
+
+        var image = card.querySelector('.inv-card-img img');
+        var button = card.querySelector('.inv-card-cta');
+        var sourceTitle = textFrom(card.querySelector('.inv-card-name')) || (button && button.getAttribute('data-product-name')) || 'Hot Tub';
+        var description = textFrom(card.querySelector('.inv-card-outcome'));
+        var chips = Array.from(card.querySelectorAll('.inv-pill span')).map(textFrom).filter(Boolean).slice(0, 3);
+        while (chips.length < 3) chips.push('Fair Inventory');
+
+        var productName = (button && button.getAttribute('data-product-name')) || sourceTitle;
+        var category = (button && button.getAttribute('data-product-category')) || card.getAttribute('data-category') || 'Hot Tubs';
+        var monthly = (button && button.getAttribute('data-monthly-payment')) || card.getAttribute('data-monthly') || '';
+        var productData = lookupProduct(productName);
+        card._activeInventoryProduct = productData;
+        var availability = statusConfig(productData);
+        var title = productData ? productData.fullProductName : sourceTitle;
+        var productUrl = productData ? productData.url : config.productHref;
+        var ctaUrl = availability.cardCtaHref && availability.cardCtaHref !== 'product' ? availability.cardCtaHref : productUrl;
+        var productSlug = productData ? productData.slug : '';
+        var statusClass = availability.bannerClass || 'available';
+        var soldBadge = productData && productData.inventoryStatus === 'sold_out' ? '<span class="active-card-sold-badge">SOLD</span>' : '';
+        var statuses = unitStatuses(card);
+
+        card.dataset.activeInventoryRedesigned = '1';
+        card.classList.toggle('active-card--sold', productData && productData.inventoryStatus === 'sold_out');
+        card.classList.toggle('active-card--pending', productData && productData.inventoryStatus === 'pending_pickup');
+        card.innerHTML =
+          '<div class="active-card-banner active-card-banner--' + statusClass + '">' + availabilityBanner(card) + '</div>' +
+          '<div class="active-card-image">' +
+            '<img src="' + (image ? image.getAttribute('src') : '') + '" alt="' + (image ? image.getAttribute('alt') : title) + '" loading="lazy">' +
+            soldBadge +
+          '</div>' +
+          '<div class="active-card-content">' +
+            '<h2 class="active-card-title">' + title + '</h2>' +
+            '<div class="active-card-chips">' + chipHtml(chips) + '</div>' +
+            '<p class="active-card-description">' + description + '</p>' +
+            '<div class="active-card-deadline">' + config.fairPricingDeadline + '</div>' +
+            '<div class="active-card-delivery">' + truckIcon + '<span>' + (availability.deliveryMessage || config.deliveryMessage) + '</span></div>' +
+            '<a class="active-card-cta active-card-cta--' + statusClass + '" href="' + ctaUrl + '" data-product-name="' + productName + '" data-product-slug="' + productSlug + '" data-product-category="' + category + '" data-monthly-payment="' + monthly + '" data-product-url="' + productUrl + '" data-inventory-status="' + ((productData && productData.inventoryStatus) || '') + '">' + (availability.cardCtaText || 'GET MY OUT-THE-DOOR PRICE →') + '</a>' +
+            '<div class="active-card-statuses active-card-statuses--count-' + statuses.length + '">' + statusHtml(statuses) + '</div>' +
+          '</div>';
+      }
+
+      function redesignCards(){
+        document.querySelectorAll('#htGrid .ht-card').forEach(redesignCard);
+        if (typeof window.refreshInventory === 'function') window.refreshInventory();
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        redesignCards();
+        var grid = document.getElementById('htGrid');
+        if(grid){
+          new MutationObserver(redesignCards).observe(grid, { childList: true, subtree: false });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

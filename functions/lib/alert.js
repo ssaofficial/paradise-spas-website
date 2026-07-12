@@ -2,14 +2,23 @@ export async function sendFailureAlert(env, lead, ghlError) {
   var to = env.ALERT_EMAIL;
   if (!to) return { sent: false, reason: 'ALERT_EMAIL not configured' };
 
-  var subject = '[Paradise Spas] Lead saved — GHL failed — ACTION NEEDED';
+  var model = lead.productName || '';
+  var subject = model
+    ? 'NEW FAIR PRICE REQUEST — ' + model.toUpperCase() + ' — GHL FAILED'
+    : '[Paradise Spas] Lead saved — GHL failed — ACTION NEEDED';
   var body = [
-    'A website lead was saved to the Lead Vault Google Sheet but did NOT reach GoHighLevel.',
+    model ? 'NEW FAIR PRICE REQUEST — ' + model.toUpperCase() : 'A website lead was saved to the Lead Vault Google Sheet but did NOT reach GoHighLevel.',
+    model ? 'The lead was saved to the Lead Vault Google Sheet but did NOT reach GoHighLevel.' : '',
     '',
     'Submission ID: ' + lead.submissionId,
     'Name: ' + lead.fullName,
     'Email: ' + lead.email,
     'Phone: ' + lead.phone,
+    'Selected model: ' + (model || 'n/a'),
+    'Product page: ' + (lead.productPageUrl || lead.pageUrl || 'n/a'),
+    'Inventory status: ' + (lead.inventoryStatus || 'n/a'),
+    'Available quantity: ' + (lead.inventoryStatus && typeof lead.availableQuantity === 'number' ? String(lead.availableQuantity) : 'n/a'),
+    'Lead source: ' + (lead.leadSource || lead.source || 'n/a'),
     'Source: ' + lead.source,
     'Fair attendance: ' + (lead.fairAttendance || 'n/a'),
     'Page: ' + (lead.pageUrl || 'n/a'),

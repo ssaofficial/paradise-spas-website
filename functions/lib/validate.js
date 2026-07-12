@@ -42,7 +42,19 @@ export function validateLeadPayload(body) {
   var financingInterest = String(body.financing_interest || body.financingInterest || '').trim();
   var message = String(body.message || '').trim();
   var productName = String(body.product_name || body.productName || '').trim();
+  var productSlug = String(body.product_slug || body.productSlug || '').trim();
+  var productId = String(body.product_id || body.productId || '').trim();
   var productCategory = String(body.product_category || body.productCategory || '').trim();
+  var productPageUrl = String(body.product_page_url || body.productPageUrl || '').trim();
+  var productImageUrl = String(body.product_image_url || body.productImageUrl || '').trim();
+  var inventoryStatus = String(body.inventory_status || body.inventoryStatus || '').trim();
+  var availableQuantityRaw = String(body.available_quantity || body.availableQuantity || '').trim();
+  var inventoryStatusTag = String(body.inventory_status_tag || body.inventoryStatusTag || '').trim();
+  var leadSource = String(body.lead_source || body.leadSource || '').trim();
+  var campaign = String(body.campaign || '').trim();
+  var modelInterestTag = String(body.model_interest_tag || body.modelInterestTag || '').trim();
+  var formIntent = String(body.form_intent || body.formIntent || '').trim();
+  var timestamp = String(body.timestamp || '').trim();
   var estimatedRetailPrice = String(body.estimated_retail_price || body.estimatedRetailPrice || '').trim();
   var ourPrice = String(body.our_price || body.ourPrice || '').trim();
   var monthlyPayment = String(body.monthly_payment || body.monthlyPayment || '').trim();
@@ -51,6 +63,18 @@ export function validateLeadPayload(body) {
   if (trafficChannel && !allowedChannels[trafficChannel]) {
     trafficChannel = '';
   }
+  var landingPageUrl = String(body.landing_page_url || body.landingPageUrl || '').trim();
+  var referrerUrl = String(body.referrer_url || body.referrerUrl || '').trim();
+  var utmSource = String(body.utm_source || body.utmSource || '').trim();
+  var utmMedium = String(body.utm_medium || body.utmMedium || '').trim();
+  var utmCampaign = String(body.utm_campaign || body.utmCampaign || '').trim();
+  var utmContent = String(body.utm_content || body.utmContent || '').trim();
+  var utmTerm = String(body.utm_term || body.utmTerm || '').trim();
+  var fbclid = String(body.fbclid || '').trim();
+  var gclid = String(body.gclid || '').trim();
+  var msclkid = String(body.msclkid || '').trim();
+  var fbp = String(body.fbp || '').trim();
+  var fbc = String(body.fbc || '').trim();
 
   if (!fullName || fullName.length < 2) {
     return { ok: false, error: 'Please enter your full name.' };
@@ -70,7 +94,7 @@ export function validateLeadPayload(body) {
     return { ok: false, error: 'Please choose your fair visit day and time.' };
   }
 
-  if (source === 'fair-inventory-gate' && !fairAttendance) {
+  if ((source === 'fair-inventory-gate' || source === 'statefair-inventory-gate') && !fairAttendance) {
     return { ok: false, error: 'Please answer the fair question.' };
   }
 
@@ -79,6 +103,20 @@ export function validateLeadPayload(body) {
   }
 
   var names = splitName(fullName);
+  var allowedInventoryStatuses = {
+    two_available: { quantity: 2, tag: 'Inventory Status - 2 Available' },
+    one_available: { quantity: 1, tag: 'Inventory Status - 1 Available' },
+    pending_pickup: { quantity: 0, tag: 'Inventory Status - Pending Pickup' },
+    sold_out: { quantity: 0, tag: 'Inventory Status - Sold Out' }
+  };
+  var statusConfig = allowedInventoryStatuses[inventoryStatus] || null;
+  var availableQuantity = statusConfig ? statusConfig.quantity : (parseInt(availableQuantityRaw, 10) || 0);
+  if (statusConfig) {
+    inventoryStatusTag = statusConfig.tag;
+  }
+  if (productName && modelInterestTag !== 'Model Interest - ' + productName) {
+    modelInterestTag = 'Model Interest - ' + productName;
+  }
 
   return {
     ok: true,
@@ -90,19 +128,43 @@ export function validateLeadPayload(body) {
       email: email,
       phone: phone,
       source: source,
-      fairAttendance: fairAttendance || fairVisitDay,
+      fairAttendance: fairAttendance,
       fairVisitDay: fairVisitDay,
       fairVisitDate: fairVisitDate,
       fairVisitTime: fairVisitTime,
       financingInterest: financingInterest,
       message: message,
       productName: productName,
+      productSlug: productSlug,
+      productId: productId,
       productCategory: productCategory,
+      productPageUrl: productPageUrl,
+      productImageUrl: productImageUrl,
+      inventoryStatus: inventoryStatus,
+      availableQuantity: availableQuantity,
+      inventoryStatusTag: inventoryStatusTag,
+      leadSource: leadSource,
+      campaign: campaign,
+      modelInterestTag: modelInterestTag,
+      formIntent: formIntent,
+      timestamp: timestamp,
       estimatedRetailPrice: estimatedRetailPrice,
       ourPrice: ourPrice,
       monthlyPayment: monthlyPayment,
       pageUrl: String(body.page_url || body.pageUrl || '').trim(),
+      landingPageUrl: landingPageUrl,
+      referrerUrl: referrerUrl,
       trafficChannel: trafficChannel,
+      utmSource: utmSource,
+      utmMedium: utmMedium,
+      utmCampaign: utmCampaign,
+      utmContent: utmContent,
+      utmTerm: utmTerm,
+      fbclid: fbclid,
+      gclid: gclid,
+      msclkid: msclkid,
+      fbp: fbp,
+      fbc: fbc,
       consent: body.consent !== false && body.consent !== 'false'
     }
   };
