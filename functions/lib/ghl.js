@@ -131,6 +131,9 @@ function tagsForLead(lead) {
   if (lead.campaign === 'Red River Valley Fair Inventory') {
     tags.push('Campaign - Red River Valley Fair');
   }
+  if (lead.campaign === 'North Dakota State Fair Inventory') {
+    tags.push('Campaign - North Dakota State Fair');
+  }
   if (lead.formIntent === 'Fair Price Request') {
     tags.push('Intent - Fair Price Request');
   }

@@ -86,7 +86,7 @@
   }
 
   function trackUnlock() {
-    var eventName = STORAGE_KEY.indexOf('rrvf') !== -1 ? 'fair_inventory_unlock' : 'inventory_unlock';
+    var eventName = (STORAGE_KEY.indexOf('rrvf') !== -1 || STORAGE_KEY.indexOf('statefair') !== -1) ? 'fair_inventory_unlock' : 'inventory_unlock';
     if (typeof gtag === 'function') {
       gtag('event', eventName, {
         event_category: 'engagement',
@@ -99,6 +99,17 @@
   }
 
   function applyUnlocked(skipTrack) {
+    var unlockedPath = body.getAttribute('data-gate-unlocked-path');
+    if (unlockedPath) {
+      var targetPath = unlockedPath.split('?')[0].replace(/\/$/, '');
+      var currentPath = (window.location.pathname || '').replace(/\/$/, '');
+      if (currentPath !== targetPath) {
+        if (!skipTrack) trackUnlock();
+        window.location.replace(unlockedPath);
+        return;
+      }
+    }
+
     disableScrollLock();
     document.body.classList.remove('inventory-locked');
     document.body.classList.add('inventory-unlocked');

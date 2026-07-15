@@ -25,8 +25,9 @@
     time: ''
   };
 
-  var FAIR_START_KEY = '2026-07-03';
-  var FAIR_END_KEY = '2026-07-12';
+  var bodyEl = document.body;
+  var FAIR_START_KEY = (bodyEl && bodyEl.getAttribute('data-fair-start')) || '2026-07-03';
+  var FAIR_END_KEY = (bodyEl && bodyEl.getAttribute('data-fair-end')) || '2026-07-12';
   var FAIR_DAY_LABEL_FORMATTER = new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Chicago',
     weekday: 'long',

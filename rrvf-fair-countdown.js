@@ -1,6 +1,7 @@
 (function () {
-  var END = new Date('2026-07-13T23:59:59-05:00');
-  var el = document.getElementById('rrvfCountdown');
+  var endAttr = document.body && document.body.getAttribute('data-fair-countdown-end');
+  var END = new Date(endAttr || '2026-07-13T23:59:59-05:00');
+  var el = document.getElementById('fairCountdown') || document.getElementById('rrvfCountdown');
   if (!el) return;
 
   function pad(n) {
