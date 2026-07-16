@@ -82,6 +82,7 @@
     try {
       localStorage.setItem(STORAGE_KEY, '1');
       localStorage.setItem(STORAGE_TS, String(Date.now()));
+      sessionStorage.setItem(STORAGE_KEY + '_session', '1');
     } catch (err) { /* ignore */ }
   }
 

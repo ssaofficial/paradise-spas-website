@@ -68,11 +68,22 @@
     errorEl.hidden = !message;
   }
 
-  function trackGenerateLead(source, eventId) {
+  function campaignForLeadSource(source) {
+    if (source === 'statefair-inventory-gate' || source === 'statefair-in-person-visit') {
+      return 'North Dakota State Fair Inventory';
+    }
+    if (source === 'fair-inventory-gate' || source === 'fair-in-person-visit') {
+      return 'Red River Valley Fair Inventory';
+    }
+    return '';
+  }
+
+  function trackGenerateLead(source, eventId, campaign) {
+    var contentName = campaign || source;
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
         event_category: 'engagement',
-        event_label: source,
+        event_label: contentName,
         page_path: window.location.pathname || '/'
       });
     }
@@ -80,7 +91,8 @@
       fbq('track', 'Lead', {
         value: LEAD_VALUE,
         currency: LEAD_CURRENCY,
-        content_name: source
+        content_name: contentName,
+        content_category: campaign || 'website-form'
       }, {
         eventID: eventId
       });
@@ -96,6 +108,25 @@
     } catch (err) {
       return '';
     }
+  }
+
+  function isFairInventoryGateSource(source) {
+    return source === 'fair-inventory-gate' || source === 'statefair-inventory-gate';
+  }
+
+  function isUnlockForm(form) {
+    return form.getAttribute('data-lead-success') === 'unlock';
+  }
+
+  function validateFairGateFields(form, source) {
+    if (!isFairInventoryGateSource(source)) return '';
+    var fairAttendance = (form.querySelector('[name="fair_attendance"]') || {}).value || '';
+    if (!fairAttendance) {
+      return source === 'statefair-inventory-gate'
+        ? 'Please select whether you\'re coming to the North Dakota State Fair.'
+        : 'Please select whether you\'re coming to the fair.';
+    }
+    return '';
   }
 
   function setupTurnstile(form) {
@@ -229,8 +260,22 @@
       var formPhone = (form.querySelector('[name="phone"]') || {}).value || '';
       var formProductSlug = (form.querySelector('[name="product_slug"]') || {}).value || '';
       var activeProductRequest = form.getAttribute('data-lead-success') === 'product-confirmation' || !!formProductSlug;
-      if (!activeProductRequest && source !== 'fair-in-person-visit' && hasRecentBrowserLead(formEmail, formPhone, source)) {
+      var unlockMode = isUnlockForm(form);
+      var fairGateError = validateFairGateFields(form, source);
+      if (fairGateError) {
+        showError(form, fairGateError);
+        return;
+      }
+
+      if (!unlockMode && !activeProductRequest && source !== 'fair-in-person-visit' && hasRecentBrowserLead(formEmail, formPhone, source)) {
         showError(form, 'We already received your info. Please call 701-714-5879 if you need help.');
+        return;
+      }
+
+      if (unlockMode && hasRecentBrowserLead(formEmail, formPhone, source)) {
+        if (window.ParadiseInventoryGate && typeof window.ParadiseInventoryGate.unlock === 'function') {
+          window.ParadiseInventoryGate.unlock();
+        }
         return;
       }
 
@@ -242,6 +287,10 @@
 
       var eventId = createEventId();
       var attribution = getAttribution();
+      var campaign = (form.querySelector('[name="campaign"]') || {}).value ||
+        campaignForLeadSource(source) ||
+        body.getAttribute('data-lead-campaign') ||
+        '';
       var payload = {
         source: source,
         submission_id: eventId,
@@ -264,7 +313,7 @@
         available_quantity: (form.querySelector('[name="available_quantity"]') || {}).value || '',
         inventory_status_tag: (form.querySelector('[name="inventory_status_tag"]') || {}).value || '',
         lead_source: (form.querySelector('[name="lead_source"]') || {}).value || '',
-        campaign: (form.querySelector('[name="campaign"]') || {}).value || '',
+        campaign: campaign,
         model_interest_tag: (form.querySelector('[name="model_interest_tag"]') || {}).value || '',
         form_intent: (form.querySelector('[name="form_intent"]') || {}).value || '',
         timestamp: (form.querySelector('[name="timestamp"]') || {}).value || new Date().toISOString(),
@@ -307,7 +356,7 @@
 
           hasSucceeded = true;
           markBrowserLead(formEmail, formPhone, source);
-          if (source === 'fair-inventory-gate' || body.classList.contains('inventory-gate-fair')) {
+          if (isFairInventoryGateSource(source) || body.classList.contains('inventory-gate-fair')) {
             saveLeadContact({
               full_name: payload.full_name,
               email: payload.email,
@@ -315,7 +364,7 @@
             });
           }
           if (result.data.fire_meta !== false && result.data.ghl_ok && !result.data.duplicate) {
-            trackGenerateLead(source, result.data.meta_event_id || eventId);
+            trackGenerateLead(source, result.data.meta_event_id || eventId, campaign);
           }
           handleSuccess(form, result.data);
         })

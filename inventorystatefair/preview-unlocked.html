@@ -18,12 +18,14 @@
         if (params.get('inventory_unlocked') === '1') {
           localStorage.setItem('paradise_statefair_inventory_unlocked', '1');
           localStorage.setItem('paradise_statefair_inventory_unlocked_at', String(Date.now()));
+          sessionStorage.setItem('paradise_statefair_inventory_unlocked_session', '1');
           if (window.history && window.history.replaceState) {
             window.history.replaceState({}, '', window.location.pathname);
           }
           return;
         }
-        if (localStorage.getItem('paradise_statefair_inventory_unlocked') !== '1') {
+        if (localStorage.getItem('paradise_statefair_inventory_unlocked') !== '1' &&
+            sessionStorage.getItem('paradise_statefair_inventory_unlocked_session') !== '1') {
           window.location.replace('/inventorystatefair/');
         }
       } catch (err) { /* ignore */ }
@@ -660,7 +662,7 @@
 </head>
 <body class="inventory-page inventory-unlocked inventory-gate-fair active-inventory-page" data-inv-asset-prefix="../" data-inv-cta-label="GET MY OUT-THE-DOOR PRICE" data-gate-storage-key="paradise_statefair_inventory_unlocked">
   <div class="announcement-bar">
-    Summer Sale &mdash; Hot Tubs &amp; Swim Spas In Stock | Financing as low as $79/month
+    North Dakota State Fair &mdash; In Front of Grand Stand &mdash; Hot Tub&rsquo;s as low as $79/month
   </div>
 
   <nav class="navbar">

@@ -6,6 +6,7 @@
   var ASSET_PREFIX = document.body.dataset.invAssetPrefix || '';
   var CTA_LABEL = document.body.dataset.invCtaLabel || 'See Local Price & Availability';
   var IS_FAIR_PAGE = document.body.classList.contains('inventory-gate-fair');
+  var FAIR_PROMO_LINE = document.body.getAttribute('data-fair-promo-line') || '';
 
   var HOT_TUB_PRODUCTS = [
     { badge: 'Budget-Friendly', title: 'Strong Spas G-2 36-Jet Lounger', retail: 10995, our: 9995, monthly: 99, capacity: '4–5 Person', bestUse: 'Lower Payment', benefit: 'Full-Body Lounger', chips: ['budget-friendly', 'loungers'], outcome: 'Best for buyers who want a lower monthly payment and a lounger-style spa without jumping into premium pricing.', image: 'product-strong-g2.png', seats: '4-5' },
@@ -284,6 +285,13 @@
 
   function renderPriceBox(p) {
     if (p.fairFinancingOnly) {
+      if (FAIR_PROMO_LINE) {
+        return (
+          '<div class="inv-price-box inv-price-box--financing-only inv-price-box--fair-promo">' +
+            '<p class="inv-card-promo">' + FAIR_PROMO_LINE + '</p>' +
+          '</div>'
+        );
+      }
       return (
         '<div class="inv-price-box inv-price-box--financing-only">' +
           '<div class="inv-price-left">' +
