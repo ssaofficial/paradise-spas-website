@@ -116,11 +116,21 @@ function offerTagsForLead(lead) {
   return [];
 }
 
+function isActiveInventoryProductLead(lead) {
+  if (lead.productSlug) return true;
+  var pageUrl = (lead.productPageUrl || lead.pageUrl || '').replace(/\/index\.html$/i, '');
+  if (!lead.productName || pageUrl.indexOf('/active-inventory/') === -1) return false;
+  return /\/active-inventory\/[^/]+\/?$/.test(pageUrl);
+}
+
 function tagsForLead(lead) {
   var tags = [sourceTagForLead(lead)];
   var locationTag = locationTagForLead(lead);
   if (locationTag) tags.push(locationTag);
   tags = tags.concat(offerTagsForLead(lead));
+  if (isActiveInventoryProductLead(lead)) {
+    tags.push('productlead');
+  }
   if (lead.modelInterestTag && lead.productName) {
     tags.push(lead.modelInterestTag);
   }
