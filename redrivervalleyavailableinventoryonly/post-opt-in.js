@@ -1,8 +1,8 @@
 (function () {
   var ROUTE = '/redrivervalleyavailableinventoryonly/';
   var CAMPAIGN = 'rrvf_2026';
-  var PHONE = '7017145879';
-  var PHONE_DISPLAY = '701-714-5879';
+  var PHONE = '7018382614';
+  var PHONE_DISPLAY = '701-838-2614';
   var BOOKING_URL = '';
 
   var STORAGE_UNLOCK_KEY = 'paradise_rrvf_inventory_unlocked';

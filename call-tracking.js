@@ -4,6 +4,8 @@
     if (link.classList.contains('nav-phone-badge') || link.classList.contains('mobile-phone-badge')) return 'nav_phone_badge';
     if (link.classList.contains('footer-phone-badge')) return 'footer_phone';
     if (link.classList.contains('contact-phone-link')) return 'contact_page_phone';
+    if (link.classList.contains('pd-sidebar-phone')) return 'product_sidebar_phone';
+    if (link.classList.contains('btn-phone')) return 'hero_phone_button';
     return link.getAttribute('aria-label') || 'phone_link';
   }
 

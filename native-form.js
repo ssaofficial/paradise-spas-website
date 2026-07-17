@@ -2,7 +2,7 @@
   var DISCLAIMER =
     'By submitting, I consent to receive calls, texts, and emails from Paradise Spas, including automated messages. ' +
     'Consent is not required to purchase. Reply STOP to opt out of texts or call ' +
-    '<a href="tel:+17017145879">701-714-5879</a>.';
+    '<a href="tel:+17018382614">701-838-2614</a>.';
 
   function fieldId(prefix, name) {
     return prefix + name;

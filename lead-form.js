@@ -268,7 +268,7 @@
       }
 
       if (!unlockMode && !activeProductRequest && source !== 'fair-in-person-visit' && hasRecentBrowserLead(formEmail, formPhone, source)) {
-        showError(form, 'We already received your info. Please call 701-714-5879 if you need help.');
+        showError(form, 'We already received your info. Please call 701-838-2614 if you need help.');
         return;
       }
 
@@ -351,7 +351,7 @@
         })
         .then(function (result) {
           if (!result.data.ok) {
-            throw new Error(result.data.error || 'Something went wrong. Please call 701-714-5879.');
+            throw new Error(result.data.error || 'Something went wrong. Please call 701-838-2614.');
           }
 
           hasSucceeded = true;
@@ -369,11 +369,11 @@
           handleSuccess(form, result.data);
         })
         .catch(function (err) {
-          showError(form, err.message || 'Something went wrong. Please call 701-714-5879.');
+          showError(form, err.message || 'Something went wrong. Please call 701-838-2614.');
           if (source === 'fair-in-person-visit') {
             form.dispatchEvent(new CustomEvent('paradise-lead-error', {
               bubbles: true,
-              detail: { message: err.message || 'Something went wrong. Please call 701-714-5879.' }
+              detail: { message: err.message || 'Something went wrong. Please call 701-838-2614.' }
             }));
           }
           if (window.turnstile && siteKey) {

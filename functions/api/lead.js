@@ -23,7 +23,7 @@ export async function onRequestPost(context) {
   if (!sheetsConfigured(env)) {
     return jsonResponse({
       ok: false,
-      error: 'Lead vault is not configured yet. Please call 701-714-5879.'
+      error: 'Lead vault is not configured yet. Please call 701-838-2614.'
     }, 503, env, request);
   }
 
@@ -71,7 +71,7 @@ export async function onRequestPost(context) {
   } catch (err) {
     return jsonResponse({
       ok: false,
-      error: 'We could not save your request. Please call 701-714-5879.'
+      error: 'We could not save your request. Please call 701-838-2614.'
     }, 500, env, request);
   }
 

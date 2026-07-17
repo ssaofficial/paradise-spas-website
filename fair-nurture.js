@@ -124,7 +124,7 @@
     container.innerHTML =
       '<div class="fair-booking-fallback">' +
         '<p><strong>Calendar link not set yet.</strong> Add your GHL booking URL to <code>BOOKING_URL</code> in <code>fair-nurture.js</code>.</p>' +
-        '<p>Until then, call <a href="tel:+17017145879">701-714-5879</a> to book your fair visit.</p>' +
+        '<p>Until then, call <a href="tel:+17018382614">701-838-2614</a> to book your fair visit.</p>' +
       '</div>';
   }
 
