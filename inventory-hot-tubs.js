@@ -6,8 +6,6 @@
   var ASSET_PREFIX = document.body.dataset.invAssetPrefix || '';
   var CTA_LABEL = document.body.dataset.invCtaLabel || 'See Local Price & Availability';
   var IS_FAIR_PAGE = document.body.classList.contains('inventory-gate-fair');
-  var FAIR_PROMO_LINE = document.body.getAttribute('data-fair-promo-line') || '';
-
   var HOT_TUB_PRODUCTS = [
     { badge: 'Budget-Friendly', title: 'Strong Spas G-2 36-Jet Lounger', retail: 10995, our: 9995, monthly: 99, capacity: '4–5 Person', bestUse: 'Lower Payment', benefit: 'Full-Body Lounger', chips: ['budget-friendly', 'loungers'], outcome: 'Best for buyers who want a lower monthly payment and a lounger-style spa without jumping into premium pricing.', image: 'product-strong-g2.png', seats: '4-5' },
     { badge: 'Family Favorite', title: 'Artesian South Seas 748B Deluxe', retail: 13799, our: 11799, monthly: 119, capacity: '6–7 Person', bestUse: 'Family Seating', benefit: 'Strong Therapy', chips: ['family-favorites'], outcome: 'Best for families who want room, comfort, and strong hydrotherapy without going oversized.', image: 'product-artesian-748b.png', seats: '6-7' },
@@ -284,29 +282,10 @@
   ];
 
   function renderPriceBox(p) {
-    if (p.fairFinancingOnly) {
-      if (FAIR_PROMO_LINE) {
-        return (
-          '<div class="inv-price-box inv-price-box--financing-only inv-price-box--fair-promo">' +
-            '<p class="inv-card-promo">' + FAIR_PROMO_LINE + '</p>' +
-          '</div>'
-        );
-      }
-      return (
-        '<div class="inv-price-box inv-price-box--financing-only">' +
-          '<div class="inv-price-left">' +
-            '<p class="inv-financing-label">Financing As Low As</p>' +
-          '</div>' +
-          '<p class="inv-card-monthly">' + formatMoney(p.monthly) + '/mo</p>' +
-        '</div>'
-      );
-    }
     return (
-      '<div class="inv-price-box">' +
+      '<div class="inv-price-box inv-price-box--financing-only">' +
         '<div class="inv-price-left">' +
-          '<p class="inv-card-msrp">Retail Price: <span>' + formatMoney(p.retail) + '</span></p>' +
-          '<p class="inv-card-price">Our Price: <span>' + formatMoney(p.our) + '</span></p>' +
-          '<p class="inv-card-save">Save ' + formatMoney(p.retail - p.our) + '</p>' +
+          '<p class="inv-financing-label">Financing As Low As</p>' +
         '</div>' +
         '<p class="inv-card-monthly">' + formatMoney(p.monthly) + '/mo</p>' +
       '</div>'

@@ -2143,6 +2143,19 @@ html {
   margin-bottom: 16px;
 }
 
+.category-inv-price-box--financing-only {
+  align-items: end;
+}
+
+.category-inv-fin-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-muted);
+  align-self: end;
+}
+
 .category-inv-msrp {
   grid-column: 1 / -1;
   font-size: 14px;

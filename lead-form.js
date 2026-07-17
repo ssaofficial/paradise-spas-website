@@ -69,7 +69,7 @@
   }
 
   function campaignForLeadSource(source) {
-    if (source === 'statefair-inventory-gate' || source === 'statefair-in-person-visit') {
+    if (source === 'statefair-inventory-gate' || source === 'statefair-in-person-visit' || source === 'statefair-open-inventory') {
       return 'North Dakota State Fair Inventory';
     }
     if (source === 'fair-inventory-gate' || source === 'fair-in-person-visit') {

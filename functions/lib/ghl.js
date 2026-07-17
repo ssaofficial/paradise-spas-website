@@ -68,7 +68,9 @@ function locationTagForLead(lead) {
   if (
     source === 'statefair-inventory-gate' ||
     source === 'statefair-in-person-visit' ||
+    source === 'statefair-open-inventory' ||
     pageUrl.indexOf('/inventorystatefair') !== -1 ||
+    pageUrl.indexOf('/statefairavailableinventory') !== -1 ||
     pageUrl.indexOf('/statefair') !== -1
   ) {
     return 'loc-statefair';

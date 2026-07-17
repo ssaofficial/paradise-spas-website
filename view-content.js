@@ -19,6 +19,7 @@
     '/inventoryredrivervalleyfair/preview-unlocked': { name: 'RRVF Inventory Unlocked', category: 'funnel' },
     '/inventorystatefair': { name: 'State Fair Inventory Gate', category: 'funnel' },
     '/inventorystatefair/preview-unlocked': { name: 'State Fair Inventory Unlocked', category: 'funnel' },
+    '/statefairavailableinventory': { name: 'State Fair Open Inventory', category: 'funnel' },
     '/active-inventory': { name: 'Active Fair Inventory', category: 'funnel' },
     '/redrivervalleyfair': { name: 'Red River Valley Fair', category: 'event' },
     '/hot-tub-offer': { name: 'Hot Tub Offer', category: 'funnel' },
