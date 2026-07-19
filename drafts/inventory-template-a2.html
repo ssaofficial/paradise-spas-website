@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#071A40">
+<title>Increase ROAS Dealer Template | Dummy Inventory Page</title>
+<meta name="description" content="Local-only dummy inventory page for the Increase ROAS hot tub dealer website template.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../product-nassau-royale-cropped.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,700;100,800;125,900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!--
+  DUMMY TEMPLATE PAGE - DO NOT DEPLOY
+  Purpose: reusable Increase ROAS hot tub dealer inventory mockup.
+  Live services: none. No tracking pixels. No webhook. No GHL submit.
+  MOCKUP DATA MANIFEST:
+  - Dealer name, market, address, phone, ratings, payments, prices, stock counts, urgency, D1/R2/admin status copy.
+  - Product records below mimic target D1 products table fields and are fabricated for layout only.
+-->
+<style>
+:root{
+  --blue:#14418F;
+  --blue-deep:#0B2559;
+  --blue-night:#071A40;
+  --gold:#FFB81C;
+  --gold-deep:#E8A400;
+  --red:#D7261E;
+  --sand:#FAF5EC;
+  --ink:#171B26;
+  --ink-soft:#3D4457;
+  --white:#FFFFFF;
+  --line:rgba(20,65,143,.14);
+  --shadow:0 10px 30px rgba(7,26,64,.14);
+  --shadow-lg:0 24px 60px rgba(7,26,64,.22);
+  --radius:14px;
+  --radius-lg:20px;
+  --display:'Archivo',sans-serif;
+  --body:'Manrope',sans-serif;
+  --wrap:1180px;
+  --pad:20px;
+  --mbar-h:74px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:var(--body);color:var(--ink);background:var(--white);font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:clip;padding-bottom:calc(var(--mbar-h) + env(safe-area-inset-bottom))}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,a{touch-action:manipulation}
+[id]{scroll-margin-top:84px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--display);font-weight:800;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:12px}
+.on-dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;letter-spacing:-.015em}
+h2{font-size:clamp(1.65rem,5.6vw,2.7rem);color:var(--blue-deep);margin-bottom:12px}
+.section{padding:60px 0}
+.section-sub{color:var(--ink-soft);max-width:680px;font-size:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.02em;line-height:1.1;text-decoration:none;border-radius:11px;padding:16px 24px;min-height:52px;cursor:pointer;border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;text-align:center;white-space:nowrap}
+.btn:active{transform:scale(.985)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn-gold{background:var(--gold);color:var(--blue-night);box-shadow:0 6px 18px rgba(232,164,0,.35)}
+.btn-gold:hover{background:#FFC94A}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#0f3576}
+.btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+.btn-ghost-blue{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn-ghost-blue:hover{background:rgba(20,65,143,.06)}
+.dummy-ribbon{background:var(--red);color:#fff;text-align:center;font-family:var(--display);font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px}
+.marquee{background:var(--blue-night);color:var(--white);position:relative;z-index:60}
+.marquee::before,.marquee::after{content:"";position:absolute;left:0;right:0;height:4px;background-image:radial-gradient(circle,var(--gold) 1.6px,transparent 1.8px);background-size:14px 4px;opacity:.9}
+.marquee::before{top:0}.marquee::after{bottom:0}
+.marquee-in{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 12px;font-family:var(--display);font-weight:700;font-size:.76rem;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;white-space:nowrap;overflow:hidden}
+.marquee .tag{background:var(--red);color:#fff;padding:3px 8px;border-radius:5px;font-weight:800;flex:none}
+.marquee .msg{overflow:hidden;text-overflow:ellipsis}
+.marquee .go{color:var(--gold);flex:none}
+header{position:sticky;top:0;z-index:80;background:var(--white);border-bottom:1px solid var(--line)}
+.head-in{display:flex;align-items:center;gap:16px;padding:12px var(--pad);max-width:var(--wrap);margin:0 auto;min-height:62px}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;margin-right:auto}
+.logo b{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.1rem;color:var(--blue);letter-spacing:.01em}
+.logo span{font-family:var(--display);font-weight:700;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+nav.main{display:none}
+.head-cta{display:none}
+.burger{width:48px;height:48px;border:1.5px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger i{width:20px;height:2.5px;background:var(--blue-deep);border-radius:2px;transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:100;background:var(--blue-night);color:#fff;padding:20px var(--pad) 34px;display:flex;flex-direction:column;transform:translateX(102%);transition:transform .28s ease;overflow-y:auto}
+.drawer.open{transform:none}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.drawer-top b{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.15rem}
+.drawer-close{width:48px;height:48px;border-radius:11px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1}
+.drawer nav{display:flex;flex-direction:column}
+.drawer nav a{font-family:var(--display);font-weight:800;font-size:1.35rem;color:#fff;text-decoration:none;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer nav a span{color:var(--gold);margin-left:8px}
+.drawer .d-actions{margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:26px}
+.drawer .d-actions .btn{width:100%}
+.drawer .hours{margin-top:16px;font-size:.82rem;color:#AFC4E8;text-align:center}
+.hero{position:relative;background:var(--blue-night);color:var(--white);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% center;z-index:0;filter:saturate(.95) contrast(1.05)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,26,64,.96) 0%,rgba(7,26,64,.72) 56%,rgba(7,26,64,.24) 100%);z-index:1}
+.hero-bg::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 20% 120%,rgba(255,255,255,.05) 0 2px,transparent 2px 90px);opacity:.6}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:30px;padding:38px var(--pad) 50px;max-width:var(--wrap);margin:0 auto}
+.hero h1{font-size:clamp(2.05rem,8.2vw,3.8rem);font-stretch:110%;margin:0 0 12px;word-break:normal;overflow-wrap:normal;max-width:720px}
+.hero h1 .deg{color:var(--gold)}
+.hero .sub{font-size:1.02rem;color:#D6E2F7;max-width:600px;margin-bottom:18px}
+.hero .sub b{color:#fff}
+.hero-ctas{display:flex;gap:12px;flex-direction:column;align-items:stretch;margin-bottom:14px}
+.offer-chip{display:flex;align-items:flex-start;gap:10px;background:rgba(255,184,28,.13);border:1px solid rgba(255,184,28,.44);border-radius:10px;padding:11px 13px;margin-bottom:16px;max-width:620px}
+.offer-chip .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:6px;flex:none;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,28,.45)}55%{box-shadow:0 0 0 7px rgba(255,184,28,0)}}
+.offer-chip p{font-size:.88rem;color:#FFF3CF;line-height:1.45}
+.hero-proof{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:620px}
+.proof{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px}
+.proof b{display:block;font-family:var(--display);font-weight:900;color:var(--gold);font-size:1.28rem;line-height:1}
+.proof span{display:block;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#C9D8F2;margin-top:5px}
+.lead-card{background:var(--white);color:var(--ink);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:22px 20px 20px;position:relative}
+.lead-card::before{content:"";position:absolute;top:0;left:20px;right:20px;height:4px;border-radius:0 0 4px 4px;background:var(--gold)}
+.lead-head{font-family:var(--display);font-weight:800;font-size:1.18rem;color:var(--blue-deep);line-height:1.2;margin-bottom:4px}
+.lead-sub{font-size:.84rem;color:var(--ink-soft);margin-bottom:14px}
+.mini-form{display:grid;gap:11px}
+.mini-form input,.mini-form select{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:16px;background:#fff;color:var(--ink);min-height:52px}
+.mini-form small{font-size:.72rem;color:var(--ink-soft);line-height:1.45}
+.system-strip{background:var(--blue);color:#fff;border-top:4px solid var(--gold);padding:20px 0}
+.system-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.sys{border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px;background:rgba(255,255,255,.06)}
+.sys b{display:block;font-family:var(--display);font-weight:900;color:var(--gold);font-size:1rem}
+.sys span{display:block;font-size:.72rem;color:#D5E1F6;font-weight:700;margin-top:3px}
+.inventory-head{display:grid;gap:18px;align-items:end;margin-bottom:18px}
+.toolbar{display:grid;gap:10px;background:var(--sand);border:1px solid var(--line);border-radius:var(--radius-lg);padding:14px}
+.search input,.toolbar select{width:100%;min-height:50px;border:1.5px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);font:600 16px/1.2 var(--body);padding:12px 14px}
+.filter-pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.filter-pills::-webkit-scrollbar{display:none}
+.pill{border:1.5px solid rgba(20,65,143,.2);background:#fff;color:var(--blue-deep);border-radius:999px;padding:10px 14px;font-family:var(--display);font-weight:800;font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;cursor:pointer}
+.pill.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.inventory-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 8px;flex-wrap:wrap}
+.floor{display:inline-flex;align-items:center;gap:9px;background:var(--blue-night);border:1px solid rgba(255,184,28,.25);color:var(--white);border-radius:999px;padding:8px 14px;font-family:var(--display);font-weight:700;font-size:.76rem}
+.floor .live{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.8s infinite;flex:none}
+.sort-note{font-size:.8rem;color:var(--ink-soft);font-weight:700}
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+.pcard{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(7,26,64,.06);display:flex;flex-direction:column;min-height:100%}
+.pimg{aspect-ratio:4/3;background:#f4f6fb;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pimg .badge{position:absolute;top:10px;left:10px;background:var(--gold);color:var(--blue-night);font-family:var(--display);font-weight:800;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:5px}
+.pimg .status{position:absolute;bottom:10px;left:10px;background:rgba(7,26,64,.88);color:#fff;border:1px solid rgba(255,255,255,.18);font-family:var(--display);font-weight:800;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.pbody{padding:17px 16px 18px;display:flex;flex-direction:column;flex:1}
+.pbody h3{font-size:1.05rem;color:var(--blue-deep);margin-bottom:4px}
+.pbody .spec{font-size:.76rem;font-weight:700;color:var(--ink-soft);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.pbody .why{font-size:.86rem;color:var(--ink-soft);margin-bottom:14px}
+.facts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.facts span{background:rgba(20,65,143,.07);border:1px solid rgba(20,65,143,.1);border-radius:999px;padding:5px 9px;font-size:.72rem;font-weight:800;color:var(--blue-deep)}
+.price-block{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.price-block .from{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-right:.35em}
+.price-block .num{font-family:var(--display);font-weight:900;font-size:1.46rem;color:var(--blue-deep)}
+.price-block .mo{font-size:.84rem;font-weight:800;color:var(--gold-deep)}
+.price-block .urgency{font-size:.78rem;color:var(--ink-soft);font-weight:700;margin-top:5px}
+.pactions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:14px}
+.pactions .btn{padding:14px 10px;font-size:.82rem;width:100%}
+.empty{display:none;background:var(--sand);border:1px dashed rgba(20,65,143,.25);border-radius:var(--radius-lg);padding:28px;text-align:center;color:var(--ink-soft)}
+.ops{background:var(--sand)}
+.ops-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+.op-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px;box-shadow:0 4px 14px rgba(7,26,64,.05)}
+.op-card b{display:block;font-family:var(--display);font-weight:900;color:var(--blue-deep);font-size:1.05rem;margin-bottom:8px}
+.op-card p{font-size:.9rem;color:var(--ink-soft)}
+.op-card code{background:rgba(20,65,143,.07);border-radius:6px;padding:2px 5px;font-size:.86em;color:var(--blue-deep)}
+.drawer-panel{position:fixed;inset:0;z-index:120;display:none}
+.drawer-panel.open{display:block}
+.drawer-scrim{position:absolute;inset:0;background:rgba(7,26,64,.72)}
+.lead-drawer{position:absolute;left:0;right:0;bottom:0;background:#fff;color:var(--ink);border-radius:22px 22px 0 0;box-shadow:0 -18px 60px rgba(0,0,0,.35);max-height:92dvh;overflow-y:auto}
+.lead-drawer .stripe{height:7px;background:var(--gold)}
+.lead-inner{padding:20px 20px calc(24px + env(safe-area-inset-bottom))}
+.lead-close{position:absolute;top:16px;right:14px;width:40px;height:40px;border:0;border-radius:50%;background:#EEF1F7;color:#5A6275;cursor:pointer;font:800 16px/1 var(--display)}
+.drawer-title{font-family:var(--display);font-weight:900;font-size:1.5rem;line-height:1.12;color:var(--blue-deep);padding-right:46px}
+.drawer-sub{font-size:.88rem;color:var(--ink-soft);margin:8px 0 16px}
+.drawer-form{display:grid;gap:11px}
+.drawer-form input,.drawer-form select{width:100%;border:1.5px solid #C8D0E2;border-radius:13px;background:#fff;font:600 17px/1.2 var(--body);color:var(--ink);padding:16px 15px;outline:none}
+.drawer-form input:focus,.drawer-form select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(20,65,143,.15)}
+.drawer-form .consent{display:flex;gap:10px;align-items:flex-start;margin:4px 0}
+.drawer-form .consent input{width:21px;height:21px;margin-top:2px;accent-color:var(--blue);flex:none}
+.drawer-form .consent label{font:500 11.5px/1.5 var(--body);color:#5A6275}
+.sim-result{display:none;border:1px dashed rgba(20,65,143,.3);background:rgba(20,65,143,.05);border-radius:12px;padding:12px;font-size:.82rem;color:var(--ink-soft)}
+.sim-result.show{display:block}
+footer{background:var(--blue-night);color:#D5E1F6;padding:42px 0 96px}
+footer h4{font-family:var(--display);font-weight:900;color:#fff;font-size:1.05rem;margin-bottom:8px}
+footer p{font-size:.85rem;color:#AFC4E8;max-width:760px}
+.mbar{position:fixed;bottom:0;left:0;right:0;z-index:70;background:var(--blue-night);border-top:2px solid var(--gold);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr;gap:9px;transform:translateY(0);transition:transform .22s ease}
+.mbar a,.mbar button{display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--display);font-weight:800;font-size:.84rem;text-decoration:none;border-radius:10px;padding:14px 4px;min-height:50px;border:0;cursor:pointer}
+.mbar .call{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.mbar .book{background:var(--gold);color:var(--blue-night)}
+@media(min-width:760px){
+  .hero-ctas{flex-direction:row;align-items:center}
+  .hero-proof{grid-template-columns:repeat(4,1fr)}
+  .system-grid{grid-template-columns:repeat(4,1fr)}
+  .inventory-head{grid-template-columns:1fr minmax(320px,430px)}
+  .toolbar{grid-template-columns:1.2fr .8fr;align-items:center}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .pactions{grid-template-columns:1fr 1fr}
+  .ops-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1000px){
+  body{padding-bottom:0}
+  .section{padding:84px 0}
+  .mbar{display:none}
+  .burger{display:none}
+  .head-in{gap:26px;padding:14px 24px}
+  .logo{margin-right:0}
+  .logo b{font-size:1.26rem}
+  .logo span{font-size:.58rem}
+  nav.main{display:flex;gap:22px;margin-left:6px}
+  nav.main a{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap}
+  nav.main a:hover{color:var(--blue);border-bottom-color:var(--gold)}
+  .head-cta{margin-left:auto;display:flex;align-items:center;gap:16px}
+  .head-phone{display:flex;flex-direction:column;align-items:flex-end;text-decoration:none;line-height:1.15}
+  .head-phone b{font-family:var(--display);font-weight:800;color:var(--blue);font-size:1.02rem;white-space:nowrap}
+  .head-phone span{font-size:.7rem;font-weight:700;color:var(--ink-soft)}
+  .btn-sm{padding:11px 18px;font-size:.82rem;min-height:44px}
+  .drawer{display:none}
+  .hero-in{grid-template-columns:minmax(0,1fr) 390px;gap:40px;align-items:center;padding:76px 24px 90px}
+  .lead-card{padding:28px 28px 24px}
+  .lead-card::before{left:24px;right:24px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .lead-drawer{left:auto;top:0;bottom:0;width:min(440px,92vw);border-radius:22px 0 0 22px}
+  .lead-drawer .stripe{height:100%;width:7px;position:absolute;left:0;top:0}
+  .lead-inner{padding:34px 28px}
+}
+</style>
+</head>
+<body data-mockup="true">
+<div class="dummy-ribbon" data-mockup="true">Local dummy template preview - not connected to D1, R2, GHL, Sheets, Meta, GA4, or Clarity</div>
+
+<div class="marquee" aria-label="Template offer bar">
+  <a class="marquee-in" href="#inventory">
+    <span class="tag" data-mockup="true">Dealer Demo</span>
+    <span class="msg" data-mockup="true">Inventory page powered by D1 products table, R2 images, and product-level GHL tags</span>
+    <span class="go">View mock inventory</span>
+  </a>
+</div>
+
+<header>
+  <div class="head-in">
+    <a class="logo" href="#" aria-label="Demo dealer home">
+      <b data-mockup="true">Summit Spa Co.</b>
+      <span data-mockup="true">Dealer Template</span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#inventory">Inventory</a>
+      <a href="#how-it-works">Admin Flow</a>
+      <a href="#template-proof">System Proof</a>
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:5555550100">
+        <b data-mockup="true">(555) 555-0100</b>
+        <span data-mockup="true">Demo phone number</span>
+      </a>
+      <a class="btn btn-gold btn-sm" href="#inventory">Shop Inventory</a>
+    </div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <b data-mockup="true">Summit Spa Co.</b>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">x</button>
+  </div>
+  <nav>
+    <a href="#inventory">Inventory <span>live</span></a>
+    <a href="#how-it-works">Admin Flow</a>
+    <a href="#template-proof">System Proof</a>
+  </nav>
+  <div class="d-actions">
+    <button class="btn btn-gold" data-open-lead data-product="Any In-Stock Spa">Get Local Price</button>
+    <a class="btn btn-ghost" href="tel:5555550100">Call Demo Dealer</a>
+  </div>
+  <p class="hours" data-mockup="true">Demo hours: Mon-Sat by appointment</p>
+</div>
+
+<main>
+  <section class="hero on-dark">
+    <img class="hero-img" src="../product-nassau-royale-cropped.png" width="1200" height="900" alt="Hot tub display unit used as a local mockup asset">
+    <div class="hero-bg"></div>
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow" data-mockup="true">Increase ROAS Dealer Template</span>
+        <h1>Shop real-time <span class="deg">hot tub inventory</span> before it disappears.</h1>
+        <p class="sub" data-mockup="true">A reusable inventory page for hot tub dealers: D1-powered products, R2 images, admin-managed availability, and product-level lead routing.</p>
+        <div class="offer-chip" data-mockup="true">
+          <span class="dot"></span>
+          <p><b>Template intent:</b> every product card can carry its own GHL tags, status, promo, delivery promise, and gallery images from the client database.</p>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#inventory">View Dummy Inventory</a>
+          <button class="btn btn-ghost" data-open-lead data-product="Any In-Stock Spa">Get Today's Local Price</button>
+        </div>
+        <div class="hero-proof" data-mockup="true">
+          <div class="proof"><b>18</b><span>Demo units</span></div>
+          <div class="proof"><b>7</b><span>Available now</span></div>
+          <div class="proof"><b>4.9</b><span>Review rating</span></div>
+          <div class="proof"><b>$89</b><span>From monthly</span></div>
+        </div>
+      </div>
+      <aside class="lead-card" aria-label="Inventory lead card">
+        <p class="lead-head">Find the best match in stock.</p>
+        <p class="lead-sub" data-mockup="true">Local-only form preview. In production this posts to Cloudflare Functions, writes Sheets, upserts GHL, and fires Meta CAPI.</p>
+        <form class="mini-form" onsubmit="return false">
+          <input type="text" placeholder="ZIP code" aria-label="ZIP code" data-mockup="true">
+          <select aria-label="Shopping priority" data-mockup="true">
+            <option>Best monthly payment</option>
+            <option>Family seating</option>
+            <option>Hydrotherapy / lounger</option>
+            <option>Fastest delivery</option>
+          </select>
+          <button class="btn btn-gold" type="button" data-open-lead data-product="Inventory Match Request">See Matching Units</button>
+          <small data-mockup="true">No data leaves this page. This is a dummy storefront preview.</small>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <section class="system-strip" id="template-proof">
+    <div class="wrap system-grid" data-mockup="true">
+      <div class="sys"><b>D1</b><span>products table drives cards</span></div>
+      <div class="sys"><b>R2</b><span>client image bucket</span></div>
+      <div class="sys"><b>GHL</b><span>product tags on lead</span></div>
+      <div class="sys"><b>Admin</b><span>hide, edit, upload, sort</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="inventory">
+    <div class="wrap">
+      <div class="inventory-head">
+        <div>
+          <span class="eyebrow">Live Inventory</span>
+          <h2>Dealer-managed inventory, merchandised for conversion.</h2>
+          <p class="section-sub" data-mockup="true">This dummy page shows the customer-facing inventory index the template should generate from each client's D1 database.</p>
+        </div>
+        <div class="toolbar" aria-label="Inventory filters">
+          <label class="search">
+            <span class="eyebrow" style="margin-bottom:6px">Search</span>
+            <input id="searchInput" type="search" placeholder="Search by model, brand, seats, jets..." aria-label="Search inventory">
+          </label>
+          <label>
+            <span class="eyebrow" style="margin-bottom:6px">Sort</span>
+            <select id="sortSelect" aria-label="Sort inventory">
+              <option value="sort_order">Featured first</option>
+              <option value="price_low">Lowest price</option>
+              <option value="payment_low">Lowest payment</option>
+              <option value="quantity">Most available</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-pills" id="categoryPills" aria-label="Filter by category">
+        <button class="pill active" data-cat="all">All</button>
+        <button class="pill" data-cat="value">Value</button>
+        <button class="pill" data-cat="family">Family</button>
+        <button class="pill" data-cat="lounger">Loungers</button>
+        <button class="pill" data-cat="premium">Premium</button>
+        <button class="pill" data-cat="available">Available Now</button>
+      </div>
+
+      <div class="inventory-meta">
+        <div class="floor" data-mockup="true"><span class="live"></span><span id="resultCount">0 units shown</span></div>
+        <p class="sort-note" data-mockup="true">Statuses mimic D1 values: available, pending, sold, hidden, draft.</p>
+      </div>
+
+      <div class="grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty" id="emptyState" data-mockup="true">
+        <h3>No matching dummy units.</h3>
+        <p>Try clearing the search or selecting another category.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ops" id="how-it-works">
+    <div class="wrap">
+      <span class="eyebrow">Template Operations</span>
+      <h2>The page customers see should stay synced with the admin.</h2>
+      <p class="section-sub" data-mockup="true">This is the fulfillment promise: dealer staff manage units once, and every public page, product page, and GHL tag follows the same source of truth.</p>
+      <div class="ops-grid">
+        <div class="op-card">
+          <b>1. Dealer updates admin</b>
+          <p data-mockup="true">Staff adds price, monthly payment, status, quantity, promo label, quick facts, and image gallery in <code>/admin</code>.</p>
+        </div>
+        <div class="op-card">
+          <b>2. Inventory API serves D1</b>
+          <p data-mockup="true"><code>GET /api/inventory</code> returns only public records with status available, pending, or sold depending on page rules.</p>
+        </div>
+        <div class="op-card">
+          <b>3. Lead routes with product tags</b>
+          <p data-mockup="true">A product lead carries <code>ghl_tags</code>, URL, status, campaign, UTM values, and source channel into the lead pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="drawer-panel" id="leadPanel" aria-hidden="true">
+  <div class="drawer-scrim" data-close-lead></div>
+  <aside class="lead-drawer" aria-label="Lead form preview">
+    <div class="stripe"></div>
+    <button class="lead-close" data-close-lead aria-label="Close lead form">x</button>
+    <div class="lead-inner">
+      <p class="drawer-title">Get today's local price</p>
+      <p class="drawer-sub" id="drawerSub" data-mockup="true">Dummy form. In production this would submit through the lead API.</p>
+      <form class="drawer-form" id="drawerForm">
+        <input id="leadName" type="text" placeholder="Full name" autocomplete="name">
+        <input id="leadPhone" type="tel" placeholder="Mobile phone" autocomplete="tel">
+        <input id="leadEmail" type="email" placeholder="Email" autocomplete="email">
+        <select id="leadIntent">
+          <option>Send price and availability</option>
+          <option>Check financing</option>
+          <option>Schedule showroom visit</option>
+          <option>Ask about delivery</option>
+        </select>
+        <div class="consent">
+          <input id="leadConsent" type="checkbox">
+          <label for="leadConsent" data-mockup="true">I agree to be contacted by this demo dealer. This checkbox is for mockup layout only.</label>
+        </div>
+        <button class="btn btn-gold" type="submit">Simulate Lead Capture</button>
+        <div class="sim-result" id="simResult" data-mockup="true"></div>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <h4 data-mockup="true">Increase ROAS Hot Tub Dealer Template</h4>
+    <p data-mockup="true">Local-only draft page. This file is intentionally inside <strong>drafts/</strong>, has no tracking scripts, and does not submit to GHL, Sheets, Meta CAPI, GA4, Clarity, D1, or R2.</p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick actions">
+  <a class="call" href="tel:5555550100">Call Demo</a>
+  <button class="book" data-open-lead data-product="Any In-Stock Spa">Get Price</button>
+</nav>
+
+<script>
+const PRODUCTS = [
+  {
+    slug:'eco-spa-e3',
+    inventory_name:'Eco Spa E3',
+    category:'value',
+    price:6995,
+    monthly_payment:89,
+    status:'available',
+    quantity:2,
+    primary_image:'../product-eco-spa-e3-cropped.png',
+    quick_facts:['Seats 3','23 jets','Compact footprint'],
+    ghl_tags:['model-interest-eco-spa-e3','inventory-value'],
+    promo_label:'Fast Delivery',
+    delivery_promise:'Delivery slots available this month',
+    sort_order:10,
+    blurb:'Simple, durable starter spa for couples, cabins, and first-time owners.'
+  },
+  {
+    slug:'strong-g2l',
+    inventory_name:'Strong Spas G-2L Lounger',
+    category:'lounger',
+    price:9995,
+    monthly_payment:139,
+    status:'available',
+    quantity:1,
+    primary_image:'../product-strong-g2l-cropped.png',
+    quick_facts:['Seats 6','36 jets','Full lounger'],
+    ghl_tags:['model-interest-strong-g2l','inventory-lounger'],
+    promo_label:'1 Left',
+    delivery_promise:'On floor now',
+    sort_order:20,
+    blurb:'The mid-tier sweet spot for shoppers who want a lounger and better hydrotherapy.'
+  },
+  {
+    slug:'strong-g2b',
+    inventory_name:'Strong Spas G-2B Open Seating',
+    category:'family',
+    price:9795,
+    monthly_payment:135,
+    status:'available',
+    quantity:2,
+    primary_image:'../product-strong-g2b-cropped.png',
+    quick_facts:['Seats 7','36 jets','Open seating'],
+    ghl_tags:['model-interest-strong-g2b','inventory-family'],
+    promo_label:'Family Pick',
+    delivery_promise:'Two units ready',
+    sort_order:30,
+    blurb:'Open seating for families who care more about usable seats than a single lounger.'
+  },
+  {
+    slug:'forsythia',
+    inventory_name:'Artesian Forsythia',
+    category:'premium lounger',
+    price:11995,
+    monthly_payment:169,
+    status:'pending',
+    quantity:0,
+    primary_image:'../product-forsythia-cropped.png',
+    quick_facts:['Seats 3','21 jets','120V option'],
+    ghl_tags:['model-interest-artesian-forsythia','inventory-premium'],
+    promo_label:'Pending Pickup',
+    delivery_promise:'Ask for similar units',
+    sort_order:40,
+    blurb:'Compact premium lounger layout for shoppers with smaller patios.'
+  },
+  {
+    slug:'nassau-royale',
+    inventory_name:'Nassau Royale',
+    category:'premium family',
+    price:15495,
+    monthly_payment:219,
+    status:'available',
+    quantity:1,
+    primary_image:'../product-nassau-royale-cropped.png',
+    quick_facts:['Seats 6','Premium jets','LED package'],
+    ghl_tags:['model-interest-nassau-royale','inventory-premium'],
+    promo_label:'Showroom Feature',
+    delivery_promise:'White-glove setup available',
+    sort_order:50,
+    blurb:'Premium family spa card used to show high-ticket merchandising.'
+  },
+  {
+    slug:'caribbean-breeze',
+    inventory_name:'Caribbean Breeze',
+    category:'family',
+    price:13995,
+    monthly_payment:199,
+    status:'sold',
+    quantity:0,
+    primary_image:'../product-caribbean-breeze-cropped.png',
+    quick_facts:['Seats 7','Open bench','42 jets'],
+    ghl_tags:['model-interest-caribbean-breeze','inventory-sold-followup'],
+    promo_label:'Sold - Join Waitlist',
+    delivery_promise:'Capture demand for next shipment',
+    sort_order:60,
+    blurb:'Sold state keeps the page useful by turning unavailable models into waitlist leads.'
+  }
+];
+
+const state = { category:'all', search:'', sort:'sort_order', product:'Any In-Stock Spa' };
+const grid = document.getElementById('productGrid');
+const empty = document.getElementById('emptyState');
+const resultCount = document.getElementById('resultCount');
+const searchInput = document.getElementById('searchInput');
+const sortSelect = document.getElementById('sortSelect');
+const leadPanel = document.getElementById('leadPanel');
+const drawerSub = document.getElementById('drawerSub');
+const simResult = document.getElementById('simResult');
+
+function money(value){ return '$' + Number(value).toLocaleString(); }
+function statusLabel(product){
+  if (product.status === 'available') return product.quantity + ' available';
+  if (product.status === 'pending') return 'pending pickup';
+  if (product.status === 'sold') return 'sold - waitlist';
+  return product.status;
+}
+function matchesCategory(product){
+  if (state.category === 'all') return true;
+  if (state.category === 'available') return product.status === 'available';
+  return product.category.indexOf(state.category) !== -1;
+}
+function matchesSearch(product){
+  const q = state.search.trim().toLowerCase();
+  if (!q) return true;
+  return [
+    product.inventory_name,
+    product.category,
+    product.status,
+    product.quick_facts.join(' '),
+    product.promo_label,
+    product.blurb
+  ].join(' ').toLowerCase().indexOf(q) !== -1;
+}
+function sortProducts(items){
+  const copy = items.slice();
+  copy.sort(function(a,b){
+    if (state.sort === 'price_low') return a.price - b.price;
+    if (state.sort === 'payment_low') return a.monthly_payment - b.monthly_payment;
+    if (state.sort === 'quantity') return b.quantity - a.quantity;
+    return a.sort_order - b.sort_order;
+  });
+  return copy;
+}
+function render(){
+  const visible = sortProducts(PRODUCTS.filter(function(product){
+    return matchesCategory(product) && matchesSearch(product);
+  }));
+  grid.innerHTML = visible.map(function(product){
+    const facts = product.quick_facts.map(function(fact){ return '<span data-mockup="true">' + fact + '</span>'; }).join('');
+    return `
+      <article class="pcard" data-product-card data-category="${product.category}" data-status="${product.status}">
+        <div class="pimg">
+          <img src="${product.primary_image}" alt="${product.inventory_name} demo product image" loading="lazy">
+          <span class="badge" data-mockup="true">${product.promo_label}</span>
+          <span class="status" data-mockup="true">${statusLabel(product)}</span>
+        </div>
+        <div class="pbody">
+          <p class="spec" data-mockup="true">${product.category.replace(' ', ' / ')}</p>
+          <h3 data-mockup="true">${product.inventory_name}</h3>
+          <p class="why" data-mockup="true">${product.blurb}</p>
+          <div class="facts">${facts}</div>
+          <div class="price-block" data-mockup="true">
+            <span class="from">From</span><span class="num">${money(product.price)}</span>
+            <div class="mo">or about $${product.monthly_payment}/mo with approved credit</div>
+            <div class="urgency">${product.delivery_promise}</div>
+          </div>
+          <div class="pactions">
+            <button class="btn btn-gold" data-open-lead data-product="${product.inventory_name}" data-tags="${product.ghl_tags.join(',')}">Get Local Price</button>
+            <button class="btn btn-ghost-blue" data-open-lead data-product="${product.inventory_name} - financing">Check Payment</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+  empty.style.display = visible.length ? 'none' : 'block';
+  resultCount.textContent = visible.length + (visible.length === 1 ? ' unit shown' : ' units shown');
+}
+
+document.getElementById('categoryPills').addEventListener('click', function(event){
+  const btn = event.target.closest('[data-cat]');
+  if (!btn) return;
+  state.category = btn.getAttribute('data-cat');
+  document.querySelectorAll('[data-cat]').forEach(function(item){ item.classList.toggle('active', item === btn); });
+  render();
+});
+searchInput.addEventListener('input', function(){ state.search = searchInput.value; render(); });
+sortSelect.addEventListener('change', function(){ state.sort = sortSelect.value; render(); });
+
+function openLead(product, tags){
+  state.product = product || 'Any In-Stock Spa';
+  drawerSub.textContent = 'Dummy capture for: ' + state.product + '. In production, payload includes product_interest, inventory_status, page URL, source channel, UTM values, and GHL tags' + (tags ? ' (' + tags + ')' : '') + '.';
+  simResult.classList.remove('show');
+  simResult.textContent = '';
+  leadPanel.classList.add('open');
+  leadPanel.setAttribute('aria-hidden','false');
+}
+function closeLead(){
+  leadPanel.classList.remove('open');
+  leadPanel.setAttribute('aria-hidden','true');
+}
+document.addEventListener('click', function(event){
+  const open = event.target.closest('[data-open-lead]');
+  if (open) {
+    openLead(open.getAttribute('data-product'), open.getAttribute('data-tags'));
+  }
+  if (event.target.closest('[data-close-lead]')) closeLead();
+});
+document.getElementById('drawerForm').addEventListener('submit', function(event){
+  event.preventDefault();
+  const name = document.getElementById('leadName').value.trim() || 'Demo Contact';
+  const intent = document.getElementById('leadIntent').value;
+  simResult.textContent = 'Simulated only: would create/update GHL contact for ' + name + ', interest "' + state.product + '", intent "' + intent + '", then write Sheets backup and Meta CAPI event.';
+  simResult.classList.add('show');
+});
+
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+const drawerClose = document.getElementById('drawerClose');
+function setDrawer(open){
+  drawer.classList.toggle('open', open);
+  drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+burger.addEventListener('click', function(){ setDrawer(!drawer.classList.contains('open')); });
+drawerClose.addEventListener('click', function(){ setDrawer(false); });
+drawer.addEventListener('click', function(event){ if (event.target.closest('a,button')) setDrawer(false); });
+document.addEventListener('keydown', function(event){
+  if (event.key === 'Escape') {
+    setDrawer(false);
+    closeLead();
+  }
+});
+
+render();
+</script>
+</body>
+</html>

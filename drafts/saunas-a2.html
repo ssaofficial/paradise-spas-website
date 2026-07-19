@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#071A40">
+<title>Paradise Spas | Infrared Saunas in Minot, ND</title>
+<meta name="description" content="Infrared saunas from Pro 6 and Golden Designs on the Paradise Spas Minot showroom floor. Local delivery, install, and financing from $79/mo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../product-pro6-sauna.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,700;100,800;125,900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#14418F;
+  --blue-deep:#0B2559;
+  --blue-night:#071A40;
+  --gold:#FFB81C;
+  --gold-deep:#E8A400;
+  --red:#D7261E;
+  --sand:#FAF5EC;
+  --ink:#171B26;
+  --ink-soft:#3D4457;
+  --white:#FFFFFF;
+  --line:rgba(20,65,143,.14);
+  --shadow:0 10px 30px rgba(7,26,64,.14);
+  --shadow-lg:0 24px 60px rgba(7,26,64,.22);
+  --radius:14px;
+  --radius-lg:20px;
+  --display:'Archivo',sans-serif;
+  --body:'Manrope',sans-serif;
+  --wrap:1180px;
+  --pad:20px;
+  --mbar-h:72px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:var(--body);color:var(--ink);background:var(--white);font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:clip}
+body{padding-bottom:calc(var(--mbar-h) + env(safe-area-inset-bottom))}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,a{touch-action:manipulation}
+[id]{scroll-margin-top:76px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--display);font-weight:800;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:12px}
+.on-dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;letter-spacing:-.015em}
+h2{font-size:clamp(1.6rem,5.4vw,2.6rem);color:var(--blue-deep);margin-bottom:12px}
+.section{padding:60px 0}
+.section-tight-top{padding-top:0}
+.section-sub{color:var(--ink-soft);max-width:640px;font-size:1rem}
+.section-sub.floor-proof{margin-top:-4px;margin-bottom:18px}
+.d-only{display:none}
+.nw{white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.02em;line-height:1.1;text-decoration:none;border-radius:11px;padding:16px 24px;min-height:52px;cursor:pointer;border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;text-align:center;white-space:nowrap}
+.btn:active{transform:scale(.985)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn-gold{background:var(--gold);color:var(--blue-night);box-shadow:0 6px 18px rgba(232,164,0,.35)}
+.btn-gold:hover{background:#FFC94A}
+.btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+.btn-ghost-blue{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn-ghost-blue:hover{background:rgba(20,65,143,.06)}
+@media(min-width:1000px){.section{padding:84px 0}.d-only{display:inline}:root{--pad:24px}}
+
+.marquee{background:var(--blue-night);color:var(--white);position:relative;z-index:60}
+.marquee::before,.marquee::after{content:"";position:absolute;left:0;right:0;height:4px;background-image:radial-gradient(circle,var(--gold) 1.6px,transparent 1.8px);background-size:14px 4px;opacity:.9}
+.marquee::before{top:0}.marquee::after{bottom:0}
+.marquee a.marquee-in{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 12px;font-family:var(--display);font-weight:700;font-size:.76rem;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;white-space:nowrap;overflow:hidden}
+.marquee .tag{background:var(--red);color:#fff;padding:3px 8px;border-radius:5px;font-weight:800;flex:none}
+.marquee .msg{overflow:visible;text-overflow:clip;flex:0 1 auto}
+.marquee .msg .long{display:none}
+.marquee .clock{display:inline-flex;gap:5px;font-variant-numeric:tabular-nums;flex:none}
+.marquee .clock b{background:rgba(255,255,255,.12);border:1px solid rgba(255,184,28,.4);border-radius:6px;padding:2px 7px;color:var(--gold);font-weight:800}
+.marquee .go{color:var(--gold);flex:none}
+@media(max-width:759px){.marquee .clock b#mM,.marquee .clock b#mM + span,.marquee .clock .mins{display:none}}
+@media(max-width:399px){.marquee .clock{display:none}.marquee a.marquee-in{gap:8px;font-size:.74rem}}
+@media(min-width:900px){.marquee a.marquee-in{font-size:.85rem;gap:14px;padding:12px 24px}.marquee .msg .long{display:inline}.marquee .msg .short{display:none}}
+
+header{position:sticky;top:0;z-index:80;background:var(--white);border-bottom:1px solid var(--line)}
+.head-in{display:flex;align-items:center;gap:16px;padding:12px var(--pad);max-width:var(--wrap);margin:0 auto;min-height:62px}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;margin-right:auto}
+.logo b{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.12rem;color:var(--blue);letter-spacing:.01em}
+.logo b .palm{color:var(--gold-deep);display:inline-flex;vertical-align:-2px;margin:0 5px}
+.logo b .palm svg{width:18px;height:18px;stroke-width:2.6}
+.ico{width:18px;height:18px;flex:none}
+.logo span{font-family:var(--display);font-weight:700;font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+nav.main{display:none}
+.head-cta{display:none}
+.burger{width:48px;height:48px;border:1.5px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger i{width:20px;height:2.5px;background:var(--blue-deep);border-radius:2px;transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(min-width:1140px){
+  .burger{display:none}
+  .head-in{gap:26px;padding:14px 24px}
+  .logo b{font-size:1.28rem}
+  .logo span{font-size:.58rem}
+  .logo{margin-right:0}
+  nav.main{display:flex;gap:22px;margin-left:6px}
+  nav.main a{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap}
+  nav.main a:hover,nav.main a.active{color:var(--blue);border-bottom-color:var(--gold)}
+  .head-cta{margin-left:auto;display:flex;align-items:center;gap:16px}
+  .head-phone{display:flex;flex-direction:column;align-items:flex-end;text-decoration:none;line-height:1.15}
+  .head-phone a{text-decoration:none}
+  .head-phone b{font-family:var(--display);font-weight:800;color:var(--blue);font-size:1.02rem;white-space:nowrap}
+  .head-phone span{font-size:.7rem;font-weight:700;color:var(--ink-soft);white-space:nowrap;overflow:hidden;max-width:150px}
+  .head-phone span em{font-style:normal;color:var(--gold-deep);font-weight:800}
+  .head-phone span a{color:var(--blue);font-weight:800}
+  .btn-sm{padding:11px 18px;font-size:.82rem;min-height:44px}
+}
+
+.drawer{position:fixed;inset:0;z-index:100;background:var(--blue-night);color:#fff;padding:20px var(--pad) 34px;display:flex;flex-direction:column;transform:translateX(102%);transition:transform .28s ease;overflow-y:auto}
+.drawer.open{transform:none}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.drawer-top b{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.15rem}
+.drawer-close{width:48px;height:48px;border-radius:11px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1}
+.drawer nav{display:flex;flex-direction:column}
+.drawer nav a{font-family:var(--display);font-weight:800;font-size:1.35rem;color:#fff;text-decoration:none;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer nav a span{color:var(--gold);margin-left:8px}
+.drawer .d-actions{margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:26px}
+.drawer .d-actions .btn{width:100%}
+.drawer .hours{margin-top:16px;font-size:.82rem;color:#AFC4E8;text-align:center}
+@media(min-width:1140px){.drawer{display:none}}
+
+.hero{position:relative;background:var(--blue-night);color:var(--white);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center;z-index:0;filter:saturate(.98) contrast(1.05)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(to top, rgba(7,26,64,.92) 0%, rgba(7,26,64,.55) 55%, rgba(7,26,64,.25) 100%);z-index:1}
+.hero-bg::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 20% 120%,rgba(255,255,255,.05) 0 2px,transparent 2px 90px);opacity:.6}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:30px;padding:40px var(--pad) 56px;max-width:var(--wrap);margin:0 auto}
+.hero h1{font-size:clamp(2.1rem,8.4vw,3.6rem);font-stretch:110%;margin:0 0 12px;word-break:normal;overflow-wrap:normal}
+.hero h1 .deg{color:var(--gold)}
+.hero .sub{font-size:1.02rem;color:#fff;max-width:540px;margin-bottom:16px;text-shadow:0 2px 12px rgba(7,26,64,.65)}
+.offer-chip{display:flex;align-items:flex-start;gap:10px;background:rgba(255,184,28,.14);border:1px solid rgba(255,184,28,.45);border-radius:10px;padding:11px 13px;margin-bottom:16px;max-width:540px}
+.offer-chip .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:6px;flex:none;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,28,.45)}55%{box-shadow:0 0 0 7px rgba(255,184,28,0)}}
+.offer-chip p{font-size:.88rem;color:#FFF3CF;line-height:1.45}
+.offer-chip p b{color:#fff}
+.hero-ctas{display:none}
+.hero .speed{font-size:.9rem;color:#AFC4E8}
+.hero .speed a{color:var(--gold);font-weight:800;text-decoration:none}
+@media(min-width:1000px){.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}}
+@media(min-width:1200px){
+  .hero-img{object-position:70% center}
+  .hero-bg{background:linear-gradient(to top, rgba(7,26,64,.92) 0%, rgba(7,26,64,.55) 55%, rgba(7,26,64,.25) 100%)}
+  .hero-in{grid-template-columns:minmax(0,1fr) 390px;gap:40px;align-items:center;padding:72px 24px 88px}
+  .hero .sub{font-size:1.12rem;margin-bottom:22px}
+  .offer-chip{padding:12px 16px;margin-bottom:26px}
+}
+
+.lead-card{background:var(--white);color:var(--ink);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:22px 20px 20px;position:relative}
+.lead-card::before{content:"";position:absolute;top:0;left:20px;right:20px;height:4px;border-radius:0 0 4px 4px;background:var(--gold)}
+.lead-head{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--blue-deep);line-height:1.2;margin-bottom:4px}
+.lead-sub{font-size:.84rem;color:var(--ink-soft);margin-bottom:14px}
+.fdots{display:flex;gap:6px;margin-bottom:14px}
+.fdots i{height:5px;flex:1;border-radius:3px;background:var(--line)}
+.fdots i.on{background:var(--gold)}
+.fstep{display:none}.fstep.on{display:block;animation:fin .25s ease}
+@keyframes fin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.field{margin-bottom:13px}
+.field label{display:block;font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.field input,.field select{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:16px;background:#fff;color:var(--ink);min-height:52px}
+.field input:focus,.field select:focus{border-color:var(--blue)}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.chip{border:1.5px solid var(--line);border-radius:10px;padding:14px 8px;min-height:50px;font-family:var(--display);font-weight:700;font-size:.84rem;text-align:center;cursor:pointer;background:#fff;color:var(--ink);transition:all .12s}
+.chip:hover{border-color:var(--blue)}
+.chip.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.form-err{display:none;color:var(--blue-deep);font-size:.84rem;font-weight:600;margin:-4px 0 10px}
+.form-err.on{display:block}
+.tcpa{display:flex;gap:11px;align-items:flex-start;margin:4px 0 14px;padding:10px;border:1px dashed var(--line);border-radius:10px}
+.tcpa input{margin-top:2px;width:22px;height:22px;flex:none;accent-color:var(--blue)}
+.tcpa label{font-size:.72rem;line-height:1.45;color:var(--ink-soft)}
+.lead-card .btn{width:100%}
+.next-strip{margin-top:13px;padding-top:13px;border-top:1px dashed var(--line);font-size:.75rem;color:var(--ink-soft);line-height:1.5}
+.next-strip b{color:var(--blue-deep)}
+.back-link{background:none;border:none;font-family:var(--display);font-weight:700;font-size:.82rem;color:var(--ink-soft);cursor:pointer;text-decoration:underline;margin-top:12px;padding:10px 6px;min-height:44px}
+.lead-success{text-align:center;padding:22px 4px;display:none}
+.lead-success.on{display:block}
+.lead-success .big{color:var(--gold-deep);margin-bottom:10px;display:flex;justify-content:center}
+.lead-success .big svg{width:46px;height:46px}
+.lead-success h3{color:var(--blue-deep);font-size:1.2rem;margin-bottom:8px}
+.lead-success p{font-size:.9rem;color:var(--ink-soft)}
+@media(min-width:1000px){.lead-card{padding:28px 28px 24px}.lead-card::before{left:24px;right:24px}.lead-head{font-size:1.22rem}}
+
+.stats{background:var(--blue);color:#fff;padding:22px 0;border-top:4px solid var(--gold)}
+.stats-in{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 10px;max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);text-align:center}
+.stat b{display:block;font-family:var(--display);font-weight:900;font-size:1.45rem;color:var(--gold)}
+.stat span{font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C9D8F2}
+@media(min-width:760px){.stats-in{grid-template-columns:repeat(4,1fr)}.stat b{font-size:1.7rem}.stat span{font-size:.72rem}}
+
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px var(--pad) 16px;margin:22px calc(var(--pad) * -1) 0;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{flex:0 0 82%;scroll-snap-align:center}
+.rail-dots{display:flex;justify-content:center;gap:7px;margin-top:2px}
+.rail-dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .15s,transform .15s}
+.rail-dots i.on{background:var(--gold-deep);transform:scale(1.25)}
+.swipe-hint{text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+@media(min-width:760px){.rail{display:grid;overflow:visible;margin:34px 0 0;padding:0;gap:22px}.rail > *{flex:none}.rail.cols-2{grid-template-columns:repeat(2,1fr)}.rail.cols-3{grid-template-columns:repeat(3,1fr)}.rail-dots,.swipe-hint{display:none}}
+
+.fair{background:var(--sand)}
+.fair-card{background:var(--white);border:1px solid var(--line);border-left:6px solid var(--red);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+.fair-copy{padding:28px 22px}
+.fair-copy .when{font-family:var(--display);font-weight:800;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.fair-list{list-style:none;margin:16px 0 22px}
+.fair-list li{padding-left:26px;position:relative;margin-bottom:9px;color:var(--ink-soft);font-size:.95rem}
+.fair-list li::before{content:"✓";position:absolute;left:0;color:var(--gold-deep);font-weight:800}
+.fair-btns{display:flex;flex-direction:column;gap:11px}
+.fair-btns .btn{width:100%}
+.fair-side{background:var(--blue-night);color:#fff;padding:26px 22px;display:flex;flex-direction:column;gap:13px;position:relative}
+.fair-side::before{content:"";position:absolute;top:0;left:10px;right:10px;height:4px;background-image:radial-gradient(circle,var(--gold) 1.6px,transparent 1.8px);background-size:14px 4px}
+.fair-side .lbl{font-family:var(--display);font-weight:800;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.count{display:flex;gap:9px}
+.count div{background:rgba(255,255,255,.07);border:1px solid rgba(255,184,28,.35);border-radius:10px;padding:11px 0;flex:1;text-align:center}
+.count b{display:block;font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--gold);font-variant-numeric:tabular-nums}
+.count span{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B9C8E6}
+.fair-side p{font-size:.84rem;color:#C9D5EE}
+@media(min-width:880px){.fair-card{display:grid;grid-template-columns:1.2fr .8fr}.fair-copy{padding:44px 46px}.fair-side{padding:40px 34px;justify-content:center}.fair-side::before{top:10px;bottom:10px;left:0;right:auto;width:4px;height:auto;background-size:4px 14px}.fair-btns{flex-direction:row}.fair-btns .btn{width:auto}.count b{font-size:1.9rem}}
+
+.floor{display:inline-flex;align-items:center;gap:9px;background:var(--blue-night);border:1px solid rgba(255,184,28,.25);color:var(--white);border-radius:999px;padding:8px 14px;font-family:var(--display);font-weight:700;font-size:.76rem;margin-bottom:14px}
+.floor .live{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.8s infinite;flex:none}
+.sauna-inventory{padding-bottom:34px}
+.pcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(7,26,64,.06);display:flex;flex-direction:column}
+.pimg{aspect-ratio:4/3;background:#f4f6fb;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pimg .badge{position:absolute;top:10px;left:10px;background:var(--gold);color:var(--blue-night);font-family:var(--display);font-weight:800;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:5px}
+.pbody{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.pbody h3{font-size:1.02rem;color:var(--blue-deep);margin-bottom:4px}
+.pbody .spec{font-size:.76rem;font-weight:600;color:var(--ink-soft);margin-bottom:8px}
+.pbody .why{font-size:.84rem;color:var(--ink-soft);font-style:italic;margin-bottom:14px}
+.price-block{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.price-block .from{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-right:.35em}
+.price-block .num{font-family:var(--display);font-weight:900;font-size:1.45rem;color:var(--blue-deep)}
+.price-block .compare{text-decoration:line-through;color:rgba(61,68,87,.65);font-size:.85rem;margin-left:.35em}
+.price-block .mo{font-size:.84rem;font-weight:700;color:var(--gold-deep)}
+.price-block .num,.price-block .compare{white-space:nowrap}
+.price-block .urgency{font-size:.78rem;color:var(--ink-soft);font-weight:700;margin-top:5px}
+.pbody .btn{margin-top:14px;padding:14px 10px;font-size:.82rem}
+.thin-card{background:linear-gradient(160deg,var(--blue),var(--blue-deep));color:#fff;border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;min-height:100%;box-shadow:var(--shadow)}
+.thin-card h3{color:#fff;font-size:1.35rem;margin-bottom:12px}
+.thin-card p{color:#D7E2F7;font-size:.96rem;margin-bottom:22px}
+.thin-card .btn{margin-top:auto}
+.fine{font-size:.74rem;color:var(--ink-soft);margin-top:18px}
+
+.int-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:26px}
+.int{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;text-decoration:none;display:flex;gap:16px;align-items:flex-start}
+.int .ic{width:44px;height:44px;border-radius:11px;background:rgba(255,184,28,.16);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;flex:none}
+.int .ic svg{width:23px;height:23px}
+.int b{display:block;font-family:var(--display);font-weight:800;color:var(--blue-deep);font-size:.98rem;margin-bottom:4px}
+.int p{font-size:.84rem;color:var(--ink-soft)}
+@media(min-width:900px){.int-grid{grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}.int{display:block;padding:26px 22px}.int .ic{margin-bottom:14px}}
+
+.reviews{background:var(--sand)}
+.rev{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 4px 14px rgba(7,26,64,.05);display:flex;flex-direction:column}
+.rev .stars{color:var(--gold-deep);letter-spacing:2px;font-size:.95rem;margin-bottom:10px}
+.rev p{font-size:.9rem;color:var(--ink-soft);flex:1}
+.rev .who{margin-top:16px;display:flex;align-items:center;gap:10px}
+.rev .who .av{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:.9rem;flex:none}
+.rev .who b{display:block;font-size:.88rem;color:var(--ink)}
+.rev .who span{font-size:.72rem;color:var(--ink-soft)}
+.featured-review{max-width:760px;margin:26px auto 0}
+.rev-total{text-align:center;margin-top:24px;font-family:var(--display);font-weight:800;color:var(--blue-deep);font-size:.95rem;padding:0 var(--pad)}
+.rev-total a{color:var(--blue);text-underline-offset:3px}
+
+.promise{background:var(--blue-night);color:#fff}
+.promise-in{display:grid;grid-template-columns:1fr;gap:26px;align-items:center}
+.promise h2{color:#fff}
+.promise p.lead{color:#C9D5EE;font-size:1rem;max-width:720px}
+.showroom-band .meta{font-size:.9rem;color:#C9D5EE;font-weight:700;line-height:1.7;margin:16px 0 18px}
+.showroom-band{padding-bottom:46px}
+.showroom-card{max-width:850px;margin:0 auto;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);overflow:hidden;background:rgba(255,255,255,.04);box-shadow:var(--shadow-lg)}
+.showroom-photo{aspect-ratio:16/8.5;background:linear-gradient(150deg,#1A4DA8,#0B2559);overflow:hidden}
+.showroom-photo img{width:100%;height:100%;object-fit:cover}
+.showroom-copy{padding:24px 22px 26px}
+.showroom-copy .meta{font-size:.9rem;color:#C9D5EE;font-weight:700;line-height:1.7;margin:16px 0 18px}
+.showroom-copy .fair-btns{margin-top:8px}
+.pillars{display:grid;grid-template-columns:1fr;gap:11px;margin-top:20px;list-style:none}
+.pillars li{padding-left:28px;position:relative;font-size:.92rem;color:#DEE7F8}
+.pillars li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:800}
+@media(min-width:820px){.pillars{grid-template-columns:repeat(2,1fr);gap:12px 26px}.promise p.lead{font-size:1.05rem}.showroom-copy{padding:34px 38px 34px}.showroom-band{padding-bottom:58px}}
+
+.finance{background:linear-gradient(160deg,var(--blue) 0%,var(--blue-deep) 100%);color:#fff;text-align:center}
+.finance h2{color:#fff;font-size:clamp(1.9rem,7vw,3rem)}
+.finance h2 .num{color:var(--gold)}
+.finance p{color:#CFDCF4;max-width:560px;margin:0 auto 24px}
+.finance .btn{width:100%;max-width:360px}
+.finance .fine{color:#9FB4DC;max-width:640px;margin:20px auto 0}
+
+.faq-list{max-width:800px;margin:24px auto 0}
+.faq{border-bottom:1px solid var(--line)}
+.faq button{width:100%;background:none;border:none;text-align:left;padding:18px 40px 18px 0;font-family:var(--display);font-weight:800;font-size:.98rem;color:var(--blue-deep);cursor:pointer;position:relative;min-height:56px}
+.faq button::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--gold-deep);font-weight:700;transition:transform .2s}
+.faq.open button::after{transform:translateY(-50%) rotate(45deg)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq.open .ans{max-height:900px}
+.faq .ans p{padding:0 0 18px;color:var(--ink-soft);font-size:.93rem;max-width:720px}
+.faq .ans a{color:var(--blue);font-weight:700}
+
+.guide{background:var(--sand)}
+.guide-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:26px 22px;display:grid;grid-template-columns:1fr;gap:22px}
+.guide-form{display:flex;flex-direction:column;gap:10px}
+.guide-form input{padding:15px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:16px;min-height:52px}
+.trade{margin-top:12px;font-size:.86rem;color:var(--ink-soft)}
+.trade b{color:var(--blue-deep)}
+@media(min-width:820px){.guide-card{grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:44px}.guide-form{flex-direction:row}.guide-form input{flex:1}}
+
+.final{background:var(--blue-night);color:#fff;text-align:center;position:relative}
+.final::before,.final::after{content:"";position:absolute;left:0;right:0;height:4px;background-image:radial-gradient(circle,var(--gold) 1.6px,transparent 1.8px);background-size:14px 4px}
+.final::before{top:0}.final::after{bottom:0}
+.final .tag{display:inline-block;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;padding:6px 13px;border-radius:6px;margin-bottom:16px}
+.final h2{color:#fff;font-size:clamp(1.8rem,7.2vw,3.2rem)}
+.final p{color:#C9D5EE;max-width:600px;margin:0 auto 8px;font-size:.96rem}
+.final .count{max-width:420px;margin:24px auto}
+.final .count b{font-size:1.5rem}
+.final .row{display:flex;flex-direction:column;gap:11px;margin-top:10px;align-items:center}
+.final .row .btn{width:100%;max-width:400px}
+.final .speed{margin-top:16px;font-size:.9rem;color:#AFC4E8}
+.final .speed a{color:var(--gold);font-weight:800;text-decoration:none}
+@media(min-width:760px){.final .row{flex-direction:row;justify-content:center}.final .row .btn{width:auto}.final .count b{font-size:1.9rem}}
+
+footer{background:var(--blue-deep);color:#C6D4EF;font-size:.9rem}
+.foot-in{display:grid;grid-template-columns:1fr;gap:32px;padding:48px var(--pad) 34px;max-width:var(--wrap);margin:0 auto}
+footer h4{font-family:var(--display);font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+footer a{color:#C6D4EF;text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer ul{list-style:none}
+footer li{margin-bottom:10px}
+footer li a{display:inline-block;padding:2px 0;min-height:32px}
+.foot-logo b{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.2rem;color:#fff}
+.foot-logo span{display:block;font-family:var(--display);font-weight:700;font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:#8FA6D2;margin-top:3px}
+.foot-about{margin-top:14px;font-size:.86rem;line-height:1.65}
+.foot-phone{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--gold)!important}
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.areas a{font-size:.78rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 13px;min-height:34px;display:inline-flex;align-items:center}
+.areas a:hover{border-color:var(--gold);text-decoration:none}
+.foot-base{border-top:1px solid rgba(255,255,255,.12);padding:18px var(--pad) 22px;display:flex;flex-direction:column;gap:8px;max-width:var(--wrap);margin:0 auto;font-size:.78rem;color:#8FA6D2}
+footer .fine{color:#8FA6D2}
+footer .fine a{color:#8FA6D2}
+@media(min-width:900px){.foot-in{grid-template-columns:1.3fr .7fr .9fr 1fr;gap:40px;padding:60px 24px 40px}.foot-base{flex-direction:row;justify-content:space-between}}
+
+.mbar{position:fixed;bottom:0;left:0;right:0;z-index:70;background:var(--blue-night);border-top:2px solid var(--gold);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:9px;transform:translateY(0);transition:transform .22s ease}
+.mbar.hide{transform:translateY(110%)}
+.mbar a{display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--display);font-weight:800;font-size:.84rem;text-decoration:none;border-radius:10px;padding:14px 4px;min-height:50px}
+.mbar .call,.mbar .text{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.mbar .book{background:var(--gold);color:var(--blue-night)}
+@media(min-width:1000px){.mbar{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<!-- ============ MOCKUP DATA MANIFEST ============
+All fabricated values are tagged data-mockup="true".
+Strip-check before any real use:  grep -n 'data-mockup'
+Fabricated in this build:
+  - Fair Week sauna offer copy in the hero and final CTA
+  - 10,000+ delivery/install trust stat
+  - Sauna floor count of 5
+  - Melanie price, struck price, payment figure, and availability badge
+  - Dana W. sample review and April 2026 review date
+  - FAQ price/payment figures
+Real data (never tag): phone, address, hours, Pro 6 Melanie name/spec/brand, Paradise-owned showroom photos, aggregate Google rating/review count, staff names Riley/Josh/Terry.
+================================================ -->
+
+<div class="marquee" role="region" aria-label="Current offer">
+  <a class="marquee-in" href="#fair">
+    <span class="tag">Fair Week</span>
+    <span class="msg">
+      <span class="short">$1K–$5K OFF · ENDS JUL&nbsp;25</span>
+      <span class="long">$1,000–$5,000 off every in-stock hot tub &amp; swim spa — ends Sat, July&nbsp;25</span>
+    </span>
+    <span class="clock" aria-hidden="true"><b id="mD">–</b>d <b id="mH">–</b>h <b id="mM">–</b><span class="mins">m</span></span>
+    <span class="go">&nbsp;→</span>
+  </a>
+</div>
+
+<header>
+  <div class="head-in">
+    <a class="logo" href="homepage-a2-real-inventory.html" aria-label="Paradise Spas home">
+      <b>PARADISE<span class="palm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12.5 9.5C12 14 12 18 11.5 22"/><path d="M12.5 9.5C9.5 6.5 6 6.5 3.5 8.5c3-.5 6 0 9 1z" fill="currentColor" stroke-width="1"/><path d="M12.5 9.5c-.5-4 1.5-7 5.5-8-2.5 2.5-3.5 5-5.5 8z" fill="currentColor" stroke-width="1"/><path d="M12.5 9.5c3-2 6.5-1.5 9 1-3-1-6-.5-9-1z" fill="currentColor" stroke-width="1"/></svg></span>SPAS</b>
+      <span>Outdoor Living</span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="homepage-a2-real-inventory.html#inventory">Hot Tubs</a>
+      <a href="homepage-a2-real-inventory.html#inventory">Swim Spas</a>
+      <a class="active" href="#inventory">Saunas</a>
+      <a href="homepage-a2-real-inventory.html#inventory">Massage Chairs</a>
+      <a href="#financing">Financing</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+    <div class="head-cta">
+      <div class="head-phone">
+        <a class="head-phone-num" href="tel:17018382614"><b>701-838-2614</b></a>
+        <span><em>24/7</em> · Call or <a href="sms:17018382614">Text</a></span>
+      </div>
+      <a class="btn btn-gold btn-sm" href="#lead">Book my visit</a>
+    </div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <b>PARADISE SPAS</b>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="homepage-a2-real-inventory.html#inventory">Hot Tubs&nbsp;<span>→</span></a>
+    <a href="homepage-a2-real-inventory.html#inventory">Swim Spas&nbsp;<span>→</span></a>
+    <a href="#inventory">Saunas&nbsp;<span>→</span></a>
+    <a href="homepage-a2-real-inventory.html#inventory">Massage Chairs&nbsp;<span>→</span></a>
+    <a href="#financing">Financing&nbsp;<span>→</span></a>
+    <a href="#fair">Fair Week Event&nbsp;<span>→</span></a>
+    <a href="#visit">Visit Us&nbsp;<span>→</span></a>
+  </nav>
+  <div class="d-actions">
+    <a class="btn btn-gold" href="#lead">Book my showroom visit</a>
+    <a class="btn btn-ghost" href="sms:17018382614"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg> Text us — answered 24/7</a>
+    <a class="btn btn-ghost" href="tel:17018382614"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> Call 701-838-2614</a>
+  </div>
+  <p class="hours">1615 South Broadway, Minot · Mon–Fri 9–6 · Sat 10–4</p>
+</div>
+
+<section class="hero on-dark">
+  <!-- TODO(alex): dedicated sauna hero shot for this category page -->
+  <img class="hero-img" src="../product-pro6-sauna.png" alt="" width="819" height="614" decoding="async" fetchpriority="high" aria-hidden="true">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">INFRARED SAUNAS · MINOT, ND</span>
+      <h1>Daily <span class="deg">recovery</span>, without leaving home.</h1>
+      <p class="sub">Full-spectrum infrared saunas from Pro 6 &amp; Golden Designs — on our Minot floor, delivered and installed by our own crew.<span class="d-only"> Better sleep, faster recovery, easier winters.</span></p>
+      <div class="offer-chip" data-mockup="true">
+        <span class="dot" aria-hidden="true"></span>
+        <p><b>Fair Week:</b> fair pricing on every in-stock sauna, delivery &amp; install included — <b>ends Sat, July&nbsp;25.</b></p>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#lead">Book my showroom visit</a>
+        <a class="btn btn-ghost" href="#lead">Get today's local price</a>
+      </div>
+      <p class="speed">Call or text <a href="sms:17018382614">701-838-2614</a> — real answer in under 5 min, day or night.</p>
+    </div>
+
+    <div class="lead-card" id="lead">
+      <p class="lead-head">Get today's local price &amp; availability</p>
+      <p class="lead-sub">Real Minot sauna pricing — delivery &amp; install included.</p>
+      <div class="fdots" aria-hidden="true"><i class="on" id="d1"></i><i id="d2"></i><i id="d3"></i></div>
+      <form id="leadForm" novalidate>
+        <div class="fstep on" data-step="1">
+          <div class="field">
+            <label for="zip">Your zip code</label>
+            <input type="text" id="zip" name="zip" inputmode="numeric" maxlength="5" placeholder="58701" autocomplete="postal-code">
+          </div>
+          <p class="form-err" id="zipErr">We deliver across western North Dakota &amp; eastern Montana. Outside that? Call us at 701-838-2614 — we'll see what we can do.</p>
+          <button type="button" class="btn btn-gold" onclick="stepNext(1)">Check my area&nbsp;→</button>
+          <div class="next-strip"><b>What happens next:</b> tell us what you're shopping for&nbsp;→ a real local human texts you today's pricing in ~5 min&nbsp;→ you visit, climb in, decide. No spam, no pressure.</div>
+        </div>
+        <div class="fstep" data-step="2">
+          <div class="field">
+            <label>What are you shopping for?</label>
+            <div class="chips" id="prodChips">
+              <button type="button" class="chip" data-v="Hot Tub">Hot tub</button>
+              <button type="button" class="chip" data-v="Swim Spa">Swim spa</button>
+              <button type="button" class="chip sel" data-v="Sauna">Sauna</button>
+              <button type="button" class="chip" data-v="Massage Chair">Massage chair</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="when">When do you want it in your home?</label>
+            <select id="when" name="when">
+              <option value="asap">As soon as possible</option>
+              <option value="month">Within the next month</option>
+              <option value="research">Just getting real numbers</option>
+            </select>
+          </div>
+          <p class="form-err" id="prodErr">Pick one so we quote the right floor models.</p>
+          <button type="button" class="btn btn-gold" onclick="stepNext(2)">Almost done&nbsp;→</button>
+          <button type="button" class="back-link" onclick="stepBack(1)">← Back</button>
+        </div>
+        <div class="fstep" data-step="3">
+          <div class="field"><label for="nm">First name</label><input type="text" id="nm" autocomplete="given-name" placeholder="First name"></div>
+          <div class="field"><label for="ph">Mobile number</label><input type="tel" id="ph" inputmode="tel" autocomplete="tel" placeholder="(701) 555-0123"></div>
+          <div class="field">
+            <label for="visitType">How do you want your pricing?</label>
+            <select id="visitType">
+              <option value="text">Just text me today's pricing</option>
+              <option value="fair">I'll meet you at the State Fair (thru Jul 25)</option>
+              <option value="showroom">Book a showroom visit</option>
+            </select>
+          </div>
+          <div class="field" id="dateWrap" style="display:none">
+            <label for="day">Preferred day</label>
+            <input type="date" id="day">
+          </div>
+          <p class="form-err" id="cErr">Add your name and a mobile number we can text.</p>
+          <div class="tcpa">
+            <input type="checkbox" id="tcpa">
+            <label for="tcpa">I agree Paradise Spas may call or text me at this number about my request, including via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+          </div>
+          <button type="submit" class="btn btn-gold">Get my local price</button>
+          <button type="button" class="back-link" onclick="stepBack(2)">← Back</button>
+        </div>
+      </form>
+      <div class="lead-success" id="leadDone">
+        <div class="big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12.5 9.5C12 14 12 18 11.5 22"/><path d="M12.5 9.5C9.5 6.5 6 6.5 3.5 8.5c3-.5 6 0 9 1z" fill="currentColor" stroke-width="1"/><path d="M12.5 9.5c-.5-4 1.5-7 5.5-8-2.5 2.5-3.5 5-5.5 8z" fill="currentColor" stroke-width="1"/><path d="M12.5 9.5c3-2 6.5-1.5 9 1-3-1-6-.5-9-1z" fill="currentColor" stroke-width="1"/></svg></div>
+        <h3>Got it — watch your phone.</h3>
+        <p>A real local human is texting you today's sauna pricing within <b>5 minutes</b>, day or night. Talk soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats" role="region" aria-label="Track record">
+  <div class="stats-in">
+    <div class="stat"><b>30+</b><span>Years in Minot · since 1994</span></div>
+    <div class="stat"><b data-mockup="true">10,000+</b><span>Delivered &amp; installed by our own crew</span></div>
+    <div class="stat"><b>4.9★</b><span>170 Google reviews</span></div>
+    <div class="stat"><b>25</b><span>Service &amp; dealer awards</span></div>
+  </div>
+</div>
+
+<section class="section fair" id="fair">
+  <div class="wrap">
+    <div class="fair-card">
+      <div class="fair-copy">
+        <p class="when">This week only · July 17–25 · ND State Fair Center, Minot</p>
+        <h2>Come see us at the North Dakota State Fair.</h2>
+        <p class="section-sub">Real saunas on our Minot floor. Ask anything, compare layouts, and get fair pricing on every in-stock sauna.</p>
+        <ul class="fair-list">
+          <li><b>Fair pricing</b> on every in-stock sauna</li>
+          <li><b>Delivery &amp; install included</b> — our own Minot crew</li>
+          <li><b>Financing from $79/mo</b> with approved credit</li>
+          <li>Can't make the fair? <b>Fair pricing honored at our South Broadway showroom</b> through July 25</li>
+        </ul>
+        <div class="fair-btns">
+          <a class="btn btn-gold" href="https://maps.google.com/?q=ND+State+Fair+Center+Minot" target="_blank" rel="noopener">Find our booth</a>
+          <a class="btn btn-ghost-blue" href="#lead">Book a showroom visit instead</a>
+        </div>
+      </div>
+      <div class="fair-side">
+        <span class="lbl">Fair pricing ends in</span>
+        <div class="count" aria-label="Countdown to end of fair pricing">
+          <div><b id="fD">–</b><span>Days</span></div>
+          <div><b id="fH">–</b><span>Hours</span></div>
+          <div><b id="fM">–</b><span>Min</span></div>
+        </div>
+        <p>When the fair closes Saturday night, so does this pricing. In-stock units only — when they're gone, they're gone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sauna-inventory" id="inventory">
+  <div class="wrap">
+    <span class="eyebrow">IN STOCK · NO WAITING</span>
+    <h2>Saunas on our Minot floor right now.</h2>
+    <p class="floor"><span class="live" aria-hidden="true"></span><span data-mockup="true"><b id="saunaCount">5</b> saunas on the showroom floor today — updated daily</span></p>
+    <p class="section-sub floor-proof">Every photo on this page is our actual Minot floor — no stock, no renders.</p>
+  </div>
+  <div class="wrap">
+    <div class="rail cols-2" id="saunaRail">
+      <article class="pcard">
+        <div class="pimg"><span class="badge" data-mockup="true">1 AVAILABLE</span><img src="../product-pro6-sauna.png" alt="Pro 6 Melanie 3-Person Infrared Sauna on the Paradise Spas showroom floor" width="819" height="614" loading="lazy" decoding="async"></div>
+        <div class="pbody"><h3>Pro 6 Melanie 3-Person Infrared</h3><p class="spec">3-person · full-spectrum infrared · Pro 6</p><p class="why">Circulation, detox &amp; daily recovery.</p><div class="price-block" data-mockup="true"><span class="from">From</span><span class="num">$6,995</span><span class="compare">$8,995</span><div class="mo">or as low as $79/mo*</div></div><button class="btn btn-gold" data-product="Sauna" onclick="prefill(this)">Get today's local price</button></div>
+      </article>
+      <article class="thin-card">
+        <h3>More on the floor</h3>
+        <p>2- and 3-person layouts from Pro 6 &amp; Golden Designs — sized for a basement corner, a spare room, or the garage. Text us for today's full sauna lineup and pricing.</p>
+        <a class="btn btn-gold" href="sms:17018382614">Text us the lineup</a>
+      </article>
+    </div>
+    <div class="rail-dots" data-for="saunaRail" aria-hidden="true"></div>
+    <p class="fine">*Example payments with approved credit; terms, rates &amp; payments vary by model and lender. Fair pricing applied at quote — every price includes local delivery &amp; install.</p>
+  </div>
+</section>
+
+<section class="section section-tight-top">
+  <div class="wrap">
+    <span class="eyebrow">WHY INFRARED</span>
+    <h2>Heat that works on you, not just the room.</h2>
+    <div class="int-grid">
+      <div class="int"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div><div><b>Better sleep</b><p>Evening sessions that help you wind down and sleep deeper.</p></div></div>
+      <div class="int"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><b>Recovery &amp; joint relief</b><p>Gentle radiant heat for sore muscles and stiff joints.</p></div></div>
+      <div class="int"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div><div><b>Gentler heat</b><p>Infrared warms your body directly, so it feels comfortable at lower air temperatures than a traditional sauna.</p></div></div>
+      <div class="int"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5l-15.6 11M12 2l-2 3m2-3l2 3M12 22l-2-3m2 3l2-3"/></svg></div><div><b>Built for ND winters</b><p>A 10-minute warm-up ritual that makes January something to look forward to.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews">
+  <div class="wrap">
+    <span class="eyebrow">Google reviews</span>
+    <h2>What Minot families are saying.</h2>
+    <article class="rev featured-review" data-mockup="true">
+      <div class="stars" aria-label="5 stars">★★★★★</div>
+      <p>"Went in 'just to look' and ended up with the sauna I'd been talking about for two years. Nobody hovered, nobody pushed. They answered a text from me at 9pm the night before delivery. That's why you buy local."</p>
+      <div class="who"><span class="av">D</span><div><b>Dana W.</b><span>Google review · Minot, ND · <span data-mockup="true">April 2026</span></span></div></div>
+    </article>
+    <!-- TODO(alex): swap in 2–3 real sauna-mentioning GBP reviews when available -->
+  </div>
+  <p class="rev-total">★ 4.9 out of 5 · 170 Google reviews · as of July 2026 — <a href="https://maps.google.com/?q=Paradise+Spas+Minot+ND" target="_blank" rel="noopener">read them all</a></p>
+</section>
+
+<section class="section promise showroom-band on-dark" id="visit">
+  <div class="wrap promise-in">
+    <div>
+      <span class="eyebrow">STEP INSIDE</span>
+      <h2>Feel the heat in our Minot showroom.</h2>
+      <p class="lead">Compare 2- and 3-person layouts running warm on our floor, and get honest guidance on the right sauna for your space. No pressure — just a local team that knows the product.</p>
+      <p class="meta">1615 South Broadway, Minot, ND 58701<br>Mon–Fri 9am–6pm · Sat 10am–4pm · Sun closed</p>
+      <div class="fair-btns">
+        <a class="btn btn-gold" href="#lead">Book my visit</a>
+        <a class="btn btn-ghost" href="https://maps.google.com/?q=1615+South+Broadway+Minot+ND" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight-top">
+  <div class="wrap">
+    <span class="eyebrow">Got questions?</span>
+    <h2>Frequently asked questions.</h2>
+    <div class="faq-list">
+      <div class="faq open">
+        <button aria-expanded="true">How much does a sauna cost?</button>
+        <div class="ans"><p>In-stock saunas at our Minot showroom start around <span data-mockup="true">$6,995</span>, delivery and install included, and most families finance from <span data-mockup="true">$79/mo</span> with approved credit. Fastest way to a real number: <a href="#lead">get today's local price</a> and we'll text it in about 5 minutes.</p></div>
+      </div>
+      <div class="faq">
+        <button aria-expanded="false">Infrared vs. traditional — what's the difference?</button>
+        <div class="ans"><p>Infrared warms your body directly and feels comfortable at lower air temperatures; traditional saunas heat the air and run hotter. Most of our Minot customers choose infrared for daily at-home use — come feel both concepts explained on the floor.</p></div>
+      </div>
+      <div class="faq">
+        <button aria-expanded="false">Where does it go, and what does install involve?</button>
+        <div class="ans"><p>Most models fit a basement corner, spare room, or garage; our crew handles delivery, assembly, and placement. Tell us your space and we'll confirm fit before you buy.</p></div>
+      </div>
+      <div class="faq">
+        <button aria-expanded="false">What does it cost to run?</button>
+        <div class="ans"><p>Ask for the energy sheet on any model — real numbers for our climate, not national averages.</p></div>
+      </div>
+      <div class="faq">
+        <button aria-expanded="false">Do you deliver and install?</button>
+        <div class="ans"><p>Yes — our own crew handles delivery, placement, and setup across Minot, Williston, Bismarck, Dickinson, and all of western North Dakota and eastern Montana. You'll recognize the names: Riley, Josh, and Terry show up in our Google reviews constantly.</p></div>
+      </div>
+      <div class="faq">
+        <button aria-expanded="false">Is a sauna worth it year-round in North Dakota?</button>
+        <div class="ans"><p>It earns its keep in January. A daily warm-up ritual when it's −30 outside is the whole point — and summer evenings on the deck aren't bad either.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section finance on-dark" id="financing">
+  <div class="wrap">
+    <span class="eyebrow">Easy financing</span>
+    <h2>Own it from <span class="num">$79/mo.</span></h2>
+    <p>Minot families have been relaxing now and paying later with us for 30+ years. Prequalify in minutes — free, no obligation.</p>
+    <a class="btn btn-gold" href="#lead">Check my rate — it's free</a>
+    <p class="fine">*Financing subject to credit approval. "$79/mo" is an example based on select in-stock models with approved credit; terms, rates, and payments vary by model and lender. See store for full details.</p>
+  </div>
+</section>
+
+<section class="section guide">
+  <div class="wrap">
+    <div class="guide-card">
+      <div>
+        <span class="eyebrow">NOT READY TO TALK YET?</span>
+        <h2>Get the 2026 sauna buyer's guide.</h2>
+        <p class="section-sub">Every in-stock model, real Minot pricing with delivery included, plus how to pick the right size and spot for a cold-climate home. Sent by text or email in 2 minutes.</p>
+      </div>
+      <div>
+        <form class="guide-form" onsubmit="handleGuideSubmit(event,this)">
+          <input type="text" inputmode="tel" placeholder="Mobile number or email" aria-label="Mobile number or email" required>
+          <button class="btn btn-gold" type="submit">Send my guide</button>
+        </form>
+        <p class="fine">One guide, a couple of helpful follow-ups, zero spam. Opt out anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section final on-dark">
+  <div class="wrap">
+    <span class="tag" data-mockup="true">Fair pricing ends Saturday</span>
+    <h2 data-mockup="true">Fair pricing on every in-stock sauna ends July&nbsp;25.</h2>
+    <p>Delivery &amp; install included. Financing from $79/mo with approved credit. When the fair closes Saturday night, so does the pricing.</p>
+    <div class="count">
+      <div><b id="cD">–</b><span>Days</span></div>
+      <div><b id="cH">–</b><span>Hours</span></div>
+      <div><b id="cM">–</b><span>Min</span></div>
+      <div><b id="cS">–</b><span>Sec</span></div>
+    </div>
+    <div class="row">
+      <a class="btn btn-gold" href="#lead">Get today's local price</a>
+      <a class="btn btn-ghost" href="sms:17018382614">Text 701-838-2614</a>
+    </div>
+    <p class="speed">Real answer in under 5 minutes — <a href="tel:17018382614">day or night</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="foot-logo"><b>PARADISE SPAS</b><span>Outdoor Living</span></div>
+      <p class="foot-about">North Dakota's #1 backyard fun destination since 1994. Visit our showroom on South Broadway — we'd love to help you find the perfect fit.</p>
+      <p class="fine"><a href="https://facebook.com" aria-label="Facebook">Facebook</a></p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="homepage-a2-real-inventory.html">Home</a></li>
+        <li><a href="saunas-a2.html">Saunas</a></li>
+        <li><a href="#financing">Financing</a></li>
+        <li><a href="#fair">Fair Week event</a></li>
+        <li><a href="#lead">Get local pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visit our showroom</h4>
+      <ul>
+        <li>1615 South Broadway<br>Minot, ND 58701</li>
+        <li><a class="foot-phone" href="tel:17018382614">701-838-2614</a><br><span>Call or text · answered 24/7</span></li>
+        <li>Mon–Fri 9am–6pm<br>Sat 10am–4pm · Sun closed</li>
+        <li><a href="mailto:paradisesm@outlook.com">paradisesm@outlook.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Proudly serving</h4>
+      <div class="areas">
+        <a href="#">Minot</a><a href="#">Williston</a><a href="#">Bismarck</a><a href="#">Dickinson</a><a href="#">Garrison</a><a href="#">Rugby</a><a href="#">Stanley</a><a href="#">New Town</a><a href="#">Eastern MT</a>
+      </div>
+      <p class="fine">25 manufacturer service &amp; dealer awards</p>
+      <p class="fine">The Paradise Promise: if you're not 100% satisfied, we make it right.</p>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 Paradise Spas and Outdoor Living. All rights reserved.</span>
+    <span>Local draft mockup</span>
+  </div>
+</footer>
+
+<nav class="mbar" id="mbar" aria-label="Quick contact">
+  <a class="call" href="tel:17018382614"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> Call</a>
+  <a class="text" href="sms:17018382614"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg> Text</a>
+  <a class="book" href="#lead">Book my visit</a>
+</nav>
+
+<!-- PRODUCTION NOTE(alex): live chat widget must ship with a real greeting (never "test"), positioned bottom-LEFT, and hidden while any form is on screen — the current live widget covers CTAs at every scroll depth -->
+
+<script>
+const CONFIG = {
+  fairEnds: '2026-07-25T23:59:00-05:00',
+  saunasOnFloor: 5,                         // TODO(alex): real count
+  phone: '17018382614',
+  ghlWebhook: ''                            // dummy build — intentionally empty, no live endpoint
+};
+
+const params = new URLSearchParams(location.search);
+const attribution = {
+  utm_source: params.get('utm_source') || '',
+  utm_medium: params.get('utm_medium') || '',
+  utm_campaign: params.get('utm_campaign') || '',
+  utm_content: params.get('utm_content') || '',
+  fbclid: params.get('fbclid') || '',
+  gclid: params.get('gclid') || '',
+  landing_page: location.pathname,
+  referrer: document.referrer || ''
+};
+
+document.getElementById('saunaCount').textContent = CONFIG.saunasOnFloor;
+
+const end = new Date(CONFIG.fairEnds).getTime();
+function tick(){
+  const t = Math.max(0, end - Date.now());
+  const d = Math.floor(t/864e5), h = Math.floor(t%864e5/36e5), m = Math.floor(t%36e5/6e4), s = Math.floor(t%6e4/1e3);
+  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=String(v).padStart(2,'0')};
+  set('mD',d);set('mH',h);set('mM',m);
+  set('fD',d);set('fH',h);set('fM',m);
+  set('cD',d);set('cH',h);set('cM',m);set('cS',s);
+}
+tick(); setInterval(tick,1000);
+
+const burger = document.getElementById('burger'), drawer = document.getElementById('drawer');
+function setDrawer(open){
+  drawer.classList.toggle('open', open);
+  drawer.setAttribute('aria-hidden', String(!open));
+  burger.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', ()=>setDrawer(!drawer.classList.contains('open')));
+document.getElementById('drawerClose').addEventListener('click', ()=>setDrawer(false));
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>setDrawer(false)));
+
+const mbar = document.getElementById('mbar'), lead = document.getElementById('lead'), leadCard = document.querySelector('.lead-card');
+function syncMbar(){
+  if(!mbar || !leadCard) return;
+  const r = leadCard.getBoundingClientRect();
+  const visible = r.bottom > 0 && r.top < window.innerHeight;
+  mbar.classList.toggle('hide', visible);
+  mbar.style.transform = visible ? 'translateY(110%)' : 'translateY(0)';
+}
+if (mbar && leadCard) {
+  syncMbar();
+  window.addEventListener('scroll', syncMbar, {passive:true});
+  window.addEventListener('resize', syncMbar);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(syncMbar, {threshold:[0,.15,.5,1]}).observe(leadCard);
+  }
+}
+
+document.querySelectorAll('.rail-dots').forEach(nav=>{
+  const rail = document.getElementById(nav.dataset.for);
+  if(!rail) return;
+  nav.innerHTML = [...rail.children].map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('');
+  const dots = [...nav.children];
+  rail.addEventListener('scroll', ()=>{
+    const w = rail.firstElementChild.getBoundingClientRect().width + 14;
+    const i = Math.min(dots.length-1, Math.round(rail.scrollLeft / w));
+    dots.forEach((d,x)=>d.classList.toggle('on', x===i));
+  }, {passive:true});
+});
+
+let leadData = { product: 'Sauna' };
+function showStep(n){
+  document.querySelectorAll('.fstep').forEach(s=>s.classList.toggle('on', s.dataset.step==n));
+  for(let i=1;i<=3;i++) document.getElementById('d'+i).classList.toggle('on', i<=n);
+}
+function stepNext(from){
+  if(from===1){
+    const zip = document.getElementById('zip').value.trim();
+    const ok = /^5[89]\d{3}$/.test(zip);
+    document.getElementById('zipErr').classList.toggle('on', !ok);
+    if(!ok) return;
+    leadData.zip = zip; showStep(2);
+  }
+  if(from===2){
+    if(!leadData.product){ document.getElementById('prodErr').classList.add('on'); return; }
+    document.getElementById('prodErr').classList.remove('on');
+    leadData.when = document.getElementById('when').value; showStep(3);
+  }
+}
+function stepBack(n){ showStep(n); }
+
+document.getElementById('prodChips').addEventListener('click', e=>{
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  document.querySelectorAll('#prodChips .chip').forEach(c=>c.classList.remove('sel'));
+  btn.classList.add('sel'); leadData.product = btn.dataset.v;
+  document.getElementById('prodErr').classList.remove('on');
+});
+
+document.getElementById('visitType').addEventListener('change', e=>{
+  document.getElementById('dateWrap').style.display = e.target.value==='text' ? 'none' : 'block';
+});
+
+document.getElementById('leadForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const nm = document.getElementById('nm').value.trim();
+  const ph = document.getElementById('ph').value.trim();
+  const consent = document.getElementById('tcpa').checked;
+  const ok = nm && ph.replace(/\D/g,'').length>=10 && consent;
+  document.getElementById('cErr').classList.toggle('on', !ok);
+  if(!ok) return;
+  leadData = {...leadData, name:nm, phone:ph, visitType:document.getElementById('visitType').value, day:document.getElementById('day').value, consent:true, ts:new Date().toISOString()};
+  const payload = {...leadData, ...attribution, tags:['source_website','fair_week_2026', 'intent_' + (leadData.product||'unknown').toLowerCase().replace(/\s+/g,'_')]};
+  if (CONFIG.ghlWebhook) {
+    try {
+      fetch(CONFIG.ghlWebhook, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload), keepalive:true}).catch(()=>{});
+    } catch(e) {}
+  }
+  document.getElementById('leadForm').style.display='none';
+  document.querySelector('.lead-card .fdots').style.display='none';
+  document.querySelector('.lead-head').style.display='none';
+  document.querySelector('.lead-sub').style.display='none';
+  document.getElementById('leadDone').classList.add('on');
+});
+
+function prefill(btn){
+  const v = btn.dataset.product;
+  document.querySelectorAll('#prodChips .chip').forEach(c=>{
+    const sel = c.dataset.v===v; c.classList.toggle('sel',sel); if(sel) leadData.product=v;
+  });
+  document.getElementById('lead').scrollIntoView({behavior:'smooth'});
+  document.getElementById('zip').focus({preventScroll:true});
+}
+
+function handleGuideSubmit(event, form){
+  event.preventDefault();
+  const input = form.querySelector('input');
+  const contact = input ? input.value.trim() : '';
+  const payload = {contact, ...attribution, tags:['source_website','sauna_buyer_guide','fair_week_2026']};
+  if (CONFIG.ghlWebhook) {
+    try {
+      fetch(CONFIG.ghlWebhook, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload), keepalive:true}).catch(()=>{});
+    } catch(e) {}
+  }
+  form.innerHTML='<p style="font-weight:800;color:var(--blue);font-family:Archivo">On its way — check your phone.</p>';
+}
+
+document.querySelectorAll('.faq button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const f=b.parentElement, open=f.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(x=>{x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false')});
+    if(!open){f.classList.add('open');b.setAttribute('aria-expanded','true')}
+  });
+});
+</script>
+</body>
+</html>
